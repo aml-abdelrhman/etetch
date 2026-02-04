@@ -2,15 +2,18 @@ import React from "react";
 import "./globals.css";
 import SessionProvider from "@/components/SessionProvider";
 import { Analytics } from "@vercel/analytics/next";
+import { NextIntlClientProvider } from "next-intl";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html>
       <body>
-        <SessionProvider>
-          {children}
-          <Analytics />
-        </SessionProvider>
+        <NextIntlClientProvider>
+          <SessionProvider>
+            {children}
+            <Analytics />
+          </SessionProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

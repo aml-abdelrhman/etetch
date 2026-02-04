@@ -11,18 +11,18 @@ const NotFound = () => {
       <GridShape />
       <div className="mx-auto w-full max-w-[242px] text-center sm:max-w-[472px]">
         <h1 className="mb-8 font-bold text-primary dark:text-white/90 xl:text-2xl">
-          {t("title")}
+          {t('title')}
         </h1>
         <Image src="/404.svg" alt="404" width={400} height={400} />
         <p className="mt-10 mb-6 text-base text-zinc-700 dark:text-zinc-400 sm:text-lg">
-          {t("description")}
+          {t('description')}
         </p>
 
         <Link
           href="/"
           className="inline-flex items-center justify-center rounded-lg border border-zinc-300 bg-white px-5 py-3.5 text-sm font-medium text-zinc-700 shadow-theme-xs hover:bg-zinc-50 hover:text-zinc-800 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-white/[0.03] dark:hover:text-zinc-200"
         >
-          {t("homeButton")}
+          {t('homeButton')}
         </Link>
       </div>
       {/* <!-- Footer --> */}
@@ -30,7 +30,7 @@ const NotFound = () => {
         &copy; {new Date().getFullYear()} - Hemma
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default NotFound;
+export default NotFound
