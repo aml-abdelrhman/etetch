@@ -6,7 +6,7 @@ import { NextIntlClientProvider } from "next-intl";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html>
+    <html suppressHydrationWarning>
       <body>
         <NextIntlClientProvider>
           <SessionProvider>

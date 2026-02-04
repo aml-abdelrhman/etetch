@@ -17,8 +17,6 @@ body {
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-*: initial;
   --font-inherit: inherit;
-  --font-handicrafts: var(--font-handicrafts), monospace;
-  --font-acumin: var(--font-acumin), var(--font-handicrafts), monospace;
   --font-mono: monospace;
   --breakpoint-xs: 480px;
   --breakpoint-mid: 768px;
@@ -318,10 +316,10 @@ button {
 }
 @layer base {
   * {
-    @apply border-border outline-ring/50 ltr:font-handicrafts rtl:font-acumin;
+    @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground ltr:font-handicrafts rtl:font-acumin;
+    @apply bg-background text-foreground;
   }
 }
 
