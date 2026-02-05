@@ -1,11 +1,8 @@
-import React from "react";
-import { HomeHeroSection } from "@/components/pages/home/hero";
+import React from 'react'
 
-const HomePage = () => {
+const UnitesSection = () => {
   return (
-    <div>
-      <HomeHeroSection />
-      <div className="h-[90svh] bg-main-50 relative">
+ <div className="h-[90svh] bg-main-50 relative">
         <img src="/section-bg.svg" alt="" className="absolute top-0 start-0" />
         <div className="container py-[17svh]">
           <div className="flex items-center gap-3">
@@ -13,8 +10,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default UnitesSection
