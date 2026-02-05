@@ -339,3 +339,7 @@ button {
 .glass-bg {
   @apply bg-[#c0c1c166] backdrop-blur-xl;
 }
+
+.section-title{
+  @apply text-2xl md:text-3xl xl:text-5xl font-medium text-primary 
+}

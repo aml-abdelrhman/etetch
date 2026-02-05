@@ -1,12 +1,12 @@
 import React from "react";
 import { HomeHeroSection } from "@/components/pages/home/hero";
-import UnitesSection from "@/components/pages/home/unites-section";
+import UnitsSection from "@/components/pages/home/units-section";
 
 const HomePage = () => {
   return (
     <div>
       <HomeHeroSection />
-      <UnitesSection />
+      <UnitsSection />
     </div>
   );
 };
