@@ -341,5 +341,5 @@ button {
 }
 
 .section-title{
-  @apply text-2xl md:text-3xl xl:text-5xl font-medium text-primary 
+  @apply text-2xl md:text-3xl xl:text-5xl font-thin text-primary 
 }
