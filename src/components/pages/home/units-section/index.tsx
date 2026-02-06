@@ -2,7 +2,13 @@ import { useTranslations } from "next-intl";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import UnitCard from "./unit-card";
 import { Unit } from "@/types";
-
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 const UnitsSection = () => {
   const t = useTranslations();
   const demoUnit: Unit = {
@@ -27,48 +33,70 @@ const UnitsSection = () => {
         className="absolute top-0 start-0 z-5"
       />
       <div className="container py-[17svh] relative z-10  ">
-        <Tabs defaultValue="all">
-          <div className="flex items-center justify-between gap-5 flex-wrap">
-            <div className="flex items-center gap-3">
-              <img src="/section-logo.svg" alt="" />
-              <h2 className="section-title">{t("Units Schedule")}</h2>
-            </div>
-            <TabsList>
-              <TabsTrigger value="all">{t("All")}</TabsTrigger>
-              <TabsTrigger value="available">{t("Available")}</TabsTrigger>
-              <TabsTrigger value="sold">{t("Sold")}</TabsTrigger>
-              <TabsTrigger value="reserved">{t("Reserved")}</TabsTrigger>
-            </TabsList>
-          </div>
-          <TabsContent value="all" className="mt-[7svh]">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {Array.from({ length: 6 }).map((_, index) => (
-                <UnitCard key={index} unit={demoUnit} />
-              ))}
-            </div>
-          </TabsContent>
-          <TabsContent value="available">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {Array.from({ length: 6 }).map((_, index) => (
-                <UnitCard key={index} unit={demoUnit} />
-              ))}
-            </div>
-          </TabsContent>
-          <TabsContent value="sold">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {Array.from({ length: 6 }).map((_, index) => (
-                <UnitCard key={index} unit={demoUnit} />
-              ))}
-            </div>
-          </TabsContent>
-          <TabsContent value="reserved">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {Array.from({ length: 6 }).map((_, index) => (
-                <UnitCard key={index} unit={demoUnit} />
-              ))}
-            </div>
-          </TabsContent>
-        </Tabs>
+      <Tabs defaultValue="overview" className="w-[400px]">
+      <TabsList>
+        <TabsTrigger value="overview">Overview</TabsTrigger>
+        <TabsTrigger value="analytics">Analytics</TabsTrigger>
+        <TabsTrigger value="reports">Reports</TabsTrigger>
+        <TabsTrigger value="settings">Settings</TabsTrigger>
+      </TabsList>
+      <TabsContent value="overview">
+        <Card>
+          <CardHeader>
+            <CardTitle>Overview</CardTitle>
+            <CardDescription>
+              View your key metrics and recent project activity. Track progress
+              across all your active projects.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="text-muted-foreground text-sm">
+            You have 12 active projects and 3 pending tasks.
+          </CardContent>
+        </Card>
+      </TabsContent>
+      <TabsContent value="analytics">
+        <Card>
+          <CardHeader>
+            <CardTitle>Analytics</CardTitle>
+            <CardDescription>
+              Track performance and user engagement metrics. Monitor trends and
+              identify growth opportunities.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="text-muted-foreground text-sm">
+            Page views are up 25% compared to last month.
+          </CardContent>
+        </Card>
+      </TabsContent>
+      <TabsContent value="reports">
+        <Card>
+          <CardHeader>
+            <CardTitle>Reports</CardTitle>
+            <CardDescription>
+              Generate and download your detailed reports. Export data in
+              multiple formats for analysis.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="text-muted-foreground text-sm">
+            You have 5 reports ready and available to export.
+          </CardContent>
+        </Card>
+      </TabsContent>
+      <TabsContent value="settings">
+        <Card>
+          <CardHeader>
+            <CardTitle>Settings</CardTitle>
+            <CardDescription>
+              Manage your account preferences and options. Customize your
+              experience to fit your needs.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="text-muted-foreground text-sm">
+            Configure notifications, security, and themes.
+          </CardContent>
+        </Card>
+      </TabsContent>
+    </Tabs>
       </div>
     </div>
   );
