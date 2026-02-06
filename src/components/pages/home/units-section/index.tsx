@@ -1,11 +1,31 @@
 import { useTranslations } from "next-intl";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import UnitCard from "./unit-card";
+import { Unit } from "@/types";
 
 const UnitsSection = () => {
   const t = useTranslations();
+  const demoUnit: Unit = {
+    id: 1,
+    unit_number: "#B1",
+    title: "Unit 1",
+    description: "Description of unit 1",
+    image: "/unit.png",
+    status: "available",
+    price: "100000",
+    floor: "1",
+    area: "100",
+    rooms: 2,
+    created_at: "2022-01-01",
+    updated_at: "2022-01-01",
+  };
   return (
     <div className="h-[90svh] bg-main-50 relative">
-      <img src="/section-bg.svg" alt="" className="absolute top-0 start-0 z-5" />
+      <img
+        src="/section-bg.svg"
+        alt=""
+        className="absolute top-0 start-0 z-5"
+      />
       <div className="container py-[17svh] relative z-10  ">
         <Tabs defaultValue="all">
           <div className="flex items-center justify-between gap-5 flex-wrap">
@@ -23,48 +43,28 @@ const UnitsSection = () => {
           <TabsContent value="all" className="mt-[7svh]">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {Array.from({ length: 6 }).map((_, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-sm p-4">
-                  <h3 className="text-lg font-semibold">Unit {index + 1}</h3>
-                  <p className="text-gray-600">
-                    Description of unit {index + 1}
-                  </p>
-                </div>
+                <UnitCard key={index} unit={demoUnit} />
               ))}
             </div>
           </TabsContent>
           <TabsContent value="available">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {Array.from({ length: 6 }).map((_, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-sm p-4">
-                  <h3 className="text-lg font-semibold">Unit {index + 1}</h3>
-                  <p className="text-gray-600">
-                    Description of unit {index + 1}
-                  </p>
-                </div>
+                <UnitCard key={index} unit={demoUnit} />
               ))}
             </div>
           </TabsContent>
           <TabsContent value="sold">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {Array.from({ length: 6 }).map((_, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-sm p-4">
-                  <h3 className="text-lg font-semibold">Unit {index + 1}</h3>
-                  <p className="text-gray-600">
-                    Description of unit {index + 1}
-                  </p>
-                </div>
+                <UnitCard key={index} unit={demoUnit} />
               ))}
             </div>
           </TabsContent>
           <TabsContent value="reserved">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {Array.from({ length: 6 }).map((_, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-sm p-4">
-                  <h3 className="text-lg font-semibold">Unit {index + 1}</h3>
-                  <p className="text-gray-600">
-                    Description of unit {index + 1}
-                  </p>
-                </div>
+                <UnitCard key={index} unit={demoUnit} />
               ))}
             </div>
           </TabsContent>

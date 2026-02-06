@@ -81,3 +81,18 @@ export type ApiResponse<T> = {
   };
   message: string
 };
+
+export type Unit = {
+  id: number;
+  unit_number: string;
+  title: string;
+  description: string;
+  image: string;
+  status: "available" | "sold" | "reserved";
+  price: string;
+  floor: string;
+  area: string;
+  rooms: number;
+  created_at: string;
+  updated_at: string;
+};
