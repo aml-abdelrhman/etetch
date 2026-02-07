@@ -36,7 +36,7 @@ const UnitsSection = () => {
   return (
     <div className="min-h-[90svh] bg-main-50 relative">
       <img
-        src="/section-bg.svg"
+        src="/section-bg-caramel.svg"
         alt=""
         className="absolute top-0 start-0 z-5"
       />
