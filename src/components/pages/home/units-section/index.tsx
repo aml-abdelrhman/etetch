@@ -37,14 +37,14 @@ const UnitsSection = () => {
     <div className="min-h-[90svh] bg-main-50 relative">
       <img
         src="/section-bg-caramel.svg"
-        alt=""
+        alt="Section Background"
         className="absolute top-0 start-0 z-5"
       />
       <div className="container py-[17svh] relative z-10  ">
         <Tabs defaultValue="all" className="flex-col">
           <div className="flex items-center justify-between gap-5 flex-wrap mb-[7svh]">
             <div className="flex items-center gap-3">
-              <img src="/section-logo.svg" alt="" />
+              <img src="/section-logo.svg" alt="Section Logo" />
               <h2 className="section-title">{t("Units Schedule")}</h2>
             </div>
             <TabsList >
