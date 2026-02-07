@@ -2,7 +2,7 @@
 import { Toaster } from "sonner";
 import { useLocale } from "next-intl";
 import { Suspense } from "react";
-import NextTopLoader from "nextjs-toploader";
+// import NextTopLoader from "nextjs-toploader";
 import "moment/dist/locale/ar";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { getQueryClient } from "@/app/get-query-client";
@@ -16,7 +16,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <DirectionProvider dir={locale === "ar" ? "rtl" : "ltr"} direction={locale === "ar" ? "rtl" : "ltr"}>
-        <NextTopLoader
+        {/* <NextTopLoader
           color="#37003C"
           initialPosition={0.08}
           crawlSpeed={200}
@@ -28,7 +28,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
           shadow="0 0 10px #c470b2,0 0 5px #c470b2"
           template='<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
           zIndex={1600}
-        />
+        /> */}
 
         <Suspense>
           <Toaster closeButton richColors position="top-center" />

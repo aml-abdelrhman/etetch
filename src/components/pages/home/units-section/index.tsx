@@ -47,7 +47,7 @@ const UnitsSection = () => {
               <img src="/section-logo.svg" alt="Section Logo" />
               <h2 className="section-title">{t("Units Schedule")}</h2>
             </div>
-            <TabsList >
+            <TabsList>
               <TabsTrigger value="all">{t("All")}</TabsTrigger>
               <TabsTrigger value="available">{t("Available")}</TabsTrigger>
               <TabsTrigger value="sold">{t("Sold")}</TabsTrigger>

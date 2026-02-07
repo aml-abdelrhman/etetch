@@ -60,7 +60,7 @@ const FeatureCard = ({
   return (
     <div className="flex items-center gap-3">
       <div className="flex items-center gap-5">
-        <div className="size-11 rounded-full border border-white flex items-center justify-center glass-bg">
+        <div className="size-11 max-md:w-full border border-white flex items-center justify-center glass-bg">
           {icon}
         </div>
         <div className="space-y-1">
@@ -79,10 +79,10 @@ export const HomeHeroSection = () => {
   return (
     <section className="bg-[url('/hero-img.svg')] bg-top bg-cover bg-no-repeat min-h-svh w-full relative">
       <div className="absolute top-0 left-0 w-full h-[15svh] bg-linear-to-b from-[#897E6F] to-transparent z-5" />
-      <div className="h-[57svh]"></div>
-      <div className="space-y-11 text-center text-white container z-10 relative">
-        <h1 className="font-light text-8xl">ادوار مشروع 21 – حي العارض</h1>
-        <div className="flex items-center justify-center gap-9">
+      <div className="h-[43svh]"></div>
+      <div className="space-y-11 text-center text-white container z-10 relative py-[10svh]">
+        <h1 className="font-light text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl">ادوار مشروع 21 – حي العارض</h1>
+        <div className="flex items-center justify-center gap-9 flex-wrap">
           {projectDetails.map((projectDetail, index) => (
             <FeatureCard
               key={index}
@@ -92,23 +92,27 @@ export const HomeHeroSection = () => {
             />
           ))}
         </div>
-        <div className="flex items-center justify-center">
-          <Button size="lg" className="rounded-full z-5 hover:bg-white hover:text-primary hover:border-transparent" variant="outline">
-            {t("Have an inquiry about a project")}
-          </Button>
-          <div className="h-5 w-2 bg-white -me-1 -ms-0.5 shrink-0 -z-1" />
+        <div className="flex items-center justify-center max-md:flex-wrap max-md:gap-5">
           <Button
             size="lg"
-            className="rounded-full hover:bg-white"
+            className="max-md:w-full z-5 hover:bg-white hover:text-primary hover:border-transparent"
+            variant="outline"
+          >
+            {t("Have an inquiry about a project")}
+          </Button>
+          <div className="max-md:hidden h-5 w-2 bg-white -me-1 -ms-0.5 shrink-0 -z-1" />
+          <Button
+            size="lg"
+            className="max-md:w-full hover:bg-white"
             variant="secondary"
             endContent={<PhoneIcon />}
           >
             {t("Phone call")}
           </Button>
-          <div className="h-5 w-2 bg-white -mx-1 shrink-0" />
+          <div className="max-md:hidden h-5 w-2 bg-white -mx-1 shrink-0" />
           <Button
             size="lg"
-            className="rounded-full hover:bg-white"
+            className="max-md:w-full hover:bg-white"
             variant="secondary"
             endContent={<FileIcon />}
           >

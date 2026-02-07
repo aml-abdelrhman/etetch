@@ -18,7 +18,7 @@ const navigationItems = [
 
 export const Navbar = () => {
   return (
-    <nav className="flex w-full container items-center justify-between px-4 absolute top-[5%] left-0 right-0 z-50">
+    <nav className="flex w-full container items-center justify-between px-4 absolute top-[5%]! left-0 right-0 z-50">
       <Image width={179.64} height={60} alt="logo" src="/logo.svg" />
       <div className="inline-flex h-20 items-center justify-center gap-[71px] p-7.5 rounded-3xl glass-bg">
         <div className="inline-flex items-center gap-6">
