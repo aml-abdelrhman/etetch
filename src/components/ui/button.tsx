@@ -19,7 +19,7 @@ export interface ButtonProps
 }
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-xl text-sm font-medium transition-[color,box-shadow] duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
+  "inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full text-sm font-medium transition-[color,box-shadow] duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
   {
     variants: {
       variant: {
@@ -33,6 +33,8 @@ const buttonVariants = cva(
           "bg-destructive text-white shadow-none hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
         outline:
           "border border-input bg-transparent shadow-none hover:bg-accent hover:text-accent-foreground",
+        flat:
+          "bg-[#E8E3E0] dark:bg-[#E8E3E0]/80 shadow-none hover:bg-[#E8E3E0]/80 hover:text-primary",
         secondary: "bg-card text-primary shadow-none hover:bg-card/80",
         // "bg-secondary text-secondary-foreground shadow-none hover:bg-secondary/80",
         ghost:
@@ -41,9 +43,9 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-9 px-7 py-2",
-        sm: "h-8 rounded-xl px-3 text-xs",
-        lg: "h-12 rounded-xl px-10",
-        xl: "h-14 rounded-xl px-12 text-lg",
+        sm: "h-8 px-3 text-xs",
+        lg: "h-12 px-10",
+        xl: "h-14 px-12 text-lg",
         icon: "size-9",
         "icon-xs": "size-6 rounded-md [&_svg:not([class*='size-'])]:size-3",
         "icon-sm": "size-8",

@@ -19,8 +19,22 @@ const UnitsSection = () => {
     created_at: "2022-01-01",
     updated_at: "2022-01-01",
   };
+  const reservedUnit: Unit = {
+    id: 1,
+    unit_number: "#B1",
+    title: "Unit 1",
+    description: "Description of unit 1",
+    image: "/unit.png",
+    status: "reserved",
+    price: "100000",
+    floor: "1",
+    area: "100",
+    rooms: 2,
+    created_at: "2022-01-01",
+    updated_at: "2022-01-01",
+  };
   return (
-    <div className="h-[90svh] bg-main-50 relative">
+    <div className="min-h-[90svh] bg-main-50 relative">
       <img
         src="/section-bg.svg"
         alt=""
@@ -41,30 +55,33 @@ const UnitsSection = () => {
             </TabsList>
           </div>
           <TabsContent value="all">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {Array.from({ length: 6 }).map((_, index) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
+              {Array.from({ length: 2 }).map((_, index) => (
                 <UnitCard key={index} unit={demoUnit} />
+              ))}
+              {Array.from({ length: 4 }).map((_, index) => (
+                <UnitCard key={index} unit={reservedUnit} />
               ))}
             </div>
           </TabsContent>
           <TabsContent value="available">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
               {Array.from({ length: 6 }).map((_, index) => (
-                <UnitCard key={index} unit={demoUnit} />
+                <UnitCard key={index} unit={reservedUnit} />
               ))}
             </div>
           </TabsContent>
           <TabsContent value="sold">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
               {Array.from({ length: 6 }).map((_, index) => (
-                <UnitCard key={index} unit={demoUnit} />
+                <UnitCard key={index} unit={reservedUnit} />
               ))}
             </div>
           </TabsContent>
           <TabsContent value="reserved">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
               {Array.from({ length: 6 }).map((_, index) => (
-                <UnitCard key={index} unit={demoUnit} />
+                <UnitCard key={index} unit={reservedUnit} />
               ))}
             </div>
           </TabsContent>

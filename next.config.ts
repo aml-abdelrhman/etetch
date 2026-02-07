@@ -5,7 +5,6 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
-
   // Performance optimizations
   compress: true,
   poweredByHeader: false,
@@ -13,7 +12,7 @@ const nextConfig: NextConfig = {
   // Experimental features for better performance
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"],
+    optimizePackageImports: ["lucide-react"],
   },
 
   reactStrictMode: true,
