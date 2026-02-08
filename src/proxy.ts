@@ -7,7 +7,7 @@ import { routing } from "./i18n/routing";
 const PROTECTED_ROUTES = new Set([
     'profile',
 ]);
-
+ 
 // Public routes that should never require authentication
 const PUBLIC_ROUTES = new Set([
     '',
