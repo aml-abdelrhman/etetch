@@ -5,7 +5,7 @@ import Image from "next/image";
 import LangSelector from "./lang-selector";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
-import { usePathname } from "@/i18n/navigation";
+import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
 
 export const Navbar = () => {
