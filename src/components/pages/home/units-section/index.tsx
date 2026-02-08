@@ -42,8 +42,8 @@ const UnitsSection = () => {
       />
       <div className="container py-[17svh] relative z-10  ">
         <Tabs defaultValue="all" className="flex-col">
-          <div className="flex items-center justify-between gap-5 flex-wrap mb-[7svh]">
-            <div className="flex items-center gap-3">
+          <div className="flex items-center sm:justify-between gap-5 max-sm:flex-col flex-wrap mb-[7svh]">
+            <div className="flex items-center gap-3 max-sm:flex-col">
               <img
                 src="/section-logo.svg"
                 alt="Section Logo"

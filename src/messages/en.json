@@ -188,7 +188,7 @@
   "Terms and Conditions": "Terms and Conditions",
   "Privacy Policy": "Privacy Policy",
   "Guarantees": "Guarantees",
-  "years": "{count, plural, one {{count} year} other {{count} years}}",
+  "years": "{count, plural, one {year} other {years}}",
   "Plugs and switches": "Plugs and switches",
   "Structural structure": "Structural structure",
   "Guarantee insulation": "Guarantee insulation",
