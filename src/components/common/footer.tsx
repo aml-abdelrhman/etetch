@@ -13,7 +13,7 @@ import Link from "next/link";
 const Footer = () => {
   const t = useTranslations();
   return (
-    <footer className="bg-main-600 pt-[35svh] md:pt-[50svh] lg:pt-[10svh] relative overflow-hidden font-cairo text-primary-foreground">
+    <footer className="bg-main-600 pt-[35svh] md:pt-[20svh] lg:pt-[10svh] relative overflow-hidden font-cairo text-primary-foreground">
       <Image
         src="/footer-bg.svg"
         alt="footer-img"
@@ -24,13 +24,21 @@ const Footer = () => {
       <Image
         src="/footer-img.svg"
         alt="footer-img"
-        className="absolute top-0 start-0 z-5 pointer-events-none w-auto"
+        className="absolute top-0 start-0 z-5 pointer-events-none w-auto lg:block hidden"
         quality={100}
         width={688}
         height={387}
       />
-      <div className="absolute top-[28%] start-0 z-12 pointer-events-none w-full h-14 bg-linear-to-b from-transparent to-main-600 lg:hidden" />
-      <div className="container">
+      <Image
+        src="/mobile-footer-img.svg"
+        alt="footer-img"
+        className="absolute top-0 start-0 z-5 pointer-events-none w-auto lg:hidden"
+        quality={100}
+        width={688}
+        height={387}
+      />
+      {/* <div className="absolute top-[28%] start-0 z-12 pointer-events-none w-full h-14 bg-linear-to-b from-transparent to-main-600 lg:hidden" /> */}
+      <div className="container mb-[7svh]">
         <div className="relative z-10 grid lg:grid-cols-2 gap-3">
           <div className=""></div>
           <div className="space-y-7">
@@ -48,7 +56,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="container max-w-svw  bottom-7 start-[1%] xl:start-[5%] 2xl:start-[10%] w-full z-5 flex items-center justify-between text-sm flex-wrap gap-5">
+      <div className="container w-full relative z-12 flex items-center justify-between text-sm flex-wrap gap-5 py-[2svh]">
         <div className="flex items-center gap-3">
           <InstagramIcon className="size-7 text-transparent" />
           <XTwitterIcon className="size-7 text-transparent" />
