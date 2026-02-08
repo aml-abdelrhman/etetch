@@ -43,7 +43,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="container absolute bottom-7 start-[10%] w-full z-5 flex items-center justify-between text-sm flex-wrap">
+      <div className="container absolute bottom-7 start-[7%] sm:start-[10%] w-full z-5 flex items-center justify-between text-sm flex-wrap max-sm:gap-5">
         <div className="flex items-center gap-3">
           <InstagramIcon className="size-7 text-transparent" />
           <XTwitterIcon className="size-7 text-transparent" />
@@ -52,7 +52,7 @@ const Footer = () => {
           <TikTokIcon className="size-7 text-transparent" />
         </div>
         <p>{t("footer.copyright")}</p>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
           <p>{t("Department/Service Number")}: 920014659</p>
           <Link href="/privacy-policy">{t("Privacy Policy")}</Link>
           <Link href="/terms-and-conditions">{t("Terms and Conditions")}</Link>
