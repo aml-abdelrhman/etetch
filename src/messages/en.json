@@ -179,7 +179,12 @@
   "Storehouse": "Storehouse",
   "Independent counter": "Independent counter",
   "footer": {
-    "description": "Hamma Real Estate excels in modern real estate marketing, benefiting from a broad customer database and a team of experts to promote projects effectively and attractively, and dedicated to meeting customer needs."
+    "description": "Hamma Real Estate excels in modern real estate marketing, benefiting from a broad customer database and a team of experts to promote projects effectively and attractively, and dedicated to meeting customer needs.",
+    "copyright": "All rights reserved © 2018 - 2026 Hemma Real Estate"
   },
-  "Register your interest": "Register your interest"
+  "Register your interest": "Register your interest",
+  "Department/Service Number": "Department/Service Number",
+  "Company location": "Company location",
+  "Terms and Conditions": "Terms and Conditions",
+  "Privacy Policy": "Privacy Policy"
 }
