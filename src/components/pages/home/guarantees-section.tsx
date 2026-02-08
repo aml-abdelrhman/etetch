@@ -39,7 +39,7 @@ const GuaranteesSection = () => {
     { title: t("Smart lighting"), number: 3 },
   ];
   return (
-    <div className="min-h-[90svh] bg-main-50 relative">
+    <section className="min-h-[90svh] bg-main-50 relative">
       <img
         src="/section-bg-caramel.svg"
         alt="Section Background"
@@ -60,7 +60,7 @@ const GuaranteesSection = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

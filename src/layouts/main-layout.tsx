@@ -17,7 +17,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       <Navbar />
       <main
         className={cn(
-          "relative z-10 min-h-[70svh] transition-colors",
+          "relative z-10 min-h-[70svh] transition-colors overflow-x-hidden",
           // pathname !== "/" && "py-6 lg:py-9",
         )}
       >

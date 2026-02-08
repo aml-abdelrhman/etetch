@@ -1,7 +1,6 @@
 "use client";
-import { ChevronDownIcon, SearchIcon } from "lucide-react";
+import { SearchIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import LangSelector from "./lang-selector";
 import { cn } from "@/lib/utils";
@@ -23,7 +22,7 @@ export const Navbar = () => {
     { label: t("Employment"), href: "/projects" },
   ];
   return (
-    <nav className="flex w-full container items-center justify-between px-4 absolute top-[5%]! left-0 right-0 z-50 max-xl:glass-bg">
+    <nav className="flex w-full container items-center justify-between px-4 absolute top-[5%]! left-0 right-0 z-50 glass-bg xl:bg-transparent! xl:backdrop-blur-none! h-20 xl:h-auto rounded-2xl">
       <Image
         width={179.64}
         height={60}
@@ -31,7 +30,7 @@ export const Navbar = () => {
         className="w-full h-auto max-w-40 max-xl:max-w-26"
         src="/logo.svg"
       />
-      <div className="inline-flex h-15 sm:h-20 items-center justify-center gap-[71px] p-7.5 rounded-3xl glass-bg">
+      <div className="inline-flex h-15 sm:h-20 items-center justify-center gap-[71px] p-7.5 rounded-3xl xl:glass-bg">
         <div className="inline-flex items-center gap-6">
           <div className="items-center gap-6 hidden xl:flex">
             {navigationItems.map((item, index) => (
@@ -56,7 +55,8 @@ export const Navbar = () => {
               </Link>
             ))}
           </div>
-          <LangSelector />
+          <div className="h-8 w-[2px] bg-white/50 rounded-full max-xl:hidden" />
+          <LangSelector className="max-xl:hidden" />
           <Button
             variant="ghost"
             size="icon"
@@ -64,10 +64,6 @@ export const Navbar = () => {
           >
             <SearchIcon className="size-6 text-white" />
           </Button>
-          <Separator
-            orientation="vertical"
-            className="h-8 w-[1.6px] bg-white"
-          />
         </div>
       </div>
     </nav>

@@ -17,7 +17,7 @@ const GallarySection = () => {
   const t = useTranslations();
   const locale = useLocale();
   return (
-    <div className="min-h-[90svh] bg-background relative overflow-hidden">
+    <section className="min-h-[90svh] bg-background relative overflow-hidden">
       <img
         src="/section-bg-white.svg"
         alt="Section Background"
@@ -64,7 +64,7 @@ const GallarySection = () => {
           </CarouselContent>
         </Carousel>
       </div>
-    </div>
+    </section>
   );
 };
 

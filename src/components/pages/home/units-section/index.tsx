@@ -34,7 +34,7 @@ const UnitsSection = () => {
     updated_at: "2022-01-01",
   };
   return (
-    <div className="min-h-[90svh] bg-main-50 relative">
+    <section className="min-h-[90svh] bg-main-50 relative">
       <img
         src="/section-bg-caramel.svg"
         alt="Section Background"
@@ -91,7 +91,7 @@ const UnitsSection = () => {
           </TabsContent>
         </Tabs>
       </div>
-    </div>
+    </section>
   );
 };
 

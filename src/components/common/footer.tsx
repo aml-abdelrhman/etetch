@@ -24,7 +24,7 @@ const Footer = () => {
         alt="footer-img"
         className="absolute top-0 start-0 z-5 pointer-events-none"
       />
-      <div className="absolute top-[28%] start-0 z-12 pointer-events-none w-full h-14 bg-linear-to-b from-transparent to-main-600" />
+      <div className="absolute top-[28%] start-0 z-12 pointer-events-none w-full h-14 bg-linear-to-b from-transparent to-main-600 sm:hidden" />
       <div className="container">
         <div className="relative z-10 grid md:grid-cols-2 gap-3">
           <div className=""></div>
@@ -54,9 +54,9 @@ const Footer = () => {
         <p>{t("footer.copyright")}</p>
         <div className="flex items-center gap-3 flex-wrap">
           <p>{t("Department/Service Number")}: 920014659</p>
-          <Link href="/privacy-policy">{t("Privacy Policy")}</Link>
-          <Link href="/terms-and-conditions">{t("Terms and Conditions")}</Link>
-          <Link href="/company-location">{t("Company location")}</Link>
+          <Link className="underline" href="/privacy-policy">{t("Privacy Policy")}</Link>
+          <Link className="underline" href="/terms-and-conditions">{t("Terms and Conditions")}</Link>
+          <Link className="underline" href="/company-location">{t("Company location")}</Link>
         </div>
       </div>
     </footer>
