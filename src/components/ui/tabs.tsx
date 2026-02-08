@@ -49,7 +49,7 @@ function TabsList({
 }: React.ComponentProps<typeof TabsPrimitive.List> &
   VariantProps<typeof tabsListVariants>) {
   return (
-    <ScrollArea className="max-lg:max-w-[90svw] max-w-full rounded-xl">
+    <ScrollArea className="max-lg:max-w-[95svw] max-w-full rounded-full">
       <TabsPrimitive.List
         data-slot="tabs-list"
         data-variant={variant}

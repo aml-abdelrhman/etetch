@@ -58,7 +58,7 @@ const FeatureCard = ({
   Icon: React.ComponentType<{ className?: string }>;
 }) => {
   return (
-    <div className="flex items-center gap-3 min-w-fit flex-1">
+    <div className="flex items-center gap-3 min-w-fit w-full">
       <Icon className="rounded-full p-1.5 size-8 lg:size-10 border border-white glass-bg min-w-fit" />
       <div className="space-y-1">
         <p className="text-sm font-medium text-start">{label}</p>
