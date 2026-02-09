@@ -8,12 +8,12 @@ import {
 } from "@/components/ui/carousel";
 
 const galleryImages = [
-  "/gallary-section-img.png",
-  "/gallary-section-img(2).png",
-  "/gallary-section-img(3).png",
+  "/project-diagram.svg",
+  "/project-diagram.svg",
+  "/project-diagram.svg",
 ];
 
-const ProjectPlans = () => {
+const ProjectDiagrams = () => {
   const t = useTranslations();
   const locale = useLocale();
   return (
@@ -23,10 +23,10 @@ const ProjectPlans = () => {
         alt="Section Background"
         className="absolute top-0 start-0 z-5 pointer-events-none"
       />
-      <div className="py-[17svh] relative z-10">
+      <div className="py-[17svh] relative z-10 container">
         <Carousel
           opts={{
-            align: "center",
+            align: "start",
             loop: true,
             direction: locale === "ar" ? "rtl" : "ltr",
           }}
@@ -41,15 +41,15 @@ const ProjectPlans = () => {
               />
               <h2 className="section-title">{t("Project Diagrams")}</h2>
             </div>
-            <div className="items-center gap-3 hidden md:flex">
+            {/* <div className="items-center gap-3 hidden md:flex">
               <CarouselNext className="static translate-y-0" />
               <CarouselPrevious className="static translate-y-0" />
-            </div>
+            </div> */}
           </div>
-          <CarouselContent className="h-[65svh]">
+          <CarouselContent className="h-[45svh]">
             {galleryImages.map((src, index) => (
-              <CarouselItem key={index} className="basis-[85%] lg:basis-[60%]">
-                <div className="group relative h-full overflow-hidden rounded-4xl">
+              <CarouselItem key={index} className="basis-[90%] md:basis-1/2 xl:basis-1/3 2xl:basis-1/4">
+                <div className="group relative h-full overflow-hidden rounded-sm border border-border">
                   <img
                     src={src}
                     alt={`Gallery Image`}
@@ -59,14 +59,14 @@ const ProjectPlans = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex items-center gap-3 justify-center md:hidden mt-9">
+          {/* <div className="flex items-center gap-3 justify-center md:hidden mt-9">
             <CarouselNext className="static translate-y-0" />
             <CarouselPrevious className="static translate-y-0" />
-          </div>
+          </div> */}
         </Carousel>
       </div>
     </section>
   );
 };
 
-export default ProjectPlans;
+export default ProjectDiagrams;

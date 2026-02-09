@@ -32,7 +32,7 @@ const GallarySection = () => {
           }}
           className="w-full"
         >
-          <div className="flex items-center sm:justify-between gap-5 max-sm:flex-col flex-wrap mb-[7svh]">
+          <div className="flex items-center sm:justify-between gap-5 max-sm:flex-col flex-wrap mb-[7svh] container">
             <div className="flex items-center gap-3 max-sm:flex-col">
               <img
                 src="/section-logo.svg"
