@@ -71,7 +71,7 @@ const FeatureCard = ({
   );
 };
 
-export const HomeHeroSection = () => {
+const ProjectDetailsHeroSection = () => {
   const t = useTranslations();
   return (
     <section className="bg-[url('/hero-img.svg')] bg-top bg-cover bg-no-repeat min-h-svh w-full relative">
@@ -123,3 +123,4 @@ export const HomeHeroSection = () => {
     </section>
   );
 };
+export default ProjectDetailsHeroSection;
