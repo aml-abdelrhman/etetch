@@ -7,6 +7,13 @@ import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 import { Link } from "@/i18n/routing";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 export const Navbar = () => {
   const t = useTranslations();
@@ -65,13 +72,61 @@ export const Navbar = () => {
           >
             <SearchIcon className="size-6 text-white" />
           </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="size-6 p-0 hover:bg-transparent"
-          >
-            <MenuIcon className="size-6 text-white" />
-          </Button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="size-6 p-0 hover:bg-transparent"
+              >
+                <MenuIcon className="size-6 text-white" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent className="w-full">
+              <SheetHeader>
+                <SheetTitle className="bg-primary p-2 rounded-2xl mt-5">
+                  <Image
+                    width={179.64}
+                    height={60}
+                    alt="logo"
+                    quality={100}
+                    className="w-32 h-auto"
+                    src="/logo.svg"
+                  />
+                </SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col gap-5 mt-10 container">
+                {navigationItems.map((item, index) => (
+                  <Link
+                    href={item.href}
+                    key={index}
+                    className={cn(
+                      "font-medium text-lg relative w-fit hover:text-primary",
+                      pathname === item.href
+                        ? "text-primary"
+                        : "",
+                    )}
+                  >
+                    {item.label}
+                    {pathname === item.href && (
+                      <img
+                        className="absolute right-0 -bottom-2 w-10 h-2 pointer-events-none"
+                        alt="Vector"
+                        src="/vector-839.svg"
+                      />
+                    )}
+                  </Link>
+                ))}
+                <div className="h-px w-full bg-white/20 mt-4" />
+                <div className="flex items-center justify-between">
+                  <span className="text-white/70 font-medium">
+                    {t("Language")}
+                  </span>
+                  <LangSelector />
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </nav>
