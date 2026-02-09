@@ -6,11 +6,41 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { MapPinIcon } from "lucide-react";
 
-const galleryImages = [
-  "/gallary-section-img.png",
-  "/gallary-section-img(2).png",
-  "/gallary-section-img(3).png",
+const projects = [
+  {
+    name: "أدوار مشروع تجريبي – النفل الرياض",
+    img: "/gallary-section-img.png",
+    sold_unites_percentage: 40,
+    location: "الرياض",
+    tags: ["أرض", "شقة", "فيلا"],
+    price: "1,759,000 - 2,099,000",
+    units_count: 100,
+    area: "3,300",
+  },
+  {
+    name: "أدوار مشروع تجريبي – النفل الرياض",
+    img: "/gallary-section-img(2).png",
+    sold_unites_percentage: 57,
+    location: "الرياض",
+    tags: ["أرض", "شقة", "فيلا"],
+    price: "1,759,000 - 2,099,000",
+    units_count: 100,
+    area: "3,300",
+  },
+  {
+    name: "أدوار مشروع تجريبي – النفل الرياض",
+    img: "/gallary-section-img(3).png",
+    sold_unites_percentage: 100,
+    location: "الرياض",
+    tags: ["أرض", "شقة", "فيلا"],
+    price: "1,759,000 - 2,099,000",
+    units_count: 100,
+    area: "3,300",
+  },
 ];
 
 const LatestProjectsSection = () => {
@@ -27,7 +57,7 @@ const LatestProjectsSection = () => {
         <Carousel
           opts={{
             align: "center",
-            loop: true,
+
             direction: locale === "ar" ? "rtl" : "ltr",
           }}
           className="w-full"
@@ -46,16 +76,42 @@ const LatestProjectsSection = () => {
               <CarouselPrevious className="static translate-y-0" />
             </div>
           </div>
-          <CarouselContent className="h-[65svh]">
-            {galleryImages.map((src, index) => (
-              <CarouselItem key={index} className="basis-[85%] lg:basis-[60%]">
-                <div className="group relative h-full overflow-hidden rounded-4xl">
-                  <img
-                    src={src}
-                    alt={`Gallery Image`}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
+          <CarouselContent className="h-[57svh]">
+            {projects.map((project, index) => (
+              <CarouselItem
+                key={index}
+                className="basis-[85%] lg:basis-[60%] 2xl:basis-[50%]"
+              >
+                <Link
+                  href={`/projects/${project.name}`}
+                  className="group relative h-full overflow-hidden rounded-4xl block"
+                >
+                  <div className="">
+                    <div className="flex items-center gap-3">
+                      <Badge
+                        variant="secondary"
+                        className="text-sm font-medium text-primary/40 flex items-center gap-2"
+                      >
+                        <MapPinIcon className="size-5 text-primary" />
+                        {project.location}
+                      </Badge>
+                      {project.tags.map((tag, index) => (
+                        <Badge
+                          variant="secondary"
+                          key={index}
+                          className="text-sm font-medium text-primary/40"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                    <img
+                      src={project.img}
+                      alt={`Project Image`}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                </Link>
               </CarouselItem>
             ))}
           </CarouselContent>

@@ -13,5 +13,4 @@ export const useStore = create<StoreProps>((set) => ({
     set(() => ({
       user,
     })),
-
 }));

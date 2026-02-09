@@ -27,7 +27,7 @@ const GallarySection = () => {
         <Carousel
           opts={{
             align: "center",
-            loop: true,
+
             direction: locale === "ar" ? "rtl" : "ltr",
           }}
           className="w-full"

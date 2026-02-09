@@ -38,7 +38,7 @@ const UnitCard = ({ unit }: { unit: Unit }) => {
       )}
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="font-inter">{unit.unit_number}</CardTitle>
-        <Badge variant={isReserved ? "secondary" : "success"}>
+        <Badge variant={isReserved ? "info" : "success"}>
           {t(unit.status)}
         </Badge>
       </CardHeader>

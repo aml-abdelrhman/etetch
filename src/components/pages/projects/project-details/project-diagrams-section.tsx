@@ -27,7 +27,7 @@ const ProjectDiagrams = () => {
         <Carousel
           opts={{
             align: "start",
-            loop: true,
+
             direction: locale === "ar" ? "rtl" : "ltr",
           }}
           className="w-full"
@@ -48,7 +48,10 @@ const ProjectDiagrams = () => {
           </div>
           <CarouselContent className="h-[45svh]">
             {galleryImages.map((src, index) => (
-              <CarouselItem key={index} className="basis-[90%] md:basis-1/2 xl:basis-1/3 2xl:basis-1/4">
+              <CarouselItem
+                key={index}
+                className="basis-[90%] md:basis-1/2 xl:basis-1/3 2xl:basis-1/4"
+              >
                 <div className="group relative h-full overflow-hidden rounded-sm border border-border">
                   <img
                     src={src}
