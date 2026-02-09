@@ -48,10 +48,7 @@ const GallarySection = () => {
           </div>
           <CarouselContent className="h-[65svh]">
             {galleryImages.map((src, index) => (
-              <CarouselItem
-                key={index}
-                className="basis-[85%] lg:basis-[60%]"
-              >
+              <CarouselItem key={index} className="basis-[85%] lg:basis-[60%]">
                 <div className="group relative h-full overflow-hidden rounded-4xl">
                   <img
                     src={src}

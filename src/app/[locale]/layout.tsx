@@ -44,8 +44,23 @@ const acumin = localFont({
 const geDinarTwo = localFont({
   src: [
     {
-      path: "../fonts/ge-dinar-two/GE-Dinar Two Medium_1E.otf",
-      weight: "400",
+      path: "../fonts/ge-dinar-two/GE-Dinar-Two-Light-Italic.woff",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../fonts/ge-dinar-two/GE-Dinar-Two-Light.woff",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../fonts/ge-dinar-two/GE-Dinar-Two-Medium-Italic.woff",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/ge-dinar-two/GE-Dinar-Two-Medium.woff",
+      weight: "500",
       style: "normal",
     },
   ],
