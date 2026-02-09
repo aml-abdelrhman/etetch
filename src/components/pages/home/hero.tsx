@@ -91,7 +91,7 @@ export const HomeHeroSection = () => {
             />
           ))}
         </div>
-        <div className="flex items-center justify-center max-md:flex-wrap max-md:gap-5">
+        <div className="flex items-center justify-center max-md:flex-wrap -space-x-0.5 max-md:gap-5">
           <Button
             size="lg"
             className="max-md:w-full min-h-15 sm:min-h-17 sm:text-lg z-5 hover:bg-card hover:text-primary hover:border-transparent"
@@ -99,19 +99,19 @@ export const HomeHeroSection = () => {
           >
             {t("Have an inquiry about a project")}
           </Button>
-          <div className="max-md:hidden h-5 w-2 bg-card -me-1 -ms-0.5 shrink-0 -z-1" />
+          <div className="max-md:hidden h-5 sm:h-7 w-2 bg-card -me-1 -ms-0.5 shrink-0 -z-1" />
           <Button
             size="lg"
-            className="max-md:w-full min-h-15 sm:min-h-17 sm:text-lg hover:bg-card"
+            className="max-md:w-full min-h-15 sm:min-h-17 sm:text-lg hover:bg-card overflow-hidden"
             variant="secondary"
             endContent={<PhoneIcon className="size-5" />}
           >
             {t("Phone call")}
           </Button>
-          <div className="max-md:hidden h-5 w-2 bg-card -mx-1 shrink-0" />
+          <div className="max-md:hidden h-5 sm:h-7 w-2 bg-card -mx-1 shrink-0" />
           <Button
             size="lg"
-            className="max-md:w-full min-h-15 sm:min-h-17 sm:text-lg hover:bg-card"
+            className="max-md:w-full min-h-15 sm:min-h-17 sm:text-lg hover:bg-card overflow-hidden"
             variant="secondary"
             endContent={<WhatsAppIcon className="size-6" />}
           >

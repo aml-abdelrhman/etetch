@@ -189,6 +189,7 @@
   "Privacy Policy": "Privacy Policy",
   "Guarantees": "Guarantees",
   "years": "{count, plural, one {year} other {years}}",
+  "minutes": "{count, plural, one {# minute} other {# minutes}}",
   "Plugs and switches": "Plugs and switches",
   "Structural structure": "Structural structure",
   "Guarantee insulation": "Guarantee insulation",
@@ -208,5 +209,11 @@
   "Methodology": "Methodology",
   "Employment": "Employment",
   "Near to": "Near to",
-  "Language": "Language"
+  "Language": "Language",
+  "Abu Bakr Al Siddiq Road": "Abu Bakr Al Siddiq Road",
+  "Princess Nourah bint Abdulrahman University": "Princess Nourah bint Abdulrahman University",
+  "King Khalid International Airport": "King Khalid International Airport",
+  "Imam Abdulaziz Road": "Imam Abdulaziz Road",
+  "King Salman Road": "King Salman Road",
+  "King Saud Road": "King Saud Road"
 }

@@ -1,5 +1,6 @@
 "use client";
 import {
+  BrainIcon,
   Building2Icon,
   CalendarIcon,
   HomeIcon,
@@ -35,13 +36,11 @@ export const Navbar = () => {
     { label: t("Land"), href: "/land", Icon: LandmarkIcon },
     { label: t("Events"), href: "/events", Icon: CalendarIcon },
     { label: t("Developers"), href: "/developers", Icon: Building2Icon },
-    { label: t("Methodology"), href: "/methodology", Icon: HomeIcon },
+    { label: t("Methodology"), href: "/methodology", Icon: BrainIcon },
     { label: t("Employment"), href: "/employment", Icon: UsersIcon },
   ];
   return (
-    <nav
-      className="flex w-[93%] xl:w-full container items-center justify-between px-4 absolute top-7 xl:top-11 left-0 right-0 z-50 max-xl:glass-bg h-20 xl:h-auto rounded-2xl"
-    >
+    <nav className="flex w-[93%] xl:w-full container items-center justify-between px-4 absolute top-7 xl:top-11 left-0 right-0 z-50 max-xl:glass-bg h-20 xl:h-auto rounded-2xl">
       <Image
         width={179.64}
         height={60}
@@ -58,10 +57,10 @@ export const Navbar = () => {
                 href={item.href}
                 key={index}
                 className={cn(
-                  "font-medium relative",
+                  "font-light relative",
                   pathname === item.href
                     ? "text-white"
-                    : "text-[#ffffffb2] hover:text-white!",
+                    : "text-white/70 hover:text-white!",
                 )}
               >
                 {item.label}
