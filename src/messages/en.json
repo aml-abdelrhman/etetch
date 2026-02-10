@@ -190,6 +190,7 @@
   "Guarantees": "Guarantees",
   "years": "{count, plural, one {year} other {years}}",
   "minutes": "{count, plural, one {# minute} other {# minutes}}",
+  "units": "{count, plural, one {# unit} other {# units}}",
   "Plugs and switches": "Plugs and switches",
   "Structural structure": "Structural structure",
   "Guarantee insulation": "Guarantee insulation",
@@ -218,5 +219,14 @@
   "King Saud Road": "King Saud Road",
   "Project Plans": "Project Plans",
   "Project Diagrams": "Project Diagrams",
-  "Latest Projects": "Latest Projects"
+  "Latest Projects": "Latest Projects",
+  "sold units": "sold units",
+  "SAR": "SAR",
+  "m": "m²",
+  "Most Sold Projects": "Most Sold Projects",
+  "We closed the door": "We closed the door",
+  "Success Partners": "Success Partners",
+  "Statistics": "Statistics",
+  "Unique Projects": "Unique Projects",
+  "hemma_solgan": "همه_محل_الثقة"
 }

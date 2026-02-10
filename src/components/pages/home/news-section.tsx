@@ -45,7 +45,7 @@ const projects = [
   },
 ];
 
-const LatestProjectsSection = () => {
+const NewsSection = () => {
   const t = useTranslations();
   const locale = useLocale();
   return (
@@ -71,7 +71,7 @@ const LatestProjectsSection = () => {
                 alt="Section Logo"
                 className="pointer-events-none"
               />
-              <h2 className="section-title">{t("Latest Projects")}</h2>
+              <h2 className="section-title">{t("Success Partners")}</h2>
             </div>
             <div className="items-center gap-3 hidden md:flex">
               <CarouselNext className="static translate-y-0" />
@@ -138,11 +138,20 @@ const LatestProjectsSection = () => {
                       </div>
                       <div className="flex items-center gap-1.5">
                         <AreaIcon className="size-4 text-primary" />
-                        <p className="text-sm">{project.area} <span className="text-primary/40 inline-block ms-1"> {t("m")}</span></p>
+                        <p className="text-sm">
+                          {project.area}{" "}
+                          <span className="text-primary/40 inline-block ms-1">
+                            {" "}
+                            {t("m")}
+                          </span>
+                        </p>
                       </div>
                       <p className="text-sm text-primary">
                         {project.price}{" "}
-                        <span className="text-primary/40 inline-block ms-1"> {t("SAR")}</span>
+                        <span className="text-primary/40 inline-block ms-1">
+                          {" "}
+                          {t("SAR")}
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -160,4 +169,4 @@ const LatestProjectsSection = () => {
   );
 };
 
-export default LatestProjectsSection;
+export default NewsSection;

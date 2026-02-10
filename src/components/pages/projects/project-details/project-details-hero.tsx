@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { WhatsAppIcon } from "@/icons";
+import { AreaIcon, WhatsAppIcon } from "@/icons";
 import {
   Building2Icon,
-  FileIcon,
   HouseIcon,
   MapPin,
   PhoneIcon,
@@ -44,7 +43,7 @@ const projectDetails = [
   {
     label: "المساحة",
     value: "215 - 215 م²",
-    icon: HouseIcon,
+    icon: AreaIcon,
     hasBackground: true,
   },
 ];

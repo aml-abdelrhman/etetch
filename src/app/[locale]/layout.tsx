@@ -6,12 +6,18 @@ import Providers from "@/components/Providers";
 import { NextIntlClientProvider } from "next-intl";
 import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
-import { Cairo } from "next/font/google";
+import { Cairo,Urbanist } from "next/font/google";
 
 const cairo = Cairo({
   subsets: ["arabic"],
   weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-cairo",
+});
+
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-urbanist",
 });
 
 const handicrafts = localFont({
@@ -101,6 +107,7 @@ export default async function RootLayout({
           acumin.variable,
           geDinarTwo.variable,
           cairo.variable,
+          urbanist.variable,
         )}
         dir={locale === "ar" ? "rtl" : "ltr"}
       >
