@@ -1,3 +1,4 @@
+"use client";
 import { useLocale, useTranslations } from "next-intl";
 import {
   Carousel,
@@ -6,11 +7,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { BedDoubleIcon, MapPinIcon } from "lucide-react";
-import { AreaIcon } from "@/icons";
-import { Progress } from "@/components/ui/progress";
+import Autoplay from "embla-carousel-autoplay";
+
 import Image from "next/image";
 
 const partners = [
@@ -40,6 +38,11 @@ const SuccessPartnersSection = () => {
             align: "center",
             direction: locale === "ar" ? "rtl" : "ltr",
           }}
+          plugins={[
+            Autoplay({
+              delay: 2700,
+            }),
+          ]}
           className="w-full"
         >
           <div className="flex items-center sm:justify-between gap-5 max-sm:flex-col flex-wrap mb-[9svh] container">

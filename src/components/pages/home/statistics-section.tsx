@@ -33,6 +33,7 @@ const StatisticsSection = () => {
             align: "center",
             direction: locale === "ar" ? "rtl" : "ltr",
           }}
+         
           className="w-full"
         >
           <div className="flex items-center sm:justify-between gap-5 max-sm:flex-col flex-wrap mb-[7svh]">

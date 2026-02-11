@@ -8,40 +8,44 @@ import {
 } from "@/components/ui/carousel";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { BedDoubleIcon, MapPinIcon } from "lucide-react";
-import { AreaIcon } from "@/icons";
-import { Progress } from "@/components/ui/progress";
-
-const projects = [
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import moment from "moment";
+const news = [
   {
-    name: "أدوار مشروع تجريبي – النفل الرياض",
+    title: "أفضل العقارات المعروضة في حي الرمال بالرياض: وجهة...",
     img: "/gallary-section-img.png",
-    sold_unites_percentage: 40,
-    location: "الرياض",
-    tags: ["أرض", "شقة", "فيلا"],
-    price: "1,759,000 - 2,099,000",
-    units_count: 100,
-    area: "3,300",
+    description:
+      "الجادة الأولى للتطوير العقاري هي أحد الشركات المتميزة في الاستثمار والتطوير العقاري، والتي يقع مقرها في الرياض. حققت الشركة نمو متسارعا لتصبح إحدى الشركات البارزة والرائدة في صناعة فرص الا...",
+    created_at: "2026-02-11",
   },
   {
-    name: "أدوار مشروع تجريبي – النفل الرياض",
-    img: "/gallary-section-img(2).png",
-    sold_unites_percentage: 57,
-    location: "الرياض",
-    tags: ["أرض", "شقة", "فيلا"],
-    price: "1,759,000 - 2,099,000",
-    units_count: 100,
-    area: "3,300",
+    title: "أفضل العقارات المعروضة في حي الرمال بالرياض: وجهة...",
+    img: "/gallary-section-img.png",
+    description:
+      "الجادة الأولى للتطوير العقاري هي أحد الشركات المتميزة في الاستثمار والتطوير العقاري، والتي يقع مقرها في الرياض. حققت الشركة نمو متسارعا لتصبح إحدى الشركات البارزة والرائدة في صناعة فرص الا...",
+    created_at: "2026-02-11",
   },
   {
-    name: "أدوار مشروع تجريبي – النفل الرياض",
-    img: "/gallary-section-img(3).png",
-    sold_unites_percentage: 100,
-    location: "الرياض",
-    tags: ["أرض", "شقة", "فيلا"],
-    price: "1,759,000 - 2,099,000",
-    units_count: 100,
-    area: "3,300",
+    title: "أفضل العقارات المعروضة في حي الرمال بالرياض: وجهة...",
+    img: "/gallary-section-img.png",
+    description:
+      "الجادة الأولى للتطوير العقاري هي أحد الشركات المتميزة في الاستثمار والتطوير العقاري، والتي يقع مقرها في الرياض. حققت الشركة نمو متسارعا لتصبح إحدى الشركات البارزة والرائدة في صناعة فرص الا...",
+    created_at: "2026-02-11",
+  },
+  {
+    title: "أفضل العقارات المعروضة في حي الرمال بالرياض: وجهة...",
+    img: "/gallary-section-img.png",
+    description:
+      "الجادة الأولى للتطوير العقاري هي أحد الشركات المتميزة في الاستثمار والتطوير العقاري، والتي يقع مقرها في الرياض. حققت الشركة نمو متسارعا لتصبح إحدى الشركات البارزة والرائدة في صناعة فرص الا...",
+    created_at: "2026-02-11",
   },
 ];
 
@@ -49,13 +53,13 @@ const NewsSection = () => {
   const t = useTranslations();
   const locale = useLocale();
   return (
-    <section className="min-h-[90svh] bg-background relative overflow-hidden">
+    <section className="min-h-[90svh] bg-main-200 relative overflow-hidden">
       <img
-        src="/section-bg-white.svg"
+        src="/section-bg-dark-caramel.svg"
         alt="Section Background"
-        className="absolute top-0 start-0 z-5 pointer-events-none"
+        className="absolute bottom-0 start-0 z-5 pointer-events-none"
       />
-      <div className="py-[17svh] relative z-10">
+      <div className="py-[17svh] relative z-10 container">
         <Carousel
           opts={{
             align: "center",
@@ -64,14 +68,14 @@ const NewsSection = () => {
           }}
           className="w-full"
         >
-          <div className="flex items-center sm:justify-between gap-5 max-sm:flex-col flex-wrap mb-[7svh] container">
+          <div className="flex items-center sm:justify-between gap-5 max-sm:flex-col flex-wrap mb-[7svh]">
             <div className="flex items-center gap-3 max-sm:flex-col">
               <img
                 src="/section-logo.svg"
                 alt="Section Logo"
                 className="pointer-events-none"
               />
-              <h2 className="section-title">{t("Success Partners")}</h2>
+              <h2 className="section-title">{t("Hemma News")}</h2>
             </div>
             <div className="items-center gap-3 hidden md:flex">
               <CarouselNext className="static translate-y-0" />
@@ -79,82 +83,33 @@ const NewsSection = () => {
             </div>
           </div>
           <CarouselContent className="h-[65svh]">
-            {projects.map((project, index) => (
+            {news.map((item, index) => (
               <CarouselItem
                 key={index}
-                className="basis-[85%] lg:basis-[60%] 2xl:basis-[50%] min-h-fit"
+                className="basis-[85%] lg:basis-1/2 2xl:basis-1/3 min-h-fit"
               >
-                <Link
-                  href={`/projects/${project.name}`}
-                  className="group relative h-full block"
-                >
-                  <div className="flex items-center gap-3 absolute top-5 start-5 z-10">
-                    <Badge
-                      variant="secondary"
-                      className="text-sm font-medium text-primary/40 flex items-center gap-2"
-                    >
-                      <MapPinIcon className="size-4! text-primary" />
-                      {project.location}
-                    </Badge>
-                    {project.tags.map((tag, index) => (
+                <Link href={`/news/${item.title}`}>
+                  <Card className="h-full border-none p-0 text-cyan-950 bg-transparent">
+                    <CardHeader className="bg-[url('/statistics-bg.svg')] bg-cover bg-center rounded-2xl min-h-[30svh] relative">
                       <Badge
                         variant="secondary"
-                        key={index}
-                        className="text-sm font-medium text-primary/40"
+                        className="text-cyan-950/40 absolute top-5 start-5"
                       >
-                        {tag}
+                        {t("Articals")}
                       </Badge>
-                    ))}
-                  </div>
-                  <img
-                    src={project.img}
-                    alt={`Project Image`}
-                    className="h-[80%] w-full object-cover rounded-4xl"
-                  />
-                  <div className="grid lg:grid-cols-2 gap-5 mt-5 text-primary/50 z-10 text-start">
-                    <div className="space-y-3">
-                      <h3 className="text-2xl font-bold text-primary">
-                        {project.name}
-                      </h3>
-                      <div className="flex items-center gap-2">
-                        <p className="">
-                          <span className="text-primary font-inter font-semibold">
-                            {project.sold_unites_percentage}%{" "}
-                          </span>{" "}
-                          <span className="text-sm">{t("sold units")}</span>
-                        </p>
-                        <Progress
-                          className="max-w-55"
-                          value={project.sold_unites_percentage}
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-1.5">
-                        <BedDoubleIcon className="size-4 text-primary" />
-                        <p className="text-sm">
-                          {t("units", { count: project.units_count })}
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <AreaIcon className="size-4 text-primary" />
-                        <p className="text-sm">
-                          {project.area}{" "}
-                          <span className="text-primary/40 inline-block ms-1">
-                            {" "}
-                            {t("m")}
-                          </span>
-                        </p>
-                      </div>
-                      <p className="text-sm text-primary">
-                        {project.price}{" "}
-                        <span className="text-primary/40 inline-block ms-1">
-                          {" "}
-                          {t("SAR")}
-                        </span>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <p className="text-sm text-cyan-950/40">
+                        {moment(item.created_at).format("DD MMMM YYYY")}
                       </p>
-                    </div>
-                  </div>
+                      <h3 className="text-xl xl:text-2xl font-medium leading-11">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-cyan-950/40 line-clamp-3">
+                        {item.description}
+                      </p>
+                    </CardContent>
+                  </Card>
                 </Link>
               </CarouselItem>
             ))}
