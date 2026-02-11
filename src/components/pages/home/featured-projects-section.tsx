@@ -102,8 +102,8 @@ const FeaturedProjectsSection = () => {
               ))}
             </CarouselContent>
             <div className="items-center gap-3 hidden md:flex justify-end">
-              <CarouselNext className="static text-black border-black size-15 translate-y-0" />
-              <CarouselPrevious className="static text-black border-black size-15 translate-y-0" />
+              <CarouselNext className="static size-15 translate-y-0" />
+              <CarouselPrevious className="static size-15 translate-y-0" />
             </div>
           </Carousel>
           <Image
