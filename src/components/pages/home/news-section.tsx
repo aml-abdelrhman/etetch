@@ -78,8 +78,8 @@ const NewsSection = () => {
               <h2 className="section-title">{t("Hemma News")}</h2>
             </div>
             <div className="items-center gap-3 hidden md:flex">
-              <CarouselNext className="static translate-y-0" />
-              <CarouselPrevious className="static translate-y-0" />
+              <CarouselNext className="static text-black border-black size-15 translate-y-0" />
+              <CarouselPrevious className="static text-black border-black size-15 translate-y-0" />
             </div>
           </div>
           <CarouselContent className="h-[65svh]">

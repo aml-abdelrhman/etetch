@@ -55,12 +55,12 @@ const SuccessPartnersSection = () => {
               <h2 className="section-title">{t("Success Partners")}</h2>
             </div>
             <div className="items-center gap-3 hidden md:flex z-20 relative">
-              <CarouselNext className="static translate-y-0" />
-              <CarouselPrevious className="static translate-y-0" />
+              <CarouselNext className="static text-black border-black size-15 translate-y-0" />
+              <CarouselPrevious className="static text-black border-black size-15 translate-y-0" />
             </div>
           </div>
-          <div className="absolute start-0 h-full w-[11svw] z-12 bg-linear-to-l from-white via-white/90 to-transparent pointer-events-none"></div>
-          <div className="absolute end-0 h-full w-[11svw] z-12 bg-linear-to-r from-white via-white/90 to-transparent pointer-events-none"></div>
+          <div className="absolute start-0 h-full w-[11svw] z-12 bg-linear-to-l from-white via-white/90 to-transparent pointer-events-none" />
+          <div className="absolute end-0 h-full w-[11svw] z-12 bg-linear-to-r from-white via-white/90 to-transparent pointer-events-none" />
           <CarouselContent className="min-h-[11svh] relative">
             {partners.map((src, index) => (
               <CarouselItem
