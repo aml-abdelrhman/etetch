@@ -33,7 +33,6 @@ const StatisticsSection = () => {
             align: "center",
             direction: locale === "ar" ? "rtl" : "ltr",
           }}
-         
           className="w-full"
         >
           <div className="flex items-center sm:justify-between gap-5 max-sm:flex-col flex-wrap mb-[7svh]">
@@ -46,7 +45,7 @@ const StatisticsSection = () => {
               <h2 className="section-title">{t("Statistics")}</h2>
             </div>
             <div className="items-center gap-3 hidden md:flex">
-             <CarouselNext className="static text-black border-black size-15 translate-y-0" />
+              <CarouselNext className="static text-black border-black size-15 translate-y-0" />
               <CarouselPrevious className="static text-black border-black size-15 translate-y-0" />
             </div>
           </div>
@@ -54,19 +53,19 @@ const StatisticsSection = () => {
             {statistics.map((statistic, index) => (
               <CarouselItem
                 key={index}
-                className="basis-[95%] lg:basis-[97%] text-white bg-[url('/statistics-bg.svg')] bg-cover bg-center rounded-4xl p-5 2xl:p-7"
+                className="basis-[95%] lg:basis-[97%] text-white bg-[url('/statistics-bg.svg')] bg-cover bg-center rounded-2xl p-5 2xl:p-7"
               >
                 <p className="text-xs absolute top-5 start-5 z-5 ">
                   #{t("hemma_solgan")}
                 </p>
                 <div className="grid lg:grid-cols-12 gap-5 text-start place-content-end h-full">
-                  <div className="space-y-3 order-2 lg:order-1 lg:col-span-8">
+                  <div className="space-y-3 order-2 lg:order-1 lg:col-span-8 place-self-end">
                     <h2 className="text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl leading-15">
                       {statistic.title}
                     </h2>
                     <p className="text-white/80">{statistic.description}</p>
                   </div>
-                  <div className="space-y-3 order-1 lg:order-2 lg:col-span-4 lg:place-self-end">
+                  <div className="space-y-7 xl:space-y-9 order-1 lg:order-2 lg:col-span-4 lg:place-self-end">
                     <div className="flex items-center gap-5 min-w-fit w-full">
                       <div className="rounded-full p-2 size-22 border border-white glass-bg min-w-fit flex items-center justify-center">
                         <Building2 className="size-7" />
@@ -76,6 +75,8 @@ const StatisticsSection = () => {
                           className="text-6xl font-bold font-urbanist"
                           end={statistic.projects_count}
                           suffix="+"
+                          duration={3}
+                          enableScrollSpy
                         />
                         <p className="text-sm text-white/80">
                           {t("Unique Projects")}
@@ -91,6 +92,8 @@ const StatisticsSection = () => {
                           className="text-6xl font-bold font-urbanist"
                           end={Number(statistic.units_sold)}
                           suffix="K"
+                          duration={3}
+                          enableScrollSpy
                         />
                         <p className="text-sm text-white/80">
                           {t("sold units")}
