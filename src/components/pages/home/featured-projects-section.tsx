@@ -80,8 +80,8 @@ const FeaturedProjectsSection = () => {
             <CarouselContent className="w-full">
               {projects.map((project, index) => (
                 <CarouselItem key={index} className="basis-full">
-                  <div className="grid lg:grid-cols-2 gap-3 lg:gap-5 w-full text-primary">
-                    <div className="space-y-0.5">
+                  <div className="grid lg:grid-cols-2 gap-3 lg:gap-5 xl:gap-10 w-full text-primary">
+                    <div className="space-y-2">
                       <Image
                         src={project.img}
                         alt={project.img_title}
@@ -91,11 +91,11 @@ const FeaturedProjectsSection = () => {
                       />
                       <p className="text-lg font-thin">{project.img_title}</p>
                     </div>
-                    <div className="space-y-0.5">
-                      <h3 className="text-lg lg:text-xl font-medium">
+                    <div className="space-y-5">
+                      <h3 className="text-3xl lg:text-4xl 2xl:text-5xl font-medium leading-13">
                         {project.title}
                       </h3>
-                      <p className="text-xs font-thin">{project.description}</p>
+                      <p className="text-lg font-thin">{project.description}</p>
                     </div>
                   </div>
                 </CarouselItem>
