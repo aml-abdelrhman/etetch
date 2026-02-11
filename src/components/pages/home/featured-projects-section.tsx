@@ -80,7 +80,7 @@ const FeaturedProjectsSection = () => {
             <CarouselContent className="w-full">
               {projects.map((project, index) => (
                 <CarouselItem key={index} className="basis-full">
-                  <div className="grid lg:grid-cols-2 gap-3 lg:gap-5 w-full">
+                  <div className="grid lg:grid-cols-2 gap-3 lg:gap-5 w-full text-primary">
                     <div className="space-y-0.5">
                       <Image
                         src={project.img}
