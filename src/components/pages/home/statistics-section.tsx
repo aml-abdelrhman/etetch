@@ -49,7 +49,7 @@ const StatisticsSection = () => {
               <CarouselPrevious className="static text-black border-black size-15 translate-y-0" />
             </div>
           </div>
-          <CarouselContent className="h-[75svh]">
+          <CarouselContent className="h-[85svh] lg:h-[75svh]">
             {statistics.map((statistic, index) => (
               <CarouselItem
                 key={index}
