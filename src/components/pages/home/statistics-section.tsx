@@ -77,6 +77,7 @@ const StatisticsSection = () => {
                           suffix="+"
                           duration={3}
                           enableScrollSpy
+                          scrollSpyOnce
                         />
                         <p className="text-sm text-white/80">
                           {t("Unique Projects")}
@@ -94,6 +95,7 @@ const StatisticsSection = () => {
                           suffix="K"
                           duration={3}
                           enableScrollSpy
+                          scrollSpyOnce
                         />
                         <p className="text-sm text-white/80">
                           {t("sold units")}
