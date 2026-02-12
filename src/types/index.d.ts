@@ -11,50 +11,7 @@ export type User = {
   name: string;
   token: string;
   email: string;
-  phone: string;
-  dialing_code: number;
-  verified_at: string | nulL;
-  country: {
-    id: number,
-    code: string,
-    title: string
-  },
-  loyalty_points: number,
-  loyalty_points_history: Array<{
-    id: number;
-    points: number;
-    order: {
-      id: number;
-      status: "paid" | "unpaid";
-      total: string;
-      subtotal: string;
-      coupon: string | null;
-      coupon_type: string | null;
-      coupon_value: string | null;
-      name: string;
-      city: string;
-      address: string | null;
-      neighborhood: string;
-      detailed_address: string;
-      email: string;
-      phone_1: string;
-      phone_2: string;
-      notes: string;
-      flat_number: string;
-      items: Array<{
-        id: number;
-        product: Product;
-        product_name: string;
-        quantity: string;
-        price: string;
-      }>;
-      created_at: string;
-      updated_at: string;
-    };
-    created_at: string;
-    updated_at: string;
-  }> | [];
-  verified_at: string | null,
+
   created_at: string;
 };
 
@@ -74,12 +31,12 @@ export type Meta = {
 };
 
 export type ApiResponse<T> = {
-  status: "success" | "error"
+  status: "success" | "error";
   result: {
     data: T;
-    meta?: Meta
+    meta?: Meta;
   };
-  message: string
+  message: string;
 };
 
 export type Unit = {
@@ -93,6 +50,43 @@ export type Unit = {
   floor: string;
   area: string;
   rooms: number;
+  created_at: string;
+  updated_at: string;
+};
+
+export type LocaleText = {
+  ar: string;
+  en: string;
+};
+
+export type Project = {
+  id: number;
+  title: LocaleText;
+  description: LocaleText;
+  price_from: string;
+  city: LocaleText;
+  area: string;
+  rooms: string;
+  unit_types: LocaleText;
+  status: "available" | "sold" | "reserved";
+  project_file_link: string; //  for the "Receive project file" button;
+  project_phone_link: string; //  for the "Call us" button;
+  project_questions_link: string; //  for the "Do you have any questions about the project?" button;
+  features: LocaleText[];
+  gallery: string[];
+  near_to: {
+    img: string;
+    locaations: {
+      name: LocaleText;
+      distance: string;
+    }[];
+  };
+  guarantees: {
+    title: LocaleText;
+    years: number;
+  }[];
+  diagrams: string[];
+  units: Unit[];
   created_at: string;
   updated_at: string;
 };
