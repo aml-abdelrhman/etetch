@@ -8,7 +8,8 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { getQueryClient } from "@/app/get-query-client";
 import { DirectionProvider } from "./ui/direction";
 import moment from "moment";
-  moment.locale('ar');
+moment.locale("ar");
+
 const Providers = ({ children }: { children: React.ReactNode }) => {
   const locale = useLocale();
   const queryClient = getQueryClient();

@@ -6,10 +6,23 @@ import ProjectFeatures from "@/components/pages/projects/project-details/project
 import GuaranteesSection from "@/components/pages/projects/project-details/guarantees-section";
 import NearToSection from "@/components/pages/projects/project-details/near-to-section";
 import ProjectDiagrams from "@/components/pages/projects/project-details/project-diagrams-section";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import { projectQueryOptions } from "@/queries";
+const ProjectDetailsPage = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
+  const { id } = await params;
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery(projectQueryOptions(id));
 
-const ProjectDetailsPage = () => {
   return (
-    <>
+    <HydrationBoundary state={dehydrate(queryClient)}>
       <ProjectDetailsHeroSection />
       <UnitsSection />
       <GallarySection />
@@ -17,7 +30,7 @@ const ProjectDetailsPage = () => {
       <NearToSection />
       <GuaranteesSection />
       <ProjectDiagrams />
-    </>
+    </HydrationBoundary>
   );
 };
 
