@@ -74,6 +74,7 @@ export type Project = {
   project_phone_link: string; //  for the "Call us" button;
   project_questions_link: string; //  for the "Do you have any questions about the project?" button;
   features: LocaleText[];
+  sold_percentage: number;
   gallery: string[];
   near_to: {
     img: string;

@@ -33,7 +33,7 @@ const NotFoundComponent = () => {
       </div>
       {/* <!-- Footer --> */}
       <p className="absolute text-sm text-center text-zinc-500 -translate-x-1/2 bottom-6 left-1/2 dark:text-zinc-400">
-        &copy; {new Date().getFullYear()} - Endebaty
+        &copy; {new Date().getFullYear()} - Hemma
       </p>
     </div>
   );

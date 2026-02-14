@@ -41,9 +41,9 @@ const GallarySection = () => {
               />
               <h2 className="section-title">{t("Photo Gallery")}</h2>
             </div>
-            <div className="items-center gap-3 hidden md:flex">
-              <CarouselNext className="static translate-y-0" />
+            <div className="items-center gap-3 hidden md:flex" dir="ltr">
               <CarouselPrevious className="static translate-y-0" />
+              <CarouselNext className="static translate-y-0" />
             </div>
           </div>
           <CarouselContent className="h-[65svh]">
@@ -59,9 +59,9 @@ const GallarySection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex items-center gap-3 justify-center md:hidden mt-9">
-            <CarouselNext className="static translate-y-0" />
+          <div className="flex items-center gap-3 justify-center md:hidden mt-9" dir="ltr">
             <CarouselPrevious className="static translate-y-0" />
+            <CarouselNext className="static translate-y-0" />
           </div>
         </Carousel>
       </div>

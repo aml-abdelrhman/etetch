@@ -44,9 +44,12 @@ const StatisticsSection = () => {
               />
               <h2 className="section-title">{t("Statistics")}</h2>
             </div>
-            <div className="items-center gap-3 hidden md:flex">
-              <CarouselNext className="static text-black border-black size-15 translate-y-0" />
+             <div
+              className="items-center gap-3 hidden md:flex z-20 relative"
+              dir="ltr"
+            >
               <CarouselPrevious className="static text-black border-black size-15 translate-y-0" />
+              <CarouselNext className="static text-black border-black size-15 translate-y-0" />
             </div>
           </div>
           <CarouselContent className="h-[85svh] lg:h-[75svh]">
@@ -55,7 +58,7 @@ const StatisticsSection = () => {
                 key={index}
                 className="basis-[95%] lg:basis-[97%] text-white bg-[url('/statistics-bg.svg')] bg-cover bg-center rounded-2xl p-5 2xl:p-7"
               >
-                <p className="text-xs absolute top-5 start-5 z-5 ">
+                <p className="text-xs absolute top-5 start-5 z-5">
                   #{t("hemma_solgan")}
                 </p>
                 <div className="grid lg:grid-cols-12 gap-5 text-start place-content-end h-full">
@@ -107,9 +110,9 @@ const StatisticsSection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex items-center gap-3 justify-center md:hidden mt-9">
-            <CarouselNext className="static translate-y-0" />
+          <div className="flex items-center gap-3 justify-center md:hidden mt-9" dir="ltr">
             <CarouselPrevious className="static translate-y-0" />
+            <CarouselNext className="static translate-y-0" />
           </div>
         </Carousel>
       </div>

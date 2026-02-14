@@ -21,9 +21,7 @@ const LatestProjectsSection = () => {
   const { data: projectsData } = useSuspenseQuery(
     projectsQueryOptions({ latest: true }),
   );
-
   const projects = projectsData?.data || [];
-
   return (
     <section className="min-h-[90svh] bg-main-50 relative overflow-hidden">
       <img
@@ -48,9 +46,9 @@ const LatestProjectsSection = () => {
               />
               <h2 className="section-title">{t("Latest Projects")}</h2>
             </div>
-            <div className="items-center gap-3 hidden md:flex">
-              <CarouselNext className="static translate-y-0" />
+            <div className="items-center gap-3 hidden md:flex" dir="ltr">
               <CarouselPrevious className="static translate-y-0" />
+              <CarouselNext className="static translate-y-0" />
             </div>
           </div>
           <CarouselContent className="h-[65svh]">
@@ -85,11 +83,14 @@ const LatestProjectsSection = () => {
                       <div className="flex items-center gap-2">
                         <p className="">
                           <span className="text-primary font-inter font-semibold">
-                            40%{" "}
+                            {project?.sold_percentage}%{" "}
                           </span>{" "}
                           <span className="text-sm">{t("sold units")}</span>
                         </p>
-                        <Progress className="max-w-55" value={40} />
+                        <Progress
+                          className="max-w-55"
+                          value={project?.sold_percentage}
+                        />
                       </div>
                     </div>
                     <div className="space-y-1">
@@ -122,9 +123,9 @@ const LatestProjectsSection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex items-center gap-3 justify-center md:hidden mt-9">
-            <CarouselNext className="static translate-y-0" />
+          <div className="flex items-center gap-3 justify-center md:hidden mt-9" dir="ltr">
             <CarouselPrevious className="static translate-y-0" />
+            <CarouselNext className="static translate-y-0" />
           </div>
         </Carousel>
       </div>
