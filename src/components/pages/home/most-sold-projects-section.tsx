@@ -86,11 +86,11 @@ const MostSoldProjectsSection = () => {
                       <div className="flex items-center gap-2">
                         <p className="">
                           <span className="text-primary font-inter font-semibold">
-                            {80}%{" "}
+                            {project?.sold_percentage}%{" "}
                           </span>{" "}
                           <span className="text-sm">{t("sold units")}</span>
                         </p>
-                        <Progress className="max-w-55" value={80} />
+                        <Progress className="max-w-55" value={project?.sold_percentage || 0} />
                       </div>
                     </div>
                     <div className="space-y-1">
@@ -111,7 +111,9 @@ const MostSoldProjectsSection = () => {
                         </p>
                       </div>
                       <p className="text-sm text-primary">
-                        {project.price_from}{" "}
+                        <span className="font-inter">
+                          {project.price_from?.toLocaleString()}
+                        </span>{" "}
                         <span className="text-primary/40 inline-block ms-1">
                           {" "}
                           {t("SAR")}

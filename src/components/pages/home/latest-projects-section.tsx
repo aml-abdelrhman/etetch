@@ -89,7 +89,7 @@ const LatestProjectsSection = () => {
                         </p>
                         <Progress
                           className="max-w-55"
-                          value={project?.sold_percentage}
+                          value={project?.sold_percentage || 0}
                         />
                       </div>
                     </div>
@@ -111,7 +111,9 @@ const LatestProjectsSection = () => {
                         </p>
                       </div>
                       <p className="text-sm text-primary">
-                        {project.price_from}{" "}
+                        <span className="font-inter">
+                          {project.price_from?.toLocaleString()}
+                        </span>{" "}
                         <span className="text-primary/40 inline-block ms-1">
                           {" "}
                           {t("SAR")}
@@ -123,7 +125,10 @@ const LatestProjectsSection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex items-center gap-3 justify-center md:hidden mt-9" dir="ltr">
+          <div
+            className="flex items-center gap-3 justify-center md:hidden mt-9"
+            dir="ltr"
+          >
             <CarouselPrevious className="static translate-y-0" />
             <CarouselNext className="static translate-y-0" />
           </div>
