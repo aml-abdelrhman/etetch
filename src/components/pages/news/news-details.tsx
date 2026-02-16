@@ -19,7 +19,7 @@ const NewsDetail = () => {
       <div className="bg-main-200 py-20 lg:py-32">
         <div className="container">
           <div className="max-w-4xl mx-auto space-y-6 text-center">
-            <p className="text-amber-700 font-medium tracking-wide uppercase text-sm">
+            <p className="text-main-900 font-medium tracking-wide uppercase text-sm">
               {t("Articles")}
             </p>
             <h1 className="text-4xl lg:text-5xl font-bold text-cyan-950 leading-tight">

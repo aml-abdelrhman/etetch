@@ -89,13 +89,11 @@ export const unitsQueryOptions = (params: GeneralPageParams) =>
   });
 
 const getUnitById = async (id: string): Promise<Unit> => {
-  const response = await api.request.get<ApiResponse<Unit>>(
-    `guest/units/${id}`,
-  );
-  if (response.status !== "success") {
+  const response = await api.request.get<{ data: Unit }>(`guest/units/${id}`);
+  if (!response) {
     throw new Error("Failed to fetch unit");
   }
-  return response?.result?.data;
+  return response?.data;
 };
 
 export const unitQueryOptions = (id: string) =>
@@ -124,11 +122,11 @@ export const newsQueryOptions = (params: GeneralPageParams) =>
   });
 
 const getNewsById = async (id: string): Promise<News> => {
-  const response = await api.request.get<ApiResponse<News>>(`guest/news/${id}`);
-  if (response.status !== "success") {
+  const response = await api.request.get<{ data: News }>(`guest/news/${id}`);
+  if (!response) {
     throw new Error("Failed to fetch news");
   }
-  return response?.result?.data;
+  return response?.data;
 };
 
 export const newsByIdQueryOptions = (id: string) =>
