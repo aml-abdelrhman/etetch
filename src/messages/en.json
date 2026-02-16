@@ -145,7 +145,14 @@
     "cannotRemoveMinMid": "Cannot remove - minimum {min} MID required",
     "cannotRemoveMinFwd": "Cannot remove - minimum {min} FWD required",
     "otp_required": "OTP is required.",
-    "otp_short": "OTP must be exactly 6 digits."
+    "otp_short": "OTP must be exactly 6 digits.",
+    "name_min": "Name must be at least 3 characters",
+    "phone_invalid": "Invalid phone number",
+    "payment_method_required": "Please select a payment method",
+    "budget_required": "Budget is required",
+    "city_required": "Please select a city",
+    "property_type_required": "Please select a property type",
+    "connection_method_required": "Please select at least one connection method"
   },
   "Receive project file": "Receive project file",
   "Phone call": "Phone call",

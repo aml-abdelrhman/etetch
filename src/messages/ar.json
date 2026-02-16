@@ -150,8 +150,16 @@
     "cannotRemoveFwd": "لا يمكن الإزالة - مطلوب مهاجم واحد كحد أدنى",
     "cannotRemoveMinDef": "لا يمكن الإزالة - مطلوب {min} مدافع كحد أدنى",
     "cannotRemoveMinMid": "لا يمكن الإزالة - مطلوب {min} لاعب وسط كحد أدنى",
+    "cannotRemoveMinMid": "لا يمكن الإزالة - مطلوب {min} لاعب وسط كحد أدنى",
     "cannotRemoveMinFwd": "لا يمكن الإزالة - مطلوب {min} مهاجم كحد أدنى",
-    "terms_required": "يجب عليك قبول الشروط والأحكام للمتابعة"
+    "terms_required": "يجب عليك قبول الشروط والأحكام للمتابعة",
+    "name_min": "يجب أن يكون الاسم 3 أحرف على الأقل",
+    "phone_invalid": "رقم الهاتف غير صحيح",
+    "payment_method_required": "يرجى اختيار طريقة الدفع",
+    "budget_required": "الميزانية مطلوبة",
+    "city_required": "يرجى اختيار المدينة",
+    "property_type_required": "يرجى اختيار نوع العقار",
+    "connection_method_required": "يرجى اختيار طريقة واحدة على الأقل للتواصل"
   },
   "language": {
     "english": "English",
