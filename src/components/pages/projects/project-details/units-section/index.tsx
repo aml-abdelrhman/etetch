@@ -1,5 +1,5 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import UnitCard from "./unit-card";
 import { useParams } from "next/navigation";
@@ -11,6 +11,9 @@ const UnitsSection = () => {
   const t = useTranslations();
   const { id } = useParams<{ id: string }>();
   const { data: project } = useSuspenseQuery(projectQueryOptions(id));
+  const locale = useLocale();
+  const projectName =
+    project?.title[locale as keyof typeof project.title] || "";
 
   const units = project?.units || [];
 
@@ -48,7 +51,11 @@ const UnitsSection = () => {
             {units?.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
                 {units.map((unit) => (
-                  <UnitCard key={unit.id} unit={unit} />
+                  <UnitCard
+                    key={unit.id}
+                    unit={unit}
+                    projectName={projectName}
+                  />
                 ))}
               </div>
             ) : (
@@ -59,7 +66,11 @@ const UnitsSection = () => {
             {availableUnits?.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
                 {availableUnits.map((unit) => (
-                  <UnitCard key={unit.id} unit={unit} />
+                  <UnitCard
+                    key={unit.id}
+                    unit={unit}
+                    projectName={projectName}
+                  />
                 ))}
               </div>
             ) : (
@@ -70,7 +81,11 @@ const UnitsSection = () => {
             {soldUnits?.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
                 {soldUnits.map((unit) => (
-                  <UnitCard key={unit.id} unit={unit} />
+                  <UnitCard
+                    key={unit.id}
+                    unit={unit}
+                    projectName={projectName}
+                  />
                 ))}
               </div>
             ) : (
@@ -81,7 +96,11 @@ const UnitsSection = () => {
             {reservedUnits?.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
                 {reservedUnits.map((unit) => (
-                  <UnitCard key={unit.id} unit={unit} />
+                  <UnitCard
+                    key={unit.id}
+                    unit={unit}
+                    projectName={projectName}
+                  />
                 ))}
               </div>
             ) : (

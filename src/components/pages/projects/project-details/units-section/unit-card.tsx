@@ -30,7 +30,13 @@ const FutureItemCard = ({
   );
 };
 
-const UnitCard = ({ unit }: { unit: Unit }) => {
+const UnitCard = ({
+  unit,
+  projectName,
+}: {
+  unit: Unit;
+  projectName: string;
+}) => {
   const t = useTranslations();
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const isReserved = unit.status === "reserved";
@@ -80,6 +86,7 @@ const UnitCard = ({ unit }: { unit: Unit }) => {
         unit={unit}
         isOpen={isDetailsOpen}
         onOpenChange={setIsDetailsOpen}
+        projectName={projectName}
       />
     </>
   );

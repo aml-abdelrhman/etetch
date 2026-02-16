@@ -2,22 +2,23 @@
 
 import React from "react";
 import { Unit } from "@/types";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
-import { ChevronLeft, Download, FileText } from "lucide-react";
+import { ChevronLeft, Download } from "lucide-react";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import { WhatsAppIcon } from "@/icons";
 import { formatNumber } from "@/lib/utils";
+import { pdf } from "@react-pdf/renderer";
+import UnitQuotationPDF from "@/components/pdf/unit-quotation";
+import { useLocale } from "next-intl";
 
 interface UnitDetailsModalProps {
   unit: Unit;
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
+  projectName: string;
 }
 
 const DetailItem = ({
@@ -41,8 +42,31 @@ const UnitDetailsModal = ({
   unit,
   isOpen,
   onOpenChange,
+  projectName,
 }: UnitDetailsModalProps) => {
   const t = useTranslations();
+  const locale = useLocale();
+
+  const handleDownload = async () => {
+    try {
+      const blob = await pdf(
+        <UnitQuotationPDF
+          unit={unit}
+          locale={locale}
+          projectName={projectName}
+        />,
+      ).toBlob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `unit-${unit.unit_number || unit.id}-quotation.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Failed to generate PDF:", error);
+    }
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
@@ -60,14 +84,28 @@ const UnitDetailsModal = ({
           <div className="bg-white rounded-xl border border-border/60 p-4 flex items-center justify-between">
             <h3 className="text-2xl font-bold">#{unit.unit_number}</h3>
             <div className="flex items-center gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                className="size-11 rounded-lg bg-main-200 text-primary flex-col gap-0"
+              <PDFDownloadLink
+                document={
+                  <UnitQuotationPDF
+                    unit={unit}
+                    locale={locale}
+                    projectName={projectName}
+                  />
+                }
+                fileName={`unit-${unit.unit_number || unit.id}-quotation.pdf`}
               >
-                <p className="text-xs font-inter font-semibold">PDF</p>
-                <Download className="size-5" />
-              </Button>
+                {({ loading }) => (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="size-11 rounded-lg bg-main-200 text-primary flex-col gap-0"
+                    isLoading={loading}
+                  >
+                    <p className="text-xs font-inter font-semibold">PDF</p>
+                    <Download className="size-5" />
+                  </Button>
+                )}
+              </PDFDownloadLink>
               <Badge
                 variant={
                   unit.status === "sold"
