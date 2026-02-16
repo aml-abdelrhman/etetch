@@ -31,7 +31,7 @@ const ProjectsList = () => {
     <section className="bg-white min-h-screen">
       <div className="bg-main-200 py-[20svh] relative">
         <img
-          src="/section-logo.svg"
+          src="/section-bg-dark-caramel.svg"
           alt="Section Background"
           className="absolute top-0 start-0 z-5 pointer-events-none"
         />
