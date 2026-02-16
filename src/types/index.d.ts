@@ -106,12 +106,17 @@ export type News = {
   updated_at: string;
 };
 
+export type City = {
+  id: number;
+  name: LocaleText;
+};
+
 export type RegisterYourInterestPayload = {
   full_name: string;
   phone: string;
   payment_method: "cash" | "supported_bank" | "un_supported_bank";
   budget: string;
-  city_id: number;
+  city_id: number; // map over cities from guest/cities api
   property_type: "apartment" | "floors" | "penthouse" | "townhouse" | "villa";
-  connection_method: Array<"whatsapp" | "call">;
+  connection_method: Array<"whatsapp" | "call">; // displayed as check box so the user can check one or both
 };

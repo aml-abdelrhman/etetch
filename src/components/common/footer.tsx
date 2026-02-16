@@ -50,9 +50,11 @@ const Footer = () => {
               className="w-full h-auto max-w-30"
             />
             <p className="text-lg">{t("footer.description")}</p>
-            <Button variant="link" size="lg" className="font-inter">
-              {t("Register your interest")}
-            </Button>
+            <Link href="/register-interest">
+              <Button variant="link" size="lg" className="font-inter">
+                {t("Register your interest")}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
