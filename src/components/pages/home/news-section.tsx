@@ -103,7 +103,7 @@ const NewsSection = () => {
                     </CardHeader>
                     <CardContent className="space-y-3">
                       <p className="text-sm text-cyan-950/40">
-                        {moment(item.created_at).format("DD MMMM YYYY")}
+                        {moment(item.created_at).locale(locale).format("DD MMMM YYYY")}
                       </p>
                       <h3 className="text-xl xl:text-2xl font-medium leading-11">
                         {item.title}
