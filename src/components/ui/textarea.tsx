@@ -47,7 +47,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         )}
         <div
           className={cn(
-            'flex items-center relative border border-border bg-transparent rounded-xl',
+            'flex items-center relative bg-background rounded-xl',
             classNames?.wrapper,
             label ? 'mt-2' : '',
             props?.['aria-invalid'] && 'border-destructive',

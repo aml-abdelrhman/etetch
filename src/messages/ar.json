@@ -274,5 +274,37 @@
   "Published on": "تم النشر بتاريخ",
   "Discover our latest real estate projects and find your dream home": "اكتشف أحدث مشاريعنا العقارية وجد منزل أحلامك",
   "No projects found": "لم يتم العثور على مشاريع",
-  "Register your interest in our upcoming projects and be the first to know when they launch": "سجل اهتمامك بمشاريعنا القادمة وكن أول من يعلم متى سيتم إطلاقها"
+  "Register your interest in our upcoming projects and be the first to know when they launch": "سجل اهتمامك بمشاريعنا القادمة وكن أول من يعلم متى سيتم إطلاقها",
+  "register_interest": {
+    "full_name": "الاسم الكامل",
+    "phone": "رقم الهاتف",
+    "payment_method": "طريقة الدفع",
+    "budget": "الميزانية",
+    "city": "المدينة",
+    "property_type": "نوع العقار",
+    "connection_method": "طريقة التواصل",
+    "submit": "إرسال الاهتمام",
+    "success_title": "تم الإرسال بنجاح",
+    "success_description": "شكرًا لاهتمامك. سنتواصل معك قريبًا.",
+    "error_title": "فشل الإرسال",
+    "error_description": "حدث خطأ أثناء إرسال بياناتك. يرجى المحاولة مرة أخرى."
+  },
+  "payment_methods": {
+    "cash": "كاش",
+    "supported_bank": "بنك مدعوم",
+    "un_supported_bank": "بنك غير مدعوم"
+  },
+  "property_types": {
+    "apartment": "شقة",
+    "floors": "أدوار",
+    "penthouse": "بنتهاوس",
+    "townhouse": "تاون هاوس",
+    "villa": "فيلا"
+  },
+  "connection_methods": {
+    "whatsapp": "واتساب",
+    "call": "اتصال هاتفي"
+  },
+  "Search country": "بحث عن الدولة...",
+  "No country found": "لم يتم العثور على أي دولة."
 }

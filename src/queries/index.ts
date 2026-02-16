@@ -1,6 +1,7 @@
 import { queryOptions, useMutation } from "@tanstack/react-query";
 
-import type { Project, ApiResponse, Meta, Unit, News } from "@/types";
+import type { Project, ApiResponse, Meta, Unit, News, City } from "@/types";
+import { RegisterYourInterestPayload } from "@/types";
 import api from "@/lib/api";
 
 export interface GeneralPageParams {
@@ -133,4 +134,36 @@ export const newsByIdQueryOptions = (id: string) =>
   queryOptions({
     queryKey: ["news", id],
     queryFn: () => getNewsById(id),
+  });
+
+const getCities = async (): Promise<City[]> => {
+  const response = await api.request.get<ApiResponse<City[]>>("guest/cities");
+  if (response.status !== "success") {
+    throw new Error("Failed to fetch cities");
+  }
+  return response?.result?.data;
+};
+
+export const citiesQueryOptions = () =>
+  queryOptions({
+    queryKey: ["cities"],
+    queryFn: () => getCities(),
+  });
+
+const registerInterest = async (
+  payload: RegisterYourInterestPayload,
+): Promise<any> => {
+  const response = await api.request.post<ApiResponse<any>>(
+    "guest/register-interest",
+    payload,
+  );
+  if (response.status !== "success") {
+    throw new Error(response.message || "Failed to register interest");
+  }
+  return response?.result;
+};
+
+export const useRegisterInterestMutation = () =>
+  useMutation({
+    mutationFn: registerInterest,
   });

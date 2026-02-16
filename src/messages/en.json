@@ -257,5 +257,37 @@
   "Published on": "Published on",
   "Discover our latest real estate projects and find your dream home": "Discover our latest real estate projects and find your dream home",
   "No projects found": "No projects found",
-  "Register your interest in our upcoming projects and be the first to know when they launch": "Register your interest in our upcoming projects and be the first to know when they launch"
+  "Register your interest in our upcoming projects and be the first to know when they launch": "Register your interest in our upcoming projects and be the first to know when they launch",
+  "register_interest": {
+    "full_name": "Full Name",
+    "phone": "Phone Number",
+    "payment_method": "Payment Method",
+    "budget": "Budget",
+    "city": "City",
+    "property_type": "Property Type",
+    "connection_method": "Connection Method",
+    "submit": "Submit Interest",
+    "success_title": "Successfully Sent",
+    "success_description": "Thank you for your interest. We will contact you soon.",
+    "error_title": "Submission Failed",
+    "error_description": "An error occurred while sending your data. Please try again."
+  },
+  "payment_methods": {
+    "cash": "Cash",
+    "supported_bank": "Supported Bank",
+    "un_supported_bank": "Un-supported Bank"
+  },
+  "property_types": {
+    "apartment": "Apartment",
+    "floors": "Floors",
+    "penthouse": "Penthouse",
+    "townhouse": "Townhouse",
+    "villa": "Villa"
+  },
+  "connection_methods": {
+    "whatsapp": "WhatsApp",
+    "call": "Phone Call"
+  },
+  "Search country": "Search country...",
+  "No country found": "No country found."
 }

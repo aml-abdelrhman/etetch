@@ -1,18 +1,9 @@
-import {
-  dehydrate,
-  HydrationBoundary,
-  QueryClient,
-} from "@tanstack/react-query";
-import { citiesQueryOptions } from "@/queries";
-import RegisterInterestForm from "@/components/pages/register-interest/register-interest-form";
-import { getTranslations } from "next-intl/server";
 
-const RegisterInterestPage = async () => {
-  const t = await getTranslations();
-  const queryClient = new QueryClient();
+import RegisterInterestForm from "./register-interest-form";
+import { useTranslations } from "next-intl";
 
-  //   await queryClient.prefetchQuery(citiesQueryOptions());
-
+const RegisterInterest = () => {
+    const t =useTranslations()
   return (
     <section className="bg-main-50 min-h-screen">
       <div className="bg-main-200 py-[20svh] relative">
@@ -37,12 +28,10 @@ const RegisterInterestPage = async () => {
       </div>
 
       <div className="container py-20">
-        <HydrationBoundary state={dehydrate(queryClient)}>
-          <RegisterInterestForm />
-        </HydrationBoundary>
+        <RegisterInterestForm />
       </div>
     </section>
   );
 };
 
-export default RegisterInterestPage;
+export default RegisterInterest;
