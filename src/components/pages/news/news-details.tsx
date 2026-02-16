@@ -22,7 +22,9 @@ const NewsDetail = () => {
         <img
           src="/section-bg-dark-caramel.svg"
           alt="Section Background"
-          className="absolute top-0 start-0 z-5 pointer-events-none"
+          className="absolute top-0 start-0 w-fit z-5 pointer-events-none"
+          width={898}
+          height={459}
         />
         <div className="container">
           <div className="max-w-4xl mx-auto space-y-6 text-center">

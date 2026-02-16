@@ -11,6 +11,7 @@ import {
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { projectQueryOptions } from "@/queries";
+import Image from "next/image";
 
 const GallarySection = () => {
   const t = useTranslations();
@@ -22,10 +23,12 @@ const GallarySection = () => {
 
   return (
     <section className="min-h-[90svh] bg-background relative overflow-hidden">
-      <img
+      <Image
         src="/section-bg-white.svg"
         alt="Section Background"
-        className="absolute top-0 start-0 z-5 pointer-events-none"
+        className="absolute top-0 w-fit start-0 z-5 pointer-events-none"
+        width={898}
+        height={459}
       />
       <div className="py-[17svh] relative z-10">
         <Carousel

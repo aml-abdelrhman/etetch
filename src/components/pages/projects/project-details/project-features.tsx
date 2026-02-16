@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { projectQueryOptions } from "@/queries";
+import Image from "next/image";
 
 const ProjectFeatureCard = ({ title }: { title: string }) => {
   return (
@@ -27,10 +28,12 @@ const ProjectFeatures = () => {
 
   return (
     <section className="min-h-[90svh] bg-main-50 relative">
-      <img
+      <Image
         src="/section-bg-caramel.svg"
         alt="Section Background"
-        className="absolute top-0 start-0 z-5 pointer-events-none"
+        className="absolute top-0 w-fit start-0 z-5 pointer-events-none"
+        width={898}
+        height={459}
       />
       <div className="container py-[17svh] relative z-10  ">
         <div className="flex items-center gap-3 max-sm:flex-col mb-[7svh]">

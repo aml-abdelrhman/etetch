@@ -1,18 +1,19 @@
-
 import RegisterInterestForm from "./register-interest-form";
 import { useTranslations } from "next-intl";
 
 const RegisterInterest = () => {
-    const t =useTranslations()
+  const t = useTranslations();
   return (
     <section className="bg-main-50 min-h-screen">
       <div className="bg-main-200 py-[20svh] relative">
         <img
           src="/section-bg-dark-caramel.svg"
           alt="Section Background"
-          className="absolute top-0 start-0 z-5 pointer-events-none"
+          className="absolute top-0 start-0 w-fit z-5 pointer-events-none"
+          width={898}
+          height={459}
         />
-        <div className="container flex flex-col items-center text-center gap-5">
+        <div className="container flex flex-col items-center text-center gap-5 z-10 relative">
           <img
             src="/section-logo.svg"
             alt="Section Logo"

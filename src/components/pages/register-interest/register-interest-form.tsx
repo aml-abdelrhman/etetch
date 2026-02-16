@@ -30,6 +30,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { PhoneInput } from "@/components/ui/phone-input";
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 const RegisterInterestForm = () => {
   const t = useTranslations();
@@ -75,8 +76,15 @@ const RegisterInterestForm = () => {
   };
 
   return (
-    <Card className="max-w-2xl mx-auto border-none bg-main-200">
-      <CardContent className="p-8">
+    <Card className="max-w-2xl mx-auto border-none bg-main-200 relative overflow-hidden z-10">
+      <Image
+        src="/section-bg-dark-caramel.svg"
+        alt="section-bg-caramel"
+        className="absolute bottom-0 end-0 z-3 w-full h-full rotate-90 pointer-events-none"
+        width={799}
+        height={387}
+      />
+      <CardContent className="p-8 z-10">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField

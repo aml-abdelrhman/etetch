@@ -23,14 +23,14 @@ const RegisterInterestPage = async () => {
           width={898}
           height={459}
         />
-        <div className="container flex flex-col items-center text-center gap-5">
+        <div className="container flex flex-col items-center text-center gap-5 z-10 relative">
           <img
             src="/section-logo.svg"
             alt="Section Logo"
             className="pointer-events-none w-16"
           />
           <h1 className="section-title">{t("Register your interest")}</h1>
-          <p className="text-cyan-950/60 max-w-2xl mx-auto">
+          <p className="max-w-2xl mx-auto">
             {t(
               "Register your interest in our upcoming projects and be the first to know when they launch",
             )}

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { MapPinIcon } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
@@ -28,7 +28,9 @@ const NearToSection = () => {
         <img
           src="/section-bg-dark-caramel.svg"
           alt="Section Background"
-          className="absolute top-0 start-0 z-5 pointer-events-none"
+          className="absolute top-0 start-0 w-fit z-5 pointer-events-none"
+          width={898}
+          height={459}
         />
         <div className="grid lg:grid-cols-2 gap-7 lg:gap-5 relative z-10">
           <div className="grid lg:grid-cols-2 gap-3 lg:gap-5 place-self-end order-2 lg:order-1 w-full">

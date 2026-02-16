@@ -10,6 +10,7 @@ import {
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { projectsQueryOptions } from "@/queries";
 import ProjectCard from "../projects/project-card";
+import Image from "next/image";
 
 const LatestProjectsSection = () => {
   const t = useTranslations();
@@ -20,10 +21,12 @@ const LatestProjectsSection = () => {
   const projects = projectsData?.data || [];
   return (
     <section className="min-h-[90svh] bg-main-50 relative overflow-hidden">
-      <img
+      <Image
         src="/section-bg-caramel.svg"
         alt="Section Background"
-        className="absolute top-0 start-0 z-5 pointer-events-none"
+        className="absolute top-0 w-fit start-0 z-5 pointer-events-none"
+        width={898}
+        height={459}
       />
       <div className="py-[17svh] relative z-10">
         <Carousel
