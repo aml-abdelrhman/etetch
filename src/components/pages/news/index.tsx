@@ -4,6 +4,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { newsQueryOptions } from "@/queries";
 import NewsCard from "./news-card";
 import { useTranslations } from "next-intl";
+import EmptyState from "@/components/EmptyState";
 
 const NewsList = () => {
   const t = useTranslations();
@@ -11,19 +12,22 @@ const NewsList = () => {
 
   return (
     <section className="bg-white min-h-screen">
-      <div className="bg-main-200 py-20 lg:py-32">
+      <div className="bg-main-200 py-[20svh] relative">
+        <img
+          src="/section-bg-dark-caramel.svg"
+          alt="Section Background"
+          className="absolute top-0 start-0 z-5 pointer-events-none"
+        />
         <div className="container flex flex-col items-center text-center gap-5">
           <img
             src="/section-logo.svg"
             alt="Section Logo"
             className="pointer-events-none w-16"
           />
-          <h1 className="text-4xl lg:text-5xl font-bold text-cyan-950">
-            {t("Hemma News")}
-          </h1>
+          <h1 className="section-title">{t("Hemma News")}</h1>
           <p className="text-cyan-950/60 max-w-2xl mx-auto">
             {t(
-              "Discover the latest news and updates from Hemma Real Estate Development.",
+              "Discover the latest news and updates from Hemma Real Estate Development",
             )}
           </p>
         </div>
@@ -37,9 +41,7 @@ const NewsList = () => {
         </div>
 
         {data?.data?.length === 0 && (
-          <div className="text-center py-20 text-cyan-950/40">
-            {t("No news found")}
-          </div>
+          <EmptyState title={t("No news found")} />
         )}
       </div>
     </section>
