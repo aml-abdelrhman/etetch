@@ -47,6 +47,8 @@ export async function generateMetadata({
       title: item.title[locale as keyof typeof item.title],
       description: item.description[locale as keyof typeof item.description],
       card: "summary_large_image",
+      site: "@Hemma",
+      creator: "@Hemma",
     },
   };
 }
