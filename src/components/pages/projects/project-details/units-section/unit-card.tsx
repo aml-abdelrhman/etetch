@@ -24,7 +24,7 @@ const FutureItemCard = ({
 }) => {
   return (
     <div className="flex items-center justify-between gap-1 bg-[#F9F9F9] rounded-lg px-2 py-3 flex-1">
-      <Icon className="size-3.5 text-primary" />
+      <Icon className="size-3 text-primary" />
       <p className="text-xs font-medium">{value}</p>
     </div>
   );
@@ -39,18 +39,26 @@ const UnitCard = ({
 }) => {
   const t = useTranslations();
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
-  const isReserved = unit.status === "reserved";
+  const isAvailable = unit.status === "available";
   return (
     <>
       <Card className="relative overflow-hidden">
-        {isReserved && (
+        {!isAvailable && (
           <div className="absolute top-0 start-0 w-full h-full bg-primary-foreground/70 z-10 pointer-events-none" />
         )}
         <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle className="font-inter">
             #{unit.unit_number || t("N/A")}
           </CardTitle>
-          <Badge variant={isReserved ? "info" : unit.status === "sold" ? "default" : "success"}>
+          <Badge
+            variant={
+              unit.status === "reserved"
+                ? "info"
+                : unit.status === "sold"
+                  ? "link"
+                  : "success"
+            }
+          >
             {t(unit.status)}
           </Badge>
         </CardHeader>
@@ -70,11 +78,11 @@ const UnitCard = ({
             <FutureItemCard Icon={VectorSquareIcon} value={unit.area || "0"} />
             <FutureItemCard Icon={StarisUpIcon} value={unit.floor || "0"} />
           </div>
-          {!isReserved && (
+          {isAvailable && (
             <Button
               variant="flat"
               size="lg"
-              className="w-full"
+              className="w-full mt-auto"
               onClick={() => setIsDetailsOpen(true)}
             >
               {t("View details")}

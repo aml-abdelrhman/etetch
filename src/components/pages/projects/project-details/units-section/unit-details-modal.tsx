@@ -11,6 +11,7 @@ import { WhatsAppIcon } from "@/icons";
 import { formatNumber } from "@/lib/utils";
 import UnitQuotationPDF from "@/components/pdf/unit-quotation";
 import { useLocale } from "next-intl";
+import Image from "next/image";
 
 interface UnitDetailsModalProps {
   unit: Unit;
@@ -48,18 +49,12 @@ const UnitDetailsModal = ({
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogTitle className="sr-only">{t("Unit Details")}</DialogTitle>
-      <DialogContent className="max-w-xl p-0 overflow-hidden border-none gap-0 bg-[#FCFCFC]">
-        <div className="p-4 md:p-6 lg:p-8 flex flex-col gap-6">
-          {/* <button
-            onClick={() => onOpenChange(false)}
-            className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors w-fit"
-          >
-            <ChevronLeft className="size-4" />
-            {t("Back")}
-          </button> */}
-
+      <DialogContent className="max-w-2xl! p-0 overflow-hidden border-none gap-0 bg-[#FCFCFC]">
+        <div className="p-4 md:p-6 lg:p-8 flex flex-col gap-6 max-h-[90vh] overflow-y-auto">
           <div className="bg-white rounded-xl border border-border/60 p-4 flex items-center justify-between">
-            <h3 className="text-2xl font-bold font-inter">#{unit.unit_number}</h3>
+            <h3 className="text-2xl font-bold font-inter">
+              #{unit.unit_number}
+            </h3>
             <div className="flex items-center gap-2">
               <PDFDownloadLink
                 document={
@@ -138,6 +133,23 @@ const UnitDetailsModal = ({
             >
               {t("Whatsapp")}
             </Button>
+          </div>
+
+          <div className="bg-white rounded-xl border border-border/60 p-6 lg:p-8 space-y-5">
+            <h3 className="text-2xl font-bold">{t("Unit Description")}</h3>
+            <p className="text-base text-foreground font-semibold">
+              {unit.description}
+            </p>
+          </div>
+          <div className="bg-white rounded-xl border border-border/60 p-6 lg:p-8 space-y-5">
+            <h3 className="text-2xl font-bold">{t("Unit Diagram")}</h3>
+            <Image
+              src={unit?.image ?? ""}
+              alt="Unit Diagram"
+              className="w-full h-auto"
+              width={500}
+              height={500}
+            />
           </div>
         </div>
       </DialogContent>

@@ -122,7 +122,7 @@
     "password_confirm_required": "Password confirmation is required.",
     "passwords_must_match": "Passwords must match.",
     "phone_required": "Phone number is required.",
-    "phone_invalid": "Invalid phone number.",
+    "phone_invalid": "Invalid phone number",
     "phone_min": "Phone number must be at least 8 digits long.",
     "phone_country_code_required": "Phone country code is required.",
     "terms_required": "You must accept the Terms & Conditions to continue.",
@@ -147,7 +147,6 @@
     "otp_required": "OTP is required.",
     "otp_short": "OTP must be exactly 6 digits.",
     "name_min": "Name must be at least 3 characters",
-    "phone_invalid": "Invalid phone number",
     "payment_method_required": "Please select a payment method",
     "budget_required": "Budget is required",
     "city_required": "Please select a city",
@@ -296,5 +295,7 @@
     "call": "Phone Call"
   },
   "Search country": "Search country...",
-  "No country found": "No country found."
+  "No country found": "No country found.",
+  "Unit Description": "Unit Description",
+  "Unit Diagram": "Unit Diagram"
 }

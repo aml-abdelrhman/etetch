@@ -139,7 +139,7 @@
     "password_confirm_required": "يجب تأكيد كلمة المرور.",
     "passwords_must_match": "يجب أن تتطابق كلمات المرور.",
     "phone_required": "رقم الهاتف مطلوب.",
-    "phone_invalid": "رقم الهاتف غير صالح.",
+    "phone_invalid": "رقم الهاتف غير صحيح",
     "phone_min": "يجب أن يتكون رقم الهاتف من 8 أرقام على الأقل.",
     "phone_country_code_required": "يجب إدخال رمز بلد الهاتف.",
     "addMoreFwd": "أضف {count} مهاجم إضافي لتشكيلة {formation}",
@@ -150,11 +150,9 @@
     "cannotRemoveFwd": "لا يمكن الإزالة - مطلوب مهاجم واحد كحد أدنى",
     "cannotRemoveMinDef": "لا يمكن الإزالة - مطلوب {min} مدافع كحد أدنى",
     "cannotRemoveMinMid": "لا يمكن الإزالة - مطلوب {min} لاعب وسط كحد أدنى",
-    "cannotRemoveMinMid": "لا يمكن الإزالة - مطلوب {min} لاعب وسط كحد أدنى",
     "cannotRemoveMinFwd": "لا يمكن الإزالة - مطلوب {min} مهاجم كحد أدنى",
     "terms_required": "يجب عليك قبول الشروط والأحكام للمتابعة",
     "name_min": "يجب أن يكون الاسم 3 أحرف على الأقل",
-    "phone_invalid": "رقم الهاتف غير صحيح",
     "payment_method_required": "يرجى اختيار طريقة الدفع",
     "budget_required": "الميزانية مطلوبة",
     "city_required": "يرجى اختيار المدينة",
@@ -314,5 +312,7 @@
     "call": "اتصال هاتفي"
   },
   "Search country": "بحث عن الدولة...",
-  "No country found": "لم يتم العثور على أي دولة."
+  "No country found": "لم يتم العثور على أي دولة.",
+  "Unit Description": "وصف الوحدة",
+  "Unit Diagram": "مخطط الوحدة"
 }

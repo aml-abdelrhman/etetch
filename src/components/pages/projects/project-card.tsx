@@ -29,7 +29,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         alt={project.title[locale]}
         className="h-[80%] max-h-[500px] w-full object-cover rounded-4xl"
       />
-      <div className="grid lg:grid-cols-2 gap-5 mt-5 text-primary/50 z-10 text-start">
+      <div className="grid grid-cols-2 sm:gap-5 mt-5 text-primary/50 z-10 text-start">
         <div className="space-y-3">
           <h3 className="text-2xl font-bold text-primary">
             {project.title[locale]}
@@ -47,7 +47,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             />
           </div>
         </div>
-        <div className="space-y-1">
+        <div className="space-y-1 max-sm:justify-self-end">
           <div className="flex items-center gap-1.5">
             <BedDoubleIcon className="size-4 text-primary" />
             <p className="text-sm">

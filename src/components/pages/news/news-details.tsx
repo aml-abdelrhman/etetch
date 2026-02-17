@@ -26,7 +26,7 @@ const NewsDetail = () => {
           width={898}
           height={459}
         />
-        <div className="container">
+        <div className="container relative z-10">
           <div className="max-w-4xl mx-auto space-y-6 text-center">
             <p className="text-cyan-950 font-medium tracking-wide uppercase text-lg">
               {t("Articles")}
@@ -38,7 +38,7 @@ const NewsDetail = () => {
         </div>
       </div>
 
-      <div className="container mt-7 space-y-3">
+      <div className="container -mt-[9svh] space-y-3 z-30 relative">
         <img
           src={item.image}
           alt={item.title[locale as keyof typeof item.title]}
@@ -74,9 +74,9 @@ const NewsDetail = () => {
         </div>
 
         <div className="max-w-4xl mx-auto py-12 lg:py-20">
-          <div className="prose prose-cyan lg:prose-xl max-w-none leading-relaxed">
+          <article className="article prose prose-cyan lg:prose-xl max-w-none leading-relaxed prose-img:rounded-lg! dark:prose-invert">
             <div dangerouslySetInnerHTML={{ __html: item.content }} />
-          </div>
+          </article>
         </div>
       </div>
     </section>
