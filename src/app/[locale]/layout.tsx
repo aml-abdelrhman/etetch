@@ -73,8 +73,9 @@ const geDinarTwo = localFont({
   ],
   variable: "--font-ge-dinar-two",
 });
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({params}: {params: Promise<{ locale: string }> }): Promise<Metadata> {
   const t = await getTranslations();
+  const locale = (await params).locale;
   return {
     title: t("Hemma"),
     description: t("Hemma projects and developments"),
@@ -83,9 +84,8 @@ export async function generateMetadata(): Promise<Metadata> {
       title: t("Hemma"),
       description: t("Hemma projects and developments"),
       type: "website",
-      url: "https://hemma-front-fork.vercel.app",
       siteName: "Hemma",
-      locale: "en",
+      locale: locale,
     },
     twitter: {
       images: [{ url: "/logo.svg" }],
@@ -110,6 +110,9 @@ export async function generateMetadata(): Promise<Metadata> {
       "real estate agency company",
       "real estate company company",
     ],
+    icons: {
+      icon: "/logo.svg",
+    },
   };
 }
 

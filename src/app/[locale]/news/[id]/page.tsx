@@ -8,6 +8,7 @@ import NewsDetail from "@/components/pages/news/news-details";
 import { Metadata } from "next";
 import api from "@/lib/api";
 import { News } from "@/types";
+import { url } from "inspector";
 
 export async function generateMetadata({
   params,
@@ -26,6 +27,11 @@ export async function generateMetadata({
     description: item.description[locale as keyof typeof item.description],
     openGraph: {
       images: [item.image],
+      url: `https://hemma-front-fork.vercel.app/${locale}/news/${id}`,
+      type: "website",
+    },
+    icons: {
+      icon: "/logo.svg",
     },
   };
 }

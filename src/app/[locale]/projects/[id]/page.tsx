@@ -50,6 +50,9 @@ export async function generateMetadata({
       site: "@Hemma",
       creator: "@Hemma",
     },
+    icons: {
+      icon: "/logo.svg",
+    },
   };
 }
 const ProjectDetailsPage = async ({
