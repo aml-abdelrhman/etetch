@@ -1,53 +1,111 @@
-import { ImageResponse } from 'next/og'
-import { readFile } from 'node:fs/promises'
-import { join } from 'node:path'
- 
+import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+
 // Image metadata
-export const alt = 'Hemma'
+export const alt = "Hemma";
 export const size = {
   width: 1200,
   height: 630,
-}
- 
-export const contentType = 'image/png'
- 
+};
+
+export const contentType = "image/png";
+
 // Image generation
 export default async function Image() {
-  // Font loading, process.cwd() is Next.js project directory
-//   const geDinarTwo = await readFile(
-//     join(process.cwd(), '../fonts/ge-dinar-two/GE-Dinar-Two-Light.woff')
-//   )
- 
+  // Load font
+  // Note: process.cwd() is the root of the project
+  const geDinarTwo = await readFile(
+    join(process.cwd(), "src/app/fonts/ge-dinar-two/GE-Dinar-Two-Medium.woff"),
+  );
+
+  // Load logo as base64
+  const logoData = await readFile(join(process.cwd(), "public/logo.svg"));
+  const logoBase64 = `data:image/svg+xml;base64,${logoData.toString("base64")}`;
+
   return new ImageResponse(
-    (
-      // ImageResponse JSX element
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        height: "100%",
+        background: "linear-gradient(135deg, #683c21 0%, #391d0f 100%)",
+        position: "relative",
+      }}
+    >
+      {/* Decorative background element */}
       <div
         style={{
-          fontSize: 128,
-          background: 'white',
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          position: "absolute",
+          top: -100,
+          right: -100,
+          width: 400,
+          height: 400,
+          borderRadius: "50%",
+          background: "rgba(255, 255, 255, 0.05)",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: -50,
+          left: -50,
+          width: 300,
+          height: 300,
+          borderRadius: "50%",
+          background: "rgba(0, 0, 0, 0.2)",
+        }}
+      />
+
+      {/* Content Box */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "white",
+          padding: "60px 100px",
+          borderRadius: "40px",
+          boxShadow: "0 20px 50px rgba(0,0,0,0.3)",
         }}
       >
-        Hemma
+        {/* Logo */}
+        <img
+          src={logoBase64}
+          alt="Hemma Logo"
+          style={{
+            width: "400px",
+            height: "auto",
+            marginBottom: "20px",
+          }}
+        />
+        {/* Subtext */}
+        <div
+          style={{
+            fontSize: 36,
+            fontFamily: "geDinarTwo",
+            color: "#683c21",
+            marginTop: "10px",
+          }}
+        >
+          همة للتطوير العقاري
+        </div>
       </div>
-    ),
-    // ImageResponse options
+    </div>,
     {
-      // For convenience, we can re-use the exported opengraph-image
-      // size config to also set the ImageResponse's width and height.
       ...size,
-    //   fonts: [
-    //     {
-    //       name: 'geDinarTwo',
-    //       data: geDinarTwo,
-    //       style: 'normal',
-    //       weight: 400,
-    //     },
-    //   ],
-    }
-  )
+      fonts: [
+        {
+          name: "geDinarTwo",
+          data: geDinarTwo,
+          style: "normal",
+          weight: 400,
+        },
+      ],
+    },
+  );
 }
