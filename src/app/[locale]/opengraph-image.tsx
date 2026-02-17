@@ -20,8 +20,11 @@ export default async function Image() {
   );
 
   // Load logo as base64
-  const logoData = await readFile(join(process.cwd(), "public/logo.svg"));
-  const logoBase64 = `data:image/svg+xml;base64,${logoData.toString("base64")}`;
+  const logoData = await readFile(
+    join(process.cwd(), "public/logo.svg"),
+    "base64",
+  );
+  const logoBase64 = `data:image/svg+xml;base64,${logoData}`;
 
   return new ImageResponse(
     <div
@@ -59,7 +62,6 @@ export default async function Image() {
           background: "rgba(0, 0, 0, 0.2)",
         }}
       />
-
       {/* Content Box */}
       <div
         style={{
@@ -67,33 +69,10 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "white",
-          padding: "60px 100px",
-          borderRadius: "40px",
-          boxShadow: "0 20px 50px rgba(0,0,0,0.3)",
         }}
       >
         {/* Logo */}
-        <img
-          src={logoBase64}
-          alt="Hemma Logo"
-          style={{
-            width: "400px",
-            height: "auto",
-            marginBottom: "20px",
-          }}
-        />
-        {/* Subtext */}
-        <div
-          style={{
-            fontSize: 36,
-            fontFamily: "geDinarTwo",
-            color: "#683c21",
-            marginTop: "10px",
-          }}
-        >
-          همة للتطوير العقاري
-        </div>
+          <img src={logoBase64} alt="Hemma Logo" height="100" />
       </div>
     </div>,
     {
