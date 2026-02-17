@@ -34,7 +34,19 @@ export async function generateMetadata({
     title: item.title[locale as keyof typeof item.title],
     description: item.description[locale as keyof typeof item.description],
     openGraph: {
-      images: item.gallery?.[0],
+      images: [{ url: item.gallery?.[0] }],
+      title: item.title[locale as keyof typeof item.title],
+      description: item.description[locale as keyof typeof item.description],
+      type: "website",
+      url: `https://hemma-front-fork.vercel.app/${locale}/projects/${id}`,
+      siteName: "Hemma",
+      locale: locale,
+    },
+    twitter: {
+      images: [{ url: item.gallery?.[0] }],
+      title: item.title[locale as keyof typeof item.title],
+      description: item.description[locale as keyof typeof item.description],
+      card: "summary_large_image",
     },
   };
 }
