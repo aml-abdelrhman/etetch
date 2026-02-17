@@ -138,7 +138,7 @@ const RegisterInterestForm = () => {
                     <SelectContent>
                       {cities?.map((city) => (
                         <SelectItem key={city.id} value={city.id.toString()}>
-                          {city.name[locale as keyof typeof city.name]}
+                          {city[`title_${locale}` as keyof typeof city]}
                         </SelectItem>
                       ))}
                     </SelectContent>

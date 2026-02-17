@@ -45,14 +45,16 @@ export const Navbar = () => {
   ];
   return (
     <nav className="flex w-[93%] xl:w-full container items-center justify-between px-4 absolute top-7 xl:top-11 left-0 right-0 z-50 max-xl:glass-bg h-20 xl:h-auto rounded-2xl">
-      <Image
-        width={179.64}
-        height={60}
-        alt="logo"
-        quality={100}
-        className="w-full h-auto max-w-40 max-xl:max-w-26"
-        src="/logo.svg"
-      />
+      <Link href="/">
+        <Image
+          width={179.64}
+          height={60}
+          alt="logo"
+          quality={100}
+          className="w-full h-auto max-w-40 max-xl:max-w-26"
+          src="/logo.svg"
+        />
+      </Link>
       <div className="inline-flex h-15 sm:h-20 items-center justify-center gap-[71px] xl:p-7.5 rounded-3xl xl:glass-bg">
         <div className="inline-flex items-center gap-6">
           <div className="items-center gap-6 hidden xl:flex">

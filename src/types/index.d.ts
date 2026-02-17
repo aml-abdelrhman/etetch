@@ -108,7 +108,8 @@ export type News = {
 
 export type City = {
   id: number;
-  name: LocaleText;
+  title_ar: string;
+  title_en: string;
 };
 
 export type RegisterYourInterestPayload = {
