@@ -5,6 +5,7 @@ import Image from "next/image";
 import { X } from "lucide-react";
 
 import { Dialog as DialogPrimitive } from "radix-ui";
+import { cn } from "@/lib/utils";
 
 interface ImagePreviewProps {
   src: string;
@@ -30,8 +31,16 @@ export default function ImagePreview({
         alt={alt}
         width={width}
         height={height}
-        className={className}
         onClick={() => setIsOpen(true)}
+        className={cn(
+          "transition-all duration-300 opacity-50 blur-sm",
+          className,
+        )}
+        onLoad={(e) => {
+          const target = e.currentTarget;
+          target.classList.remove("opacity-50", "blur-sm");
+          target.classList.add("opacity-100");
+        }}
       />
 
       <DialogPrimitive.Root open={isOpen} onOpenChange={setIsOpen}>
@@ -52,7 +61,12 @@ export default function ImagePreview({
                 width={width * 2}
                 height={height * 2}
                 loading="eager"
-                className="object-contain w-full h-full rounded-2xl"
+                onLoad={(e) => {
+                  const target = e.currentTarget;
+                  target.classList.remove("opacity-50", "blur-sm");
+                  target.classList.add("opacity-100");
+                }}
+                className="object-contain w-full h-full rounded-2xl transition-all duration-300 opacity-50 blur-s"
               />
             </div>
           </DialogPrimitive.Content>
