@@ -109,9 +109,9 @@ const EmploymentForm = () => {
                           className="flex items-center space-x-3 space-y-0 rtl:space-x-reverse"
                         >
                           <FormControl>
-                            <RadioGroupItem value={level} />
+                            <RadioGroupItem value={level} id={level} />
                           </FormControl>
-                          <Label className="font-normal cursor-pointer">
+                          <Label className="font-normal cursor-pointer" htmlFor={level}>
                             {t(`experience_levels.${level}`)}
                           </Label>
                         </FormItem>
