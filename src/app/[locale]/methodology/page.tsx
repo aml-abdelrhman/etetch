@@ -31,7 +31,7 @@ const MethodologyPage = async () => {
       </div>
       <article className="container py-11 max-w-4xl">
         <div
-          className="article prose lg:prose-xl leading-relaxed prose-img:rounded-lg dark:prose-invert max-w-none"
+          className="article prose lg:prose-lg leading-relaxed prose-img:rounded-lg dark:prose-invert max-w-none"
           dangerouslySetInnerHTML={{ __html: t.raw("methodology_content") }}
         />
       </article>
