@@ -3,7 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import { User } from "@/types"
 import api from "@/lib/api"
 import { CredentialsSignin } from "next-auth";
-  
+   
 export class InvalidCredentialsError extends CredentialsSignin {
     code = "invalid_credentials";
     message = "Invalid credentials";
