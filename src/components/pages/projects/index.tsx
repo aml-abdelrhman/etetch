@@ -1,6 +1,6 @@
 "use client";
 
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { projectsQueryOptions } from "@/queries";
 import { useTranslations } from "next-intl";
 import EmptyState from "@/components/EmptyState";
@@ -16,7 +16,7 @@ const ProjectsList = () => {
   const pathname = usePathname();
 
   const page = Number(searchParams.get("page")) || 1;
-  const { data } = useSuspenseQuery(projectsQueryOptions({ page }));
+  const { data, isError } = useQuery(projectsQueryOptions({ page }));
 
   const handlePageChange = (newPage: number) => {
     const params = new URLSearchParams(searchParams);
@@ -57,9 +57,15 @@ const ProjectsList = () => {
 
       <div className="container py-20 space-y-12">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 gap-y-12">
-          {data?.data?.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+          {isError ? (
+            <div className="col-span-full">
+              <EmptyState type="error" />
+            </div>
+          ) : (
+            data?.data?.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))
+          )}
         </div>
 
         {data?.data?.length === 0 && (

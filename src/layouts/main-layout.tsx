@@ -10,7 +10,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const locale = useLocale();
   return (
-    <section
+    <div
       className="min-h-svh bg-white dark:bg-zinc-900 max-w-screen transition-colors"
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
@@ -24,7 +24,19 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         {children}
       </main>
       <Footer />
-    </section>
+      {/* 1. THE HIDDEN SVG FILTER */}
+      <svg className="hidden">
+        <filter id="liquid-distortion">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.02"
+            numOctaves="3"
+            result="noise"
+          />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="30" />
+        </filter>
+      </svg>
+    </div>
   );
 };
 

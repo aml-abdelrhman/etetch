@@ -1,18 +1,27 @@
 "use client";
 
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { newsByIdQueryOptions } from "@/queries";
 import { useLocale, useTranslations } from "next-intl";
 import moment from "moment";
 import { useParams } from "next/navigation";
 import { FacebookIcon, LinkedinIcon, MailIcon, TwitchIcon } from "lucide-react";
 import { WhatsAppIcon, XTwitterIcon } from "@/icons";
+import EmptyState from "@/components/EmptyState";
 
 const NewsDetail = () => {
   const { id } = useParams() as { id: string };
   const t = useTranslations();
   const locale = useLocale();
-  const { data: item } = useSuspenseQuery(newsByIdQueryOptions(id));
+  const { data: item, isError } = useQuery(newsByIdQueryOptions(id));
+
+  if (isError) {
+    return (
+      <div className="container py-20">
+        <EmptyState type="error" title={t("Error fetching article")} />
+      </div>
+    );
+  }
 
   const shareTitle = item?.title[locale as keyof typeof item.title] || "";
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
@@ -62,7 +71,7 @@ const NewsDetail = () => {
               {moment(item.created_at).locale(locale).format("DD MMMM YYYY")}
             </span>
           </p>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3">
             <a
               href={shareLinks.facebook}
               target="_blank"

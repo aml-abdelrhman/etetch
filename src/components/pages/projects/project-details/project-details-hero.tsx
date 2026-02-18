@@ -9,6 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import { projectQueryOptions } from "@/queries";
 import { Link } from "@/i18n/navigation";
 import { cn, formatNumber } from "@/lib/utils";
+import EmptyState from "@/components/EmptyState";
 
 const FeatureCard = ({
   label,
@@ -21,7 +22,7 @@ const FeatureCard = ({
 }) => {
   return (
     <div className="flex items-center gap-3 min-w-fit w-full">
-      <div className="rounded-full p-2 size-8 lg:size-10 border border-white glass-bg min-w-fit flex items-center justify-center">
+      <div className="rounded-full p-2 h-8 lg:h-10 w-8 lg:w-10 border border-white glass-bg flex items-center justify-center">
         <Icon className="size-6" />
       </div>
       <div className="space-y-1">
@@ -38,8 +39,17 @@ const ProjectDetailsHeroSection = () => {
   const t = useTranslations();
   const locale = useLocale() as "ar" | "en";
   const { id } = useParams<{ id: string }>();
-  const { data: project } = useQuery(projectQueryOptions(id));
+  const { data: project, isError } = useQuery(projectQueryOptions(id));
   console.log("project", project);
+
+  if (isError) {
+    return (
+      <div className="container py-20">
+        <EmptyState type="error" title={t("Error fetching project")} />
+      </div>
+    );
+  }
+
   if (!project) return null;
 
   const projectDetails = [

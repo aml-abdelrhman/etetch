@@ -43,7 +43,11 @@ const NewsDetailsPage = async ({
 }) => {
   const { id } = await params;
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(newsByIdQueryOptions(id));
+  try {
+    await queryClient.prefetchQuery(newsByIdQueryOptions(id));
+  } catch (error) {
+    console.error("Failed to prefetch news:", error);
+  }
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>

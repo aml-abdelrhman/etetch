@@ -72,7 +72,7 @@ export default async function Image() {
         }}
       >
         {/* Logo */}
-          <img src={logoBase64} alt="Hemma Logo" height="100" />
+        <img src={logoBase64} alt="Hemma Logo" height="100" />
       </div>
     </div>,
     {

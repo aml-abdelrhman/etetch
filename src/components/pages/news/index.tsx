@@ -1,6 +1,6 @@
 "use client";
 
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { newsQueryOptions } from "@/queries";
 import NewsCard from "./news-card";
 import { useTranslations } from "next-intl";
@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const NewsList = () => {
   const t = useTranslations();
-  const { data } = useSuspenseQuery(newsQueryOptions({}));
+  const { data, isError } = useQuery(newsQueryOptions({}));
 
   return (
     <section className="bg-main-50 min-h-screen">
@@ -40,9 +40,13 @@ const NewsList = () => {
 
       <div className="container py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
-          {data?.data?.map((item) => (
-            <NewsCard key={item.id} item={item} />
-          ))}
+          {isError ? (
+            <div className="col-span-full">
+              <EmptyState type="error" />
+            </div>
+          ) : (
+            data?.data?.map((item) => <NewsCard key={item.id} item={item} />)
+          )}
         </div>
 
         {data?.data?.length === 0 && <EmptyState title={t("No news found")} />}

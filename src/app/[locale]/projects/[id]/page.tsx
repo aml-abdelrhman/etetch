@@ -62,7 +62,11 @@ const ProjectDetailsPage = async ({
 }) => {
   const { id } = await params;
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(projectQueryOptions(id));
+  try {
+    await queryClient.prefetchQuery(projectQueryOptions(id));
+  } catch (error) {
+    console.error("Failed to prefetch project:", error);
+  }
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>

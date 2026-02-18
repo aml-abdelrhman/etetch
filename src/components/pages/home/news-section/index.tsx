@@ -9,14 +9,16 @@ import {
 } from "@/components/ui/carousel";
 
 import NewsCard from "./news-card";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { newsQueryOptions } from "@/queries";
 import Image from "next/image";
 
 const NewsSection = () => {
   const t = useTranslations();
   const locale = useLocale();
-  const { data } = useSuspenseQuery(newsQueryOptions({ limit: 4 }));
+  const { data, isError } = useQuery(newsQueryOptions({ limit: 4 }));
+
+  if (isError) return null;
 
   return (
     <section className="min-h-[90svh] bg-main-200 relative overflow-hidden">

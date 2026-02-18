@@ -7,18 +7,21 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { projectsQueryOptions } from "@/queries";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
+import { PlayIcon } from "@/icons";
 
 const ClosedProjectsSection = () => {
   const t = useTranslations();
   const locale = useLocale() as "ar" | "en";
 
-  const { data: projectsData } = useSuspenseQuery(
+  const { data: projectsData, isError } = useQuery(
     projectsQueryOptions({ status: "sold" }),
   );
+
+  if (isError) return null;
 
   const projects = projectsData?.data || [];
 
@@ -65,10 +68,8 @@ const ClosedProjectsSection = () => {
                     width={250}
                     height={413}
                   />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <p className="text-white text-lg font-bold">
-                      {project.title[locale]}
-                    </p>
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <PlayIcon />
                   </div>
                 </Link>
               </CarouselItem>

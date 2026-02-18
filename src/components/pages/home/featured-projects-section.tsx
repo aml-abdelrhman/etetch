@@ -10,7 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { projectsQueryOptions } from "@/queries";
 
 const FeaturedProjectsSection = () => {
@@ -20,9 +20,11 @@ const FeaturedProjectsSection = () => {
   const [current, setCurrent] = useState(0); // Track current slide
   const [count, setCount] = useState(0);
 
-  const { data: projectsData } = useSuspenseQuery(
+  const { data: projectsData, isError } = useQuery(
     projectsQueryOptions({ featured: true }),
   );
+
+  if (isError) return null;
 
   const projects = projectsData?.data || [];
 

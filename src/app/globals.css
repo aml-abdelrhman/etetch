@@ -9,6 +9,7 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 @theme {
@@ -340,7 +341,7 @@ button {
 }
 
 @utility glass-bg {
-  @apply bg-[#c0c1c166] backdrop-blur-xl;
+  @apply bg-[#c0c1c166] backdrop-blur-xl backdrop-filter-[url(#liquid-distortion)];
 }
 
 @utility section-title {

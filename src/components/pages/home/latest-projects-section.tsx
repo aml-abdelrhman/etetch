@@ -7,7 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { projectsQueryOptions } from "@/queries";
 import ProjectCard from "../projects/project-card";
 import Image from "next/image";
@@ -15,9 +15,11 @@ import Image from "next/image";
 const LatestProjectsSection = () => {
   const t = useTranslations();
   const locale = useLocale() as "ar" | "en";
-  const { data: projectsData } = useSuspenseQuery(
+  const { data: projectsData, isError } = useQuery(
     projectsQueryOptions({ latest: true }),
   );
+
+  if (isError) return null;
   const projects = projectsData?.data || [];
   return (
     <section className="min-h-[90svh] bg-main-50 relative overflow-hidden">

@@ -121,3 +121,20 @@ export type RegisterYourInterestPayload = {
   property_type: "apartment" | "floors" | "penthouse" | "townhouse" | "villa";
   connection_method: Array<"whatsapp" | "call">; // displayed as check box so the user can check one or both
 };
+
+export type Partner = {
+  id: number;
+  name?: string;
+  logo: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type ClosedProject = {
+  id: number;
+  name?: string;
+  img: string;
+  youtube_link: string;
+  created_at: string;
+  updated_at: string;
+};
