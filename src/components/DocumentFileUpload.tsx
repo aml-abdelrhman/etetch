@@ -142,7 +142,7 @@ const DocumentFileUpload = forwardRef<
                     {t("documentFileUpload.browse")}
                   </span>
                 </div>
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-xs text-muted-foreground mt-1 font-inter">
                   {t(
                     "documentFileUpload.maxSize",
                     {

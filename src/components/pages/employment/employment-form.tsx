@@ -16,15 +16,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import DocumentFileUpload from "@/components/DocumentFileUpload";
 import { PhoneInput } from "@/components/ui/phone-input";
 import { Card, CardContent } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 import Image from "next/image";
 
 const EmploymentForm = () => {
@@ -99,25 +95,29 @@ const EmploymentForm = () => {
               control={form.control}
               name="experience"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="space-y-3">
                   <FormLabel>{t("employment.experience")}</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder={t("employment.experience")} />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
+                  <FormControl>
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                      className="flex flex-col space-y-1"
+                    >
                       {["beginner", "intermidate", "expert"].map((level) => (
-                        <SelectItem key={level} value={level}>
-                          {t(`experience_levels.${level}`)}
-                        </SelectItem>
+                        <FormItem
+                          key={level}
+                          className="flex items-center space-x-3 space-y-0 rtl:space-x-reverse"
+                        >
+                          <FormControl>
+                            <RadioGroupItem value={level} />
+                          </FormControl>
+                          <Label className="font-normal cursor-pointer">
+                            {t(`experience_levels.${level}`)}
+                          </Label>
+                        </FormItem>
                       ))}
-                    </SelectContent>
-                  </Select>
+                    </RadioGroup>
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
@@ -126,21 +126,13 @@ const EmploymentForm = () => {
             <FormField
               control={form.control}
               name="cv"
-              // eslint-disable-next-line @typescript-eslint/no-unused-vars
-              render={({ field: { onChange, value: _, ...field } }) => (
+              render={({ field }) => (
                 <FormItem>
                   <FormLabel>{t("employment.cv")}</FormLabel>
                   <FormControl>
-                    <Input
-                      type="file"
+                    <DocumentFileUpload
+                      onFileChange={field.onChange}
                       accept=".pdf,.doc,.docx"
-                      onChange={(e) => {
-                        const file = e.target.files?.[0];
-                        if (file) {
-                          onChange(file);
-                        }
-                      }}
-                      {...field}
                     />
                   </FormControl>
                   <FormMessage />

@@ -318,7 +318,7 @@
     "clickToChange": "Click to change file",
     "dragFiles": "Drag your files or",
     "browse": "browse",
-    "maxSize": "Files up to {{maxSize}} are allowed"
+    "maxSize": "Files up to {maxSize} are allowed"
   },
   "Search country": "Search country...",
   "No country found": "No country found.",
