@@ -16,7 +16,8 @@ const ProjectsList = () => {
   const pathname = usePathname();
 
   const page = Number(searchParams.get("page")) || 1;
-  const { data, isError } = useQuery(projectsQueryOptions({ page }));
+  const term = searchParams.get("term") || undefined;
+  const { data, isError } = useQuery(projectsQueryOptions({ page, term }));
 
   const handlePageChange = (newPage: number) => {
     const params = new URLSearchParams(searchParams);
@@ -46,7 +47,16 @@ const ProjectsList = () => {
             width={60}
             height={60}
           />
-          <h1 className="section-title">{t("Projects")}</h1>
+          <h1 className="section-title">
+            {term ? (
+              <>
+                {t("Search results for")}:{" "}
+                <span className="text-primary">{term}</span>
+              </>
+            ) : (
+              t("Projects")
+            )}
+          </h1>
           <p className="max-w-2xl mx-auto">
             {t(
               "Discover our latest real estate projects and find your dream home",

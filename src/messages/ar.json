@@ -19,6 +19,9 @@
     "homeButton": "الصفحة الرئيسية",
     "ornamentalText": "ضائع في الفضاء الرقمي"
   },
+  "Search": "بحث",
+  "Search results for": "نتائج البحث عن",
+  "Search for projects...": "البحث عن مشاريع...",
   "Loading": "جاري التحميل...",
   "auth": {
     "age": "العمر",

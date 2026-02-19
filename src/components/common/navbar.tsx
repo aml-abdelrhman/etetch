@@ -18,7 +18,7 @@ import Image from "next/image";
 import LangSelector from "./lang-selector";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
-import { usePathname } from "@/i18n/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { Link } from "@/i18n/routing";
 import {
   Sheet,
@@ -27,11 +27,32 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 
 export const Navbar = () => {
   const t = useTranslations();
   const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      router.push(`/projects?term=${encodeURIComponent(searchTerm.trim())}`);
+      setIsSearchOpen(false);
+      setSearchTerm("");
+    }
+  };
+
   const navigationItems = [
     { label: t("Home"), href: "/", Icon: HomeIcon },
     { label: t("Projects"), href: "/projects", Icon: ProjectorIcon },
@@ -84,19 +105,45 @@ export const Navbar = () => {
           </div>
           <div className="h-8 w-[2px] bg-white/50 rounded-full max-xl:hidden" />
           <LangSelector className="max-xl:hidden" />
-          <Button
-            variant="ghost"
-            size="icon"
-            className="size-6 p-0 hover:bg-transparent"
-          >
-            <SearchIcon className="size-6 text-white" />
-          </Button>
+
+          <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
+            <DialogTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="size-6 p-0 hover:bg-transparent"
+                aria-label="Search"
+                title="search"
+              >
+                <SearchIcon className="size-6 text-white" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>{t("Search")}</DialogTitle>
+              </DialogHeader>
+              <form onSubmit={handleSearch} className="flex flex-col gap-4">
+                <Input
+                  placeholder={t("Search for projects...")}
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  autoFocus
+                />
+                <Button type="submit" className="w-full">
+                  {t("Search")}
+                </Button>
+              </form>
+            </DialogContent>
+          </Dialog>
+
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
                 className="size-6 p-0 hover:bg-transparent xl:hidden"
+                aria-label="Menu"
+                title="Menu"
               >
                 <MenuIcon className="size-6 text-white" />
               </Button>
