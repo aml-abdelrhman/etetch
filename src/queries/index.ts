@@ -8,6 +8,7 @@ import type {
   News,
   City,
   EmployeFormPayload,
+  ClosedProject,
 } from "@/types";
 import { RegisterYourInterestPayload } from "@/types";
 import api from "@/lib/api";
@@ -76,6 +77,22 @@ export const projectsQueryOptions = (params: GeneralPageParams) =>
   queryOptions({
     queryKey: ["projects", params],
     queryFn: () => getProjects(params),
+  });
+
+const getClosedProjects = async (): Promise<{ data: ClosedProject[] }> => {
+  const response = await api.request.get<ApiResponse<ClosedProject[]>>(
+    "guest/closed-projects",
+  );
+  if (response.status !== "success") {
+    throw new Error("Failed to fetch closed projects");
+  }
+  return response?.result;
+};
+
+export const closedProjectsQueryOptions = () =>
+  queryOptions({
+    queryKey: ["closed-projects"],
+    queryFn: () => getClosedProjects(),
   });
 
 const getUnits = async (

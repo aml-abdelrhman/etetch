@@ -8,7 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useQuery } from "@tanstack/react-query";
-import { projectsQueryOptions } from "@/queries";
+import { closedProjectsQueryOptions } from "@/queries";
 import Image from "next/image";
 import { PlayIcon } from "@/icons";
 import VideoViewer from "@/components/ui/video-viewer";
@@ -18,7 +18,7 @@ const ClosedProjectsSection = () => {
   const locale = useLocale() as "ar" | "en";
 
   const { data: projectsData, isError } = useQuery(
-    projectsQueryOptions({ status: "sold" }),
+    closedProjectsQueryOptions(),
   );
 
   if (isError) return null;
@@ -54,16 +54,16 @@ const ClosedProjectsSection = () => {
           <CarouselContent className="h-[65svh]">
             {projects?.map((project) => (
               <CarouselItem
-                key={project.id}
+                key={project?.id}
                 className="sm:basis-1/2 md:basis-1/3 xl:basis-1/4 2xl:basis-1/5"
               >
                 <VideoViewer
-                  src="https://www.youtube.com/watch?v=qN8qF7tYu4M&list=TLGGN4ba2_Dv7scxOTAyMjAyNg&t=1s"
+                  src={project?.youtube_link}
                   className="group relative h-full overflow-hidden rounded-4xl block"
                 >
                   <Image
-                    src={"/Link.svg"}
-                    alt={project.title[locale]}
+                    src={project?.img}
+                    alt={project?.name || "Closed Project"}
                     className="h-full w-full object-cover"
                     width={250}
                     height={413}
