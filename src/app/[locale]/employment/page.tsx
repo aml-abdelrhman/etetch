@@ -16,7 +16,7 @@ const EmploymentPage = async () => {
   const t = await getTranslations();
 
   return (
-    <section className="bg-main-50 min-h-screen">
+    <main className="bg-main-50 min-h-screen pb-[7svh]">
       <div className="bg-main-200 py-[20svh] relative">
         <Image
           src="/section-bg-dark-caramel.svg"
@@ -43,7 +43,7 @@ const EmploymentPage = async () => {
       <div className="container pb-20 -mt-[9svh]">
         <EmploymentForm />
       </div>
-    </section>
+    </main>
   );
 };
 

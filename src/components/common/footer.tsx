@@ -32,7 +32,7 @@ const Footer = () => {
       <Image
         src="/mobile-footer-img.svg"
         alt="footer-img"
-        className="absolute top-0 start-0 z-5 pointer-events-none w-auto lg:hidden"
+        className="absolute top-0 start-0 z-5 pointer-events-none w-full sm:w-auto lg:hidden"
         quality={100}
         width={688}
         height={387}
@@ -75,9 +75,14 @@ const Footer = () => {
           <Link className="underline" href="/terms-and-conditions">
             {t("Terms and Conditions")}
           </Link>
-          <Link className="underline" href="/company-location">
+          <a
+            className="underline"
+            href="https://maps.app.goo.gl/H7U7MHWvyzTP9xmx8"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {t("Company location")}
-          </Link>
+          </a>
         </div>
       </div>
     </footer>

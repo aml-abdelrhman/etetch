@@ -12,7 +12,7 @@ const NewsList = () => {
   const { data, isError } = useQuery(newsQueryOptions({}));
 
   return (
-    <section className="bg-main-50 min-h-screen">
+    <section className="bg-main-50 min-h-screen pb-[7svh]">
       <div className="bg-main-200 py-[20svh] relative">
         <Image
           src="/section-bg-dark-caramel.svg"

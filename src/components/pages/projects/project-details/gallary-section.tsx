@@ -13,6 +13,7 @@ import { useQuery } from "@tanstack/react-query";
 import { projectQueryOptions } from "@/queries";
 import Image from "next/image";
 import ImagePreview from "@/components/ui/image-preview";
+import { cn } from "@/lib/utils";
 
 const GallarySection = () => {
   const t = useTranslations();
@@ -58,7 +59,13 @@ const GallarySection = () => {
           </div>
           <CarouselContent className="h-[65svh]">
             {project?.gallery?.map((src, index) => (
-              <CarouselItem key={index} className="basis-[85%] lg:basis-[60%]">
+              <CarouselItem
+                key={index}
+                className={cn(
+                  "lg:basis-[60%]",
+                  project?.gallery?.length > 1 && "basis-[85%]",
+                )}
+              >
                 <div className="group relative h-full overflow-hidden rounded-4xl">
                   <ImagePreview
                     src={src}
