@@ -9,6 +9,7 @@ import type {
   City,
   EmployeFormPayload,
   ClosedProject,
+  Partner,
 } from "@/types";
 import { RegisterYourInterestPayload } from "@/types";
 import api from "@/lib/api";
@@ -201,7 +202,7 @@ const submitEmployment = async (payload: EmployeFormPayload): Promise<any> => {
   formData.append("cv", payload.cv);
 
   const response = await api.request.post<ApiResponse<any>>(
-    "guest/employment",
+    "guest/employe-form",
     formData,
     {
       headers: {
@@ -218,4 +219,19 @@ const submitEmployment = async (payload: EmployeFormPayload): Promise<any> => {
 export const useEmploymentMutation = () =>
   useMutation({
     mutationFn: submitEmployment,
+  });
+
+const getPartners = async (): Promise<{ data: Partner[] }> => {
+  const response =
+    await api.request.get<ApiResponse<Partner[]>>("guest/partners");
+  if (response.status !== "success") {
+    throw new Error("Failed to fetch partners");
+  }
+  return response?.result;
+};
+
+export const partnersQueryOptions = () =>
+  queryOptions({
+    queryKey: ["partners"],
+    queryFn: () => getPartners(),
   });

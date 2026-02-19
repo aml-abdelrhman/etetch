@@ -125,7 +125,7 @@ export type RegisterYourInterestPayload = {
 
 export type Partner = {
   id: number;
-  name?: string;
+  name: string;
   logo: string;
   created_at: string;
   updated_at: string;

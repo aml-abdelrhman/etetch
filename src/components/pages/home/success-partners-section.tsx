@@ -9,22 +9,20 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
+import { useQuery } from "@tanstack/react-query";
+import { partnersQueryOptions } from "@/queries";
 import Image from "next/image";
-
-const partners = [
-  "/partner-1.svg",
-  "/partner-2.svg",
-  "/partner-3.svg",
-  "/partner-1.svg",
-  "/partner-2.svg",
-  "/partner-3.svg",
-  "/partner-2.svg",
-  "/partner-1.svg",
-];
 
 const SuccessPartnersSection = () => {
   const t = useTranslations();
   const locale = useLocale();
+  const { data: partnersData, isError } = useQuery(partnersQueryOptions());
+
+  if (isError) return null;
+  const partners = partnersData?.data || [];
+
+  if (partners.length === 0) return null;
+
   return (
     <section className="min-h-[90svh] bg-background relative overflow-hidden">
       <Image
@@ -69,16 +67,16 @@ const SuccessPartnersSection = () => {
           <div className="absolute ltr:rotate-180 start-0 h-full w-[11svw] z-12 bg-linear-to-l from-white via-white/90 to-transparent pointer-events-none" />
           <div className="absolute ltr:rotate-180 end-0 h-full w-[11svw] z-12 bg-linear-to-r from-white via-white/90 to-transparent pointer-events-none" />
           <CarouselContent className="min-h-[11svh] relative">
-            {partners.map((src, index) => (
+            {partners.map((partner) => (
               <CarouselItem
-                key={index}
+                key={partner.id}
                 className="basis-1/2 lg:basis-1/4 xl:basis-1/5 2xl:basis-1/7"
               >
                 <div className="relative size-43 overflow-hidden">
                   <Image
-                    src={src}
-                    alt={`Partner Image`}
-                    className="h-full w-full object-cover"
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="h-full w-full object-contain"
                     width={100}
                     height={100}
                   />
