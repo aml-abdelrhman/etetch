@@ -16,7 +16,7 @@ body {
   --font-sans:
     Norsa, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-*: initial;
+  --font-*: initial;main
   --font-inherit: inherit;
   --font-mono: monospace;
   --font-inter: "Inter", sans-serif;
