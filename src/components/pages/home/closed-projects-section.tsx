@@ -58,9 +58,12 @@ const ClosedProjectsSection = () => {
                 key={project.id}
                 className="sm:basis-1/2 md:basis-1/3 xl:basis-1/4 2xl:basis-1/5"
               >
-                <VideoViewer src="https://www.youtube.com/watch?v=qN8qF7tYu4M&list=TLGGN4ba2_Dv7scxOTAyMjAyNg&t=1s" className="group relative h-full overflow-hidden rounded-4xl block">
+                <VideoViewer
+                  src="https://www.youtube.com/watch?v=qN8qF7tYu4M&list=TLGGN4ba2_Dv7scxOTAyMjAyNg&t=1s"
+                  className="group relative h-full overflow-hidden rounded-4xl block"
+                >
                   <Image
-                    src={project?.gallery?.[0] || "/Link.svg"}
+                    src={"/Link.svg"}
                     alt={project.title[locale]}
                     className="h-full w-full object-cover"
                     width={250}

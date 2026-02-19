@@ -67,9 +67,11 @@ const StatisticsSection = () => {
                 <div className="grid lg:grid-cols-12 gap-5 text-start place-content-end h-full">
                   <div className="space-y-3 order-2 lg:order-1 lg:col-span-8 place-self-end">
                     <h2 className="text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl leading-15">
-                      {statistic.title}
+                      {t("statistics.title")}
                     </h2>
-                    <p className="text-white/80">{statistic.description}</p>
+                    <p className="text-white/80">
+                      {t("statistics.description")}
+                    </p>
                   </div>
                   <div className="space-y-7 xl:space-y-9 order-1 lg:order-2 lg:col-span-4 lg:place-self-end">
                     <div className="flex items-center gap-5 min-w-fit w-full">
