@@ -21,7 +21,7 @@ const FeaturedProjectsSection = () => {
   const [count, setCount] = useState(0);
 
   const { data: projectsData, isError } = useQuery(
-    projectsQueryOptions({ featured: true }),
+    projectsQueryOptions({ is_featured: true }),
   );
 
   if (isError) return null;

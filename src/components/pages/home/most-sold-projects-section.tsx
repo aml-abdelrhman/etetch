@@ -17,7 +17,7 @@ const MostSoldProjectsSection = () => {
   const locale = useLocale() as "ar" | "en";
 
   const { data: projectsData, isError } = useQuery(
-    projectsQueryOptions({ most_sold: true }),
+    projectsQueryOptions({ top_sold: true }),
   );
 
   if (isError) return null;
