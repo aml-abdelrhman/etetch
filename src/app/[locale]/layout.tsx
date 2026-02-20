@@ -73,7 +73,11 @@ const geDinarTwo = localFont({
   ],
   variable: "--font-ge-dinar-two",
 });
-export async function generateMetadata({params}: {params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const t = await getTranslations();
   const locale = (await params).locale;
   return {
@@ -137,6 +141,7 @@ export default async function RootLayout({
       suppressHydrationWarning
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
+      data-scroll-behavior="smooth"
     >
       <body
         className={cn(

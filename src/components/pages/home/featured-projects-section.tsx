@@ -106,6 +106,13 @@ const FeaturedProjectsSection = () => {
                 <CarouselItem key={project.id} className="basis-full">
                   <div className="grid lg:grid-cols-2 gap-3 lg:gap-5 xl:gap-10 w-full text-primary">
                     <div className="space-y-2">
+                      <Image
+                        src={project?.gallery?.[0]}
+                        alt={project.title[locale]}
+                        width={500}
+                        height={500}
+                        className="block w-full h-[500px] object-cover object-top rounded-xl"
+                      />
                       <p className="text-lg font-thin">
                         {project.title[locale]}
                       </p>
