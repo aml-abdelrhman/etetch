@@ -1,24 +1,19 @@
-"use client";
 import { Navbar } from "@/components/common/navbar";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
-import React from "react";
-import { useLocale } from "next-intl";
 import Footer from "@/components/common/footer";
+import { PropsWithChildren } from "react";
 
-const MainLayout = ({ children }: { children: React.ReactNode }) => {
-  const pathname = usePathname();
-  const locale = useLocale();
+const MainLayout = async ({ children }: PropsWithChildren) => {
+  // const locale = useLocale();
   return (
     <div
       className="min-h-svh bg-white dark:bg-zinc-900 max-w-screen transition-colors"
-      dir={locale === "ar" ? "rtl" : "ltr"}
+      // dir={locale === "ar" ? "rtl" : "ltr"}
     >
       <Navbar />
       <main
         className={cn(
           "relative z-10 min-h-[70svh] transition-colors overflow-x-hidden",
-          // pathname !== "/" && "py-6 lg:py-9",
         )}
       >
         {children}

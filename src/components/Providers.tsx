@@ -1,7 +1,7 @@
 "use client";
 import { Toaster } from "sonner";
 import { useLocale } from "next-intl";
-import { Suspense } from "react";
+import { PropsWithChildren, Suspense } from "react";
 import "moment/locale/ar";
 import "moment/dist/locale/ar";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -12,7 +12,7 @@ import NextTopLoader from "nextjs-toploader";
 
 moment.locale("ar");
 
-const Providers = ({ children }: { children: React.ReactNode }) => {
+const Providers = ({ children }: PropsWithChildren) => {
   const locale = useLocale();
   const queryClient = getQueryClient();
   moment.locale(locale);
