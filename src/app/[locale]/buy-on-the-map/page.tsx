@@ -26,7 +26,9 @@ const BuyOnTheMap = async ({
   const currentPage = Number(page) || 1;
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(projectsQueryOptions({ page: currentPage }));
+  await queryClient.prefetchQuery(
+    projectsQueryOptions({ page: currentPage, is_ready_for_sale: false }),
+  );
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>

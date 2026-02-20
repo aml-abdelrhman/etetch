@@ -18,7 +18,7 @@ const ProjectsList = () => {
   const page = Number(searchParams.get("page")) || 1;
   const term = searchParams.get("term") || undefined;
   const { data, isError } = useQuery(
-    projectsQueryOptions({ page, term: "test" }),
+    projectsQueryOptions({ page, is_ready_for_sale: true }),
   );
 
   const handlePageChange = (newPage: number) => {
