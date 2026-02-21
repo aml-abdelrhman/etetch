@@ -84,7 +84,7 @@ export async function generateMetadata({
     title: t("Hemma"),
     description: t("Hemma projects and developments"),
     openGraph: {
-      images: [{ url: "/logo.svg" }],
+      // images: [{ url: "/logo.svg" }],
       title: t("Hemma"),
       description: t("Hemma projects and developments"),
       type: "website",
@@ -92,7 +92,7 @@ export async function generateMetadata({
       locale: locale,
     },
     twitter: {
-      images: [{ url: "/logo.svg" }],
+      // images: [{ url: "/logo.svg" }],
       title: t("Hemma"),
       description: t("Hemma projects and developments"),
       card: "summary_large_image",
