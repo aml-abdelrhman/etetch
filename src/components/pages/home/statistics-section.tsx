@@ -61,7 +61,7 @@ const StatisticsSection = () => {
                 key={index}
                 className="basis-[95%] lg:basis-[97%] text-white bg-[url('/statistics-bg.svg')] bg-cover bg-center rounded-2xl p-5 2xl:p-7"
               >
-                <p className="text-xs absolute top-5 start-5 z-5">
+                <p className="text-xs absolute top-3 sm:top-5 start-5 z-5">
                   #{t("hemma_solgan")}
                 </p>
                 <div className="grid lg:grid-cols-12 gap-5 text-start place-content-end h-full">
