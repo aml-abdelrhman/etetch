@@ -82,11 +82,11 @@ export async function generateMetadata({
   const locale = (await params).locale;
   return {
     title: t("Hemma"),
-    description: t("Hemma projects and developments"),
+    description: t("Hemma for real estate investments and developments"),
     openGraph: {
       // images: [{ url: "/logo.svg" }],
       title: t("Hemma"),
-      description: t("Hemma projects and developments"),
+      description: t("Hemma for real estate investments and developments"),
       type: "website",
       siteName: "Hemma",
       locale: locale,
@@ -94,7 +94,7 @@ export async function generateMetadata({
     twitter: {
       // images: [{ url: "/logo.svg" }],
       title: t("Hemma"),
-      description: t("Hemma projects and developments"),
+      description: t("Hemma for real estate investments and developments"),
       card: "summary_large_image",
       site: "@Hemma",
       creator: "@Hemma",
