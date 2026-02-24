@@ -80,7 +80,7 @@ const StatisticsSection = () => {
                       </div>
                       <div className="space-y-1">
                         <CountUp
-                          className="text-6xl font-bold font-urbanist"
+                          className="text-6xl font-bold"
                           end={statistic.projects_count}
                           suffix="+"
                           duration={3}
@@ -98,7 +98,7 @@ const StatisticsSection = () => {
                       </div>
                       <div className="space-y-1">
                         <CountUp
-                          className="text-6xl font-bold font-urbanist"
+                          className="text-6xl font-bold"
                           end={Number(statistic.units_sold)}
                           suffix="K"
                           duration={3}

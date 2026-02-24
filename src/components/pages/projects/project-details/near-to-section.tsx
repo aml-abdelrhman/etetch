@@ -57,7 +57,7 @@ const NearToSection = () => {
             ))}
           </div>
           <Image
-            src={project.near_to.img}
+            src={project.near_to.img ?? "/near-to-section-img.svg"}
             alt="Near To"
             width={100}
             height={100}
