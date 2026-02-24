@@ -74,7 +74,7 @@ export const Navbar = () => {
           height={60}
           alt="logo"
           quality={100}
-          className="w-full h-auto max-w-40 xl:max-w-50 2xl:max-w-80 max-xl:max-w-35"
+          className="w-full h-auto max-w-40 xl:max-w-50 2xl:max-w-80"
           src="/logo.svg"
         />
       </Link>
