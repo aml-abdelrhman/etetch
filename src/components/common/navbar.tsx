@@ -4,6 +4,7 @@ import {
   BrainIcon,
   Building2Icon,
   CalendarIcon,
+  HandshakeIcon,
   HomeIcon,
   LandmarkIcon,
   MapIcon,
@@ -17,7 +18,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import LangSelector from "./lang-selector";
 import { cn } from "@/lib/utils";
-import { useTranslations } from "next-intl";
+import { useTranslations,useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { Link } from "@/i18n/routing";
 import {
@@ -39,6 +40,7 @@ import { Input } from "@/components/ui/input";
 export const Navbar = () => {
   const t = useTranslations();
   const pathname = usePathname();
+  const locale = useLocale();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -55,11 +57,11 @@ export const Navbar = () => {
 
   const navigationItems = [
     { label: t("Home"), href: "/", Icon: HomeIcon },
-    { label: t("Projects"), href: "/projects", Icon: ProjectorIcon },
+    { label: t("Projects"), href: "/projects", Icon: Building2Icon },
     { label: t("Buy on the map"), href: "/buy-on-the-map", Icon: MapIcon },
     // { label: t("Land"), href: "/land", Icon: LandmarkIcon },
     // { label: t("Events"), href: "/events", Icon: CalendarIcon },
-    { label: t("Developers"), href: "/developers", Icon: Building2Icon },
+    { label: t("Developers"), href: "/developers", Icon: HandshakeIcon },
     { label: t("Methodology"), href: "/methodology", Icon: BrainIcon },
     { label: t("Employment"), href: "/employment", Icon: UsersIcon },
     { label: t("News"), href: "/news", Icon: NewspaperIcon },
@@ -72,11 +74,11 @@ export const Navbar = () => {
           height={60}
           alt="logo"
           quality={100}
-          className="w-full h-auto max-w-40 max-xl:max-w-26"
+          className="w-full h-auto max-w-40 2xl:max-w-50 max-xl:max-w-30"
           src="/logo.svg"
         />
       </Link>
-      <div className="inline-flex h-15 sm:h-20 items-center justify-center gap-[71px] xl:p-7.5 rounded-3xl xl:glass-bg">
+      <div className="inline-flex h-15 sm:h-20 items-center justify-center gap-[71px] xl:p-7.5 rounded-3xl xl:glass-bg xl:bg-[#64646466]!">
         <div className="inline-flex items-center gap-6">
           <div className="items-center gap-6 hidden xl:flex">
             {navigationItems.map((item, index) => (
@@ -148,7 +150,7 @@ export const Navbar = () => {
                 <MenuIcon className="size-6 text-white" />
               </Button>
             </SheetTrigger>
-            <SheetContent className="w-full bg-main-50">
+            <SheetContent className="w-full bg-main-50" side={locale === "ar" ? "right" : "left"}>
               <SheetHeader>
                 <SheetTitle className="bg-primary p-2 rounded-2xl mt-5">
                   <Image

@@ -52,7 +52,7 @@ const UnitDetailsModal = ({
       <DialogContent className="max-w-2xl! p-0 overflow-hidden border-none gap-0 bg-[#FCFCFC]">
         <div className="p-4 md:p-6 lg:p-8 flex flex-col gap-6 max-h-[90vh] overflow-y-auto">
           <div className="bg-white rounded-xl border border-border/60 p-4 flex items-center justify-between">
-            <h3 className="text-2xl font-bold font-inter">
+            <h3 className="text-2xl font-bold">
               #{unit.unit_number}
             </h3>
             <div className="flex items-center gap-2">
@@ -97,15 +97,15 @@ const UnitDetailsModal = ({
             <DetailItem label={t("Floor")} value={unit.floor} />
             <DetailItem
               label={t("Area")}
-              value={unit.area ? `${unit.area} m²` : "0 m²"}
+              value={unit.area ? `${unit.area} ${t("m²")}` : `0 ${t("m²")}`}
             />
             <DetailItem
               label={t("Private")}
-              value={unit.private_area ? `${unit.private_area} m²` : "0 m²"}
+              value={unit.private_area ? `${unit.private_area} ${t("m²")}` : `0 ${t("m²")}`}
             />
             <DetailItem
               label={t("Total Area")}
-              value={unit.total_area ? `${unit.total_area} m²` : "0 m²"}
+              value={unit.total_area ? `${unit.total_area} ${t("m²")}` : `0 ${t("m²")}`}
             />
             <DetailItem label={t("Rooms")} value={unit.rooms} />
             <DetailItem label={t("View")} value={unit.view} />

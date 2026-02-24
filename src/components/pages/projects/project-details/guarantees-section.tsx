@@ -18,7 +18,7 @@ const GuaranteesFeatureCard = ({
     <Card className="border-0 rounded-xl">
       <CardContent className="space-y-3 text-center flex flex-col items-center justify-center">
         <div className="bg-main-700 text-white p-0.5 rounded-full size-13 flex items-center flex-col">
-          <p className="font-bold text-lg font-inter">{number}</p>
+          <p className="font-bold text-lg">{number}</p>
           <p className="text-xs">{t("years", { count: number })}</p>
         </div>
         <h2 className="text-lg sm:text-xl text-main-700">{title}</h2>

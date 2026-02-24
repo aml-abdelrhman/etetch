@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { BedIcon, VectorSquareIcon } from "lucide-react";
 import { StarisUpIcon } from "@/icons";
@@ -38,6 +38,7 @@ const UnitCard = ({
   projectName: string;
 }) => {
   const t = useTranslations();
+  const locale = useLocale() as "ar" | "en";
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const isAvailable = unit.status === "available";
   return (
@@ -47,9 +48,7 @@ const UnitCard = ({
           <div className="absolute top-0 start-0 w-full h-full bg-primary-foreground/70 z-10 pointer-events-none" />
         )}
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="font-inter">
-            #{unit.unit_number || t("N/A")}
-          </CardTitle>
+          <CardTitle>#{unit.unit_number || t("N/A")}</CardTitle>
           <Badge
             variant={
               unit.status === "reserved"
@@ -65,7 +64,7 @@ const UnitCard = ({
         <CardContent className="border-y-2 border-border py-3 mx-2 lg:mx-4">
           <p className="text-2xl lg:text-3xl font-medium text-center font-inter">
             {unit.price
-              ? formatNumber(Number(unit.price))
+              ? `${formatNumber(Number(unit.price), locale === "ar" ? "ar-SA" : "en-US")} ${t("SAR")}`
               : t("Price on request")}
           </p>
         </CardContent>

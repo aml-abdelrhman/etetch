@@ -98,7 +98,7 @@ const FeaturedProjectsSection = () => {
                 />
                 <h2 className="section-title">{t("Featured projects")}</h2>
               </div>
-              <p className="text-primary/50 font-inter">
+              <p className="text-primary/50">
                 {count > 0 ? `${current}/${count}` : "0/0"}
               </p>
             </div>

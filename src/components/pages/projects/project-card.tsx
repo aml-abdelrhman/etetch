@@ -36,7 +36,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </h3>
           <div className="flex items-center gap-2">
             <p className="">
-              <span className="text-primary font-inter font-semibold">
+              <span className="text-primary font-semibold">
                 {project?.sold_percentage}%{" "}
               </span>{" "}
               <span className="text-sm">{t("sold units")}</span>
@@ -65,7 +65,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             </p>
           </div>
           <p className="text-sm text-primary">
-            <span className="font-inter">
+            <span>
               {formatNumber(Number(project.price_from))}
             </span>{" "}
             <span className="text-primary/40 inline-block ms-1">

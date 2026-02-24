@@ -40,7 +40,6 @@ const ProjectDetailsHeroSection = () => {
   const locale = useLocale() as "ar" | "en";
   const { id } = useParams<{ id: string }>();
   const { data: project, isError } = useQuery(projectQueryOptions(id));
-  console.log("project", project);
 
   if (isError) {
     return (
@@ -54,7 +53,7 @@ const ProjectDetailsHeroSection = () => {
 
   const projectDetails = [
     {
-      label: t("Rooms"),
+      label: t("Units"),
       value: project?.rooms,
       icon: HouseIcon,
       hasBackground: true,
