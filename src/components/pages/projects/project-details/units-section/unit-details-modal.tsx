@@ -99,14 +99,14 @@ const UnitDetailsModal = ({
               label={t("Area")}
               value={unit.area ? `${unit.area} ${t("m²")}` : `0 ${t("m²")}`}
             />
-            <DetailItem
+            {/* <DetailItem
               label={t("Private")}
               value={unit.private_area ? `${unit.private_area} ${t("m²")}` : `0 ${t("m²")}`}
             />
             <DetailItem
               label={t("Total Area")}
               value={unit.total_area ? `${unit.total_area} ${t("m²")}` : `0 ${t("m²")}`}
-            />
+            /> */}
             <DetailItem label={t("Rooms")} value={unit.rooms} />
             <DetailItem label={t("View")} value={unit.view} />
             <DetailItem
