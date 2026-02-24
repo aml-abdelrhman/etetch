@@ -126,7 +126,7 @@ const UnitDetailsModal = ({
                 {t("Contact our sales representative over WhatsApp")}
               </span>
             </p>
-            <a href={projectPhoneLink}>
+            <a href={projectPhoneLink} target="_blank" rel="noopener noreferrer" className="block w-full">
               <Button
                 startContent={<WhatsAppIcon className="size-8" />}
                 size="lg"
