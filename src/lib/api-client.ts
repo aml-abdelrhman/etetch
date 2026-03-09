@@ -37,10 +37,10 @@ class ApiClient {
       baseURL: this.baseURL,
       timeout: 20000,
       headers: {
-        'X-Requested-With': 'XMLHttpRequest',
+        // 'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        // 'Access-Control-Allow-Origin': '*',
         'Accept-Language': this.defaultLang
       },
     });

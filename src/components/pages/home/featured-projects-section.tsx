@@ -29,7 +29,7 @@ const FeaturedProjectsSection = () => {
     projectsQueryOptions({ is_featured: true }),
   );
 
-  if (isError) return null;
+  if (isError) return <></>;
 
   const projects = projectsData?.data || [];
 

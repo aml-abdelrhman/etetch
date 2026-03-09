@@ -18,7 +18,7 @@ const SuccessPartnersSection = () => {
   const locale = useLocale();
   const { data: partnersData, isError } = useQuery(partnersQueryOptions());
 
-  if (isError) return null;
+  if (isError) return <></>;
   const partners = partnersData?.data || [];
 
   if (partners.length === 0) return null;

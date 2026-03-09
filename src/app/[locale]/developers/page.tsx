@@ -13,7 +13,7 @@ const Developers = () => {
     isLoading,
   } = useQuery(partnersQueryOptions());
 
-  if (isError) return null;
+  if (isError) return <></>;
   const partners = partnersData?.data || [];
 
   return (
