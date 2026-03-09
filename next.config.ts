@@ -16,6 +16,11 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
       {
+        protocol: "http",
+        hostname: process.env.NEXT_HOST_NAME ?? "",
+        pathname: "/**",
+      },
+      {
         protocol: "https",
         hostname: "images.adsttc.com",
         pathname: "/**",
