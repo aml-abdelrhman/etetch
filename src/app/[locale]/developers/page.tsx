@@ -13,8 +13,8 @@ const Developers = () => {
     isLoading,
   } = useQuery(partnersQueryOptions());
 
-  if (isError) return <></>;
   const partners = partnersData?.data || [];
+  if (isError) return null;
 
   return (
     <main className="bg-main-50 min-h-screen pb-[7svh]">

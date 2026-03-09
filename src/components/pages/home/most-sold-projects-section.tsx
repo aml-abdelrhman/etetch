@@ -20,7 +20,7 @@ const MostSoldProjectsSection = () => {
     projectsQueryOptions({ top_sold: true }),
   );
 
-  if (isError) return <></>;
+  if (isError) return null;
 
   const projects = projectsData?.data || [];
 

@@ -19,7 +19,7 @@ const NewsSection = () => {
   const locale = useLocale();
   const { data, isError } = useQuery(newsQueryOptions({ limit: 4 }));
 
-  if (isError) return <></>;
+  if (isError) return null;
 
   return (
     <section className="min-h-[90svh] bg-main-200 relative overflow-hidden">

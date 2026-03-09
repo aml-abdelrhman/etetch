@@ -21,7 +21,7 @@ const ClosedProjectsSection = () => {
     closedProjectsQueryOptions(),
   );
 
-  if (isError) return <></>;
+  if (isError) return null;
 
   const projects = projectsData?.data || [];
 

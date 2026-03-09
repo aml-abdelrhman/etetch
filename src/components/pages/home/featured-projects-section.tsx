@@ -29,8 +29,6 @@ const FeaturedProjectsSection = () => {
     projectsQueryOptions({ is_featured: true }),
   );
 
-  if (isError) return <></>;
-
   const projects = projectsData?.data || [];
 
   useEffect(() => {
@@ -69,6 +67,9 @@ const FeaturedProjectsSection = () => {
       api.off("select", updateImage);
     };
   }, [api, projects]);
+
+  if (isError) return null;
+
   return (
     <section className="min-h-[80svh] bg-main-200 relative overflow-hidden">
       <div className="container py-[17svh] relative z-10 10 max-w-[1620px]">

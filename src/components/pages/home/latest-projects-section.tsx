@@ -19,7 +19,7 @@ const LatestProjectsSection = () => {
     projectsQueryOptions({ latest: true }),
   );
 
-  if (isError) return <></>;
+  if (isError) return null;
   const projects = projectsData?.data || [];
   return (
     <section className="min-h-[90svh] bg-main-50 relative overflow-hidden">
