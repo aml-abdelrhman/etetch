@@ -3,9 +3,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin();
 
-/** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
-  // Performance optimizations
   compress: true,
   poweredByHeader: true,
   images: {
@@ -33,11 +31,15 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  // Experimental features for better performance
+  
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ["lucide-react"],
-  },
+    // @ts-ignore: Turbopack root is valid but might not be in the current types
+    turbopack: {
+      root: ".", 
+    },
+  } as any, // استخدام as any هنا بيقفل اعتراض TypeScript على الخصائص التجريبية
 
   reactStrictMode: true,
   reactCompiler: true,

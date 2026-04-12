@@ -1,203 +1,220 @@
 "use client";
+
 import { useState } from "react";
-import {
-  BrainIcon,
-  Building2Icon,
-  CalendarIcon,
-  HandshakeIcon,
-  HomeIcon,
-  LandmarkIcon,
-  MapIcon,
+import { 
   MenuIcon,
-  NewspaperIcon,
-  ProjectorIcon,
-  SearchIcon,
-  UsersIcon,
+  BookOpenIcon,
+  UserIcon,
+  GraduationCap,
+  ChevronDown,
+  X,
+  LogIn,
+  LogOut,
+  User,
+  LayoutDashboard
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import LangSelector from "./lang-selector";
-import { cn } from "@/lib/utils";
-import { useTranslations,useLocale } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Link } from "@/i18n/routing";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
+import LangSelector from "./lang-selector";
+import { useLocale, useTranslations } from "next-intl";
+import { useAppStore } from "@/store/useStore";
+import { ThemeToggle } from "./ThemeToggle";
+import { useSession, signOut } from "next-auth/react";
+import About from "@/components/pages/Home/About";
 
 export const Navbar = () => {
   const t = useTranslations();
   const pathname = usePathname();
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const locale = useLocale();
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      router.push(`/projects?term=${encodeURIComponent(searchTerm.trim())}`);
-      setIsSearchOpen(false);
-      setSearchTerm("");
-    }
-  };
+  const darkMode = useAppStore((state) => state.darkMode);
+  const { data: session } = useSession();
 
   const navigationItems = [
-    { label: t("Home"), href: "/", Icon: HomeIcon },
-    { label: t("Projects for sale"), href: "/projects", Icon: Building2Icon },
-    { label: t("Projects for rent"), href: "/projects-for-rent", Icon: MapIcon },
-    // { label: t("Land"), href: "/land", Icon: LandmarkIcon },
-    // { label: t("Events"), href: "/events", Icon: CalendarIcon },
-    { label: t("Developers"), href: "/developers", Icon: HandshakeIcon },
-    { label: t("Methodology"), href: "/methodology", Icon: BrainIcon },
-    { label: t("Employment"), href: "/employment", Icon: UsersIcon },
-    { label: t("News"), href: "/news", Icon: NewspaperIcon },
+    { label: t("Courses"), href: "/courses", Icon: BookOpenIcon },
+    { label: t("About"), href: "/about", Icon: UserIcon },
+    { label: t("Teachers"), href: "/teachers", Icon: GraduationCap },
   ];
+
+  const userRole = session?.user?.role || "student";
+  const dashboardPath = `/dashboard/${userRole}`;
+
+  const goToLogin = () => {
+    setIsMobileOpen(false);
+    router.push(`/auth/login`);
+  };
+
+  const handleLogout = async () => {
+    setIsMobileOpen(false);
+    await signOut({ callbackUrl: `/${locale}` });
+  };
+
   return (
-    <nav className="flex w-[93%] xl:w-full container items-center justify-between px-4 fixed top-7 xl:top-11 left-0 right-0 z-50 max-xl:glass-bg h-20 xl:h-auto rounded-2xl">
-      <Link href="/">
-        <Image
-          width={179.64}
-          height={60}
-          alt="logo"
-          quality={100}
-          className="w-full h-auto max-w-35 md:max-w-40 xl:max-w-50 2xl:max-w-100"
-          src="/logo.svg"
-        />
-      </Link>
-      <div className="inline-flex h-15 sm:h-20 items-center justify-center gap-[71px] xl:p-7.5 rounded-3xl xl:glass-bg xl:bg-[#64646466]!">
-        <div className="inline-flex items-center gap-6">
-          <div className="items-center gap-6 hidden xl:flex">
-            {navigationItems.map((item, index) => (
-              <Link
-                href={item.href}
-                key={index}
-                className={cn(
-                  "font-light relative",
-                  pathname === item.href
-                    ? "text-white"
-                    : "text-white/70 hover:text-white!",
-                )}
-              >
-                {item.label}
-                {pathname === item.href && (
-                  <Image
-                    className="absolute right-0 top-10 w-[57px] h-[13px] pointer-events-none"
-                    alt="Vector"
-                    src="/vector-839.svg"
-                    width={57}
-                    height={13}
-                  />
-                )}
-              </Link>
-            ))}
-          </div>
-          <div className="h-8 w-[2px] bg-white/50 rounded-full max-xl:hidden" />
-          <LangSelector className="max-xl:hidden" />
+    <nav className={cn(
+      "fixed top-0 left-0 right-0 z-[100] w-full transition-all duration-300 h-20",
+      darkMode 
+        ? "bg-slate-950/40 backdrop-blur-md border-b border-white/5" 
+        : "bg-white/40 backdrop-blur-md border-b border-black/5"
+    )}>
+      <div className="flex items-center justify-between px-6 py-4 mx-auto max-w-7xl">
+        
+        <div className="flex-1">
+          <Link href="/" className={cn("text-2xl font-black tracking-tighter", darkMode ? "text-purple-400" : "text-purple-600")}>
+            ETECH
+          </Link>
+        </div>
 
-          <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
-            <DialogTrigger asChild>
+        <div className="items-center justify-center flex-[2] hidden gap-8 xl:flex">
+          {navigationItems.map((item, idx) => (
+            <Link
+              key={idx}
+              href={item.href}
+              className={cn(
+                "flex items-center gap-2 font-bold transition-all hover:scale-105",
+                pathname === item.href 
+                  ? (darkMode ? "text-purple-400" : "text-purple-600") 
+                  : (darkMode ? "text-white/80 hover:text-white" : "text-gray-700 hover:text-black")
+              )}
+            >
+              <item.Icon className="w-4 h-4" />
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        <div className="items-center justify-end flex-1 hidden gap-3 xl:flex">
+          <ThemeToggle />
+          <div className="h-5 w-[1px] bg-gray-300 dark:bg-slate-800 mx-2" />
+          <LangSelector />
+          {session ? (
+            <>
               <Button
+                onClick={() => router.push(dashboardPath)}
                 variant="ghost"
-                size="icon"
-                className="size-6 p-0 hover:bg-transparent"
-                aria-label="Search"
-                title="search"
+                className="px-4 font-bold hover:bg-purple-500/10"
               >
-                <SearchIcon className="size-6 text-white" />
+                <LayoutDashboard className="w-4 h-4 mr-2 text-purple-500" />
+                {session.user?.name?.split(' ')[0] || t("Dashboard")}
               </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px] bg-main-50">
-              <DialogHeader>
-                <DialogTitle>{t("Search")}</DialogTitle>
-              </DialogHeader>
-              <form onSubmit={handleSearch} className="flex flex-col gap-4">
-                <Input
-                  placeholder={t("Search for projects")}
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  autoFocus
-                />
-                <Button type="submit" className="w-full" size="lg">
-                  {t("Search")}
-                </Button>
-              </form>
-            </DialogContent>
-          </Dialog>
-
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
               <Button
-                variant="ghost"
-                size="icon"
-                className="size-6 p-0 hover:bg-transparent xl:hidden"
-                aria-label="Menu"
-                title="Menu"
+                onClick={handleLogout}
+                variant="outline"
+                className="px-4 font-bold text-red-500 border-red-500/20 hover:bg-red-500 hover:text-white"
               >
-                <MenuIcon className="size-6 text-white" />
+                <LogOut className="w-4 h-4 mr-2" />
+                {t("Logout")}
+              </Button>
+            </>
+          ) : (
+            <Button
+              onClick={goToLogin}
+              className="px-6 ml-2 font-bold text-white bg-purple-600 shadow-lg rounded-3xl hover:bg-purple-700 shadow-purple-500/20"
+            >
+              {t("Sign-Up")}
+            </Button>
+          )}
+        </div>
+
+        <div className="flex items-center gap-4 xl:hidden">
+          <ThemeToggle />
+          
+          <Sheet open={isMobileOpen} onOpenChange={setIsMobileOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="text-current">
+                <MenuIcon className="w-7 h-7" />
               </Button>
             </SheetTrigger>
-            <SheetContent className="w-full bg-main-50" side={locale === "ar" ? "right" : "left"}>
-              <SheetHeader>
-                <SheetTitle className="bg-primary p-2 rounded-2xl mt-5">
-                  <Image
-                    width={179.64}
-                    height={60}
-                    alt="logo"
-                    quality={100}
-                    className="w-32 h-auto"
-                    src="/logo.svg"
-                  />
-                </SheetTitle>
-              </SheetHeader>
-              <div className="flex flex-col gap-3 mt-10 container relative z-10">
-                <Image
-                  src="/section-bg-caramel.svg"
-                  alt="section-bg-caramel"
-                  className="absolute bottom-0 end-0 z-3 w-full h-full rotate-90 pointer-events-none"
-                  width={799}
-                  height={387}
-                />
-                {navigationItems.map((item, index) => (
-                  <Link
-                    href={item.href}
-                    key={index}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "flex items-center gap-2 font-medium text-lg w-full p-2 relative z-10",
-                      pathname === item.href
-                        ? "text-white bg-primary rounded-xl"
-                        : "hover:text-primary",
-                    )}
+            
+            <SheetContent 
+              side="right" 
+              className={cn(
+                "w-full sm:w-[350px] p-0 border-none", 
+                darkMode ? "bg-slate-950 text-white" : "bg-white text-gray-900"
+              )}
+            >
+              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+              
+              <div className="flex flex-col h-full">
+                <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-white/5">
+                  <span className="text-2xl font-black text-purple-600">ETECH</span>
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    onClick={() => setIsMobileOpen(false)}
+                    className="rounded-full hover:bg-gray-100 dark:hover:bg-slate-900"
                   >
-                    <item.Icon
+                    <X className="w-7 h-7" />
+                  </Button>
+                </div>
+
+                <div className="flex-1 px-4 py-8 space-y-4">
+                  {navigationItems.map((item, idx) => (
+                    <Link
+                      key={idx}
+                      href={item.href}
+                      onClick={() => setIsMobileOpen(false)}
                       className={cn(
-                        "size-6 text-primary",
-                        pathname === item.href ? "text-white" : "",
+                        "flex items-center gap-4 p-4 rounded-2xl text-lg font-bold transition-all",
+                        pathname === item.href 
+                          ? "bg-purple-600 text-white shadow-md" 
+                          : "hover:bg-gray-100 dark:hover:bg-slate-900"
                       )}
-                    />
-                    {item.label}
-                  </Link>
-                ))}
-                <div className="h-[2px] rounded-full w-full bg-main-900/20 mt-4" />
-                <div className="flex items-center justify-between">
-                  <span className="text-primary font-medium">
-                    {t("Language")}
-                  </span>
-                  <LangSelector className="text-primary!" />
+                    >
+                      <item.Icon className="w-6 h-6" />
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+
+                <div className="p-6 mt-auto space-y-4 border-t border-gray-100 dark:border-white/5">
+                  <div className="flex items-center justify-center mb-2">
+                    <LangSelector />
+                  </div>
+                  <div className="grid grid-cols-1 gap-3">
+                    {session ? (
+                      <>
+                        <Button 
+                          onClick={() => {
+                            setIsMobileOpen(false);
+                            router.push(dashboardPath);
+                          }}
+                          className="w-full text-lg font-black text-white bg-purple-600 py-7 rounded-2xl hover:bg-purple-700"
+                        >
+                          <LayoutDashboard className="w-5 h-5 mr-2" />
+                          {t("Dashboard")}
+                        </Button>
+                        <Button 
+                          variant="outline"
+                          onClick={handleLogout}
+                          className="w-full font-bold text-red-500 border-2 py-7 rounded-2xl border-red-500/20"
+                        >
+                          <LogOut className="w-5 h-5 mr-2" />
+                          {t("Logout")}
+                        </Button>
+                      </>
+                    ) : (
+                      <>
+                        <Button 
+                          onClick={goToLogin}
+                          className="w-full text-lg font-black text-white bg-purple-600 py-7 rounded-2xl hover:bg-purple-700"
+                        >
+                          {t("Login")}
+                        </Button>
+                        <Button 
+                          variant="outline"
+                          onClick={goToLogin}
+                          className="w-full font-bold border-2 py-7 rounded-2xl"
+                        >
+                          <LogIn className="w-5 h-5 mr-2" />
+                          {t("Sign-Up")}
+                        </Button>
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
             </SheetContent>

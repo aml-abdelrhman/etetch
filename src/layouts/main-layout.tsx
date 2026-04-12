@@ -2,15 +2,17 @@ import { Navbar } from "@/components/common/navbar";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/common/footer";
 import { PropsWithChildren } from "react";
+import BreadcrumbWrapper from "@/components/common/BreadcrumbWrapper";
 
 const MainLayout = async ({ children }: PropsWithChildren) => {
   // const locale = useLocale();
   return (
     <div
-      className="min-h-svh bg-white dark:bg-zinc-900 max-w-screen transition-colors"
+      className="transition-colors bg-white min-h-svh dark:bg-zinc-900 max-w-screen"
       // dir={locale === "ar" ? "rtl" : "ltr"}
     >
       <Navbar />
+      <BreadcrumbWrapper />
       <main
         className={cn(
           "relative z-10 min-h-[70svh] transition-colors overflow-x-hidden",

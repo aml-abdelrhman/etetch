@@ -1,3 +1,4 @@
+// src/app/[locale]/layout.tsx
 import type { Metadata } from "next";
 import MainLayout from "@/layouts/main-layout";
 import { locales } from "@/i18n/config";
@@ -6,20 +7,7 @@ import Providers from "@/components/Providers";
 import { NextIntlClientProvider } from "next-intl";
 import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
-import { Cairo, Urbanist } from "next/font/google";
 import { getTranslations } from "next-intl/server";
-
-const cairo = Cairo({
-  subsets: ["arabic"],
-  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-cairo",
-});
-
-const urbanist = Urbanist({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-urbanist",
-});
 
 const handicrafts = localFont({
   src: [
@@ -48,31 +36,7 @@ const acumin = localFont({
   variable: "--font-acumin",
 });
 
-const geDinarTwo = localFont({
-  src: [
-    {
-      path: "../fonts/ge-dinar-two/GE-Dinar-Two-Light-Italic.woff",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../fonts/ge-dinar-two/GE-Dinar-Two-Light.woff",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../fonts/ge-dinar-two/GE-Dinar-Two-Medium-Italic.woff",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../fonts/ge-dinar-two/GE-Dinar-Two-Medium.woff",
-      weight: "500",
-      style: "normal",
-    },
-  ],
-  variable: "--font-ge-dinar-two",
-});
+// Metadata
 export async function generateMetadata({
   params,
 }: {
@@ -81,49 +45,43 @@ export async function generateMetadata({
   const t = await getTranslations();
   const locale = (await params).locale;
   return {
-    title: t("Hemma"),
-    description: t("Hemma for real estate investments and developments"),
+    title: t("ETech"),
+  description: t("ETech_learning_platform"),
     openGraph: {
-      // images: [{ url: "/logo.svg" }],
-      title: t("Hemma"),
-      description: t("Hemma for real estate investments and developments"),
+      title: t("ETech"),
+description: t("ETech_learning_platform"),
       type: "website",
-      siteName: "Hemma",
+      siteName: "ETech",
       locale: locale,
     },
     twitter: {
-      // images: [{ url: "/logo.svg" }],
-      title: t("Hemma"),
-      description: t("Hemma for real estate investments and developments"),
+      title: t("ETech"),
+description: t("ETech_learning_platform"),
       card: "summary_large_image",
-      site: "@Hemma",
-      creator: "@Hemma",
+      site: "@ETech",
+      creator: "@ETech",
     },
     keywords: [
-      "Hemma",
-      "projects",
-      "developments",
-      "real estate",
-      "investments",
-      "real estate investments",
-      "real estate development",
-      "real estate agency",
-      "real estate company",
-      "real estate investments company",
-      "real estate development company",
-      "real estate agency company",
-      "real estate company company",
+      "ETech",
+      "education",
+      "learning",
+      "online courses",
+      "teachers",
+      "students",
     ],
+    manifest: "/manifest.webmanifest",
     icons: {
-      icon: "/logo.svg",
+      icon: [{ url: "/llogo.png", href: "/llogo.png" }],
     },
   };
 }
 
+// Static params
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+// RootLayout
 export default async function RootLayout({
   children,
   params,
@@ -132,10 +90,15 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }) {
   const locale = (await params).locale;
-  // Validate locale
+
   if (!locales.includes(locale as any)) {
     return notFound();
   }
+
+  // خطوط عربية وإنجليزية معرفة هنا مباشرة
+  const fontArabic = "'Almarai', sans-serif";
+  const fontEnglish = "'Baloo 2', cursive";
+
   return (
     <html
       suppressHydrationWarning
@@ -143,16 +106,22 @@ export default async function RootLayout({
       dir={locale === "ar" ? "rtl" : "ltr"}
       data-scroll-behavior="smooth"
     >
+      <head>
+        {/* Google Fonts - Almarai + Baloo 2 */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;500;700&family=Baloo+2:wght@400;500;600;700&display=swap"
+        />
+      </head>
       <body
+        style={{
+          fontFamily: locale === "ar" ? fontArabic : fontEnglish,
+        }}
         className={cn(
-          "antialiased rtl:font-ge-dinar-two ltr:font-inter",
+          "antialiased",
           handicrafts.variable,
-          acumin.variable,
-          geDinarTwo.variable,
-          cairo.variable,
-          urbanist.variable,
+          acumin.variable
         )}
-        dir={locale === "ar" ? "rtl" : "ltr"}
       >
         <NextIntlClientProvider locale={locale}>
           <Providers>

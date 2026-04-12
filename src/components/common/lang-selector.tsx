@@ -14,7 +14,12 @@ import { useRouter, usePathname } from "@/i18n/navigation";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
-const LangSelector = ({ className }: { className?: string }) => {
+interface LangSelectorProps {
+  className?: string;
+  darkMode?: boolean; // optional prop to get darkMode from parent
+}
+
+const LangSelector = ({ className, darkMode = false }: LangSelectorProps) => {
   const defaultLocale = useLocale();
   const [locale, setLocale] = useState(defaultLocale || "ar");
 
@@ -23,8 +28,6 @@ const LangSelector = ({ className }: { className?: string }) => {
 
   const handleLanguageChange = (language: string) => {
     setLocale(language);
-    console.log(language);
-    console.log(defaultLocale);
     router.push(pathname, { locale: language });
   };
 
@@ -33,21 +36,47 @@ const LangSelector = ({ className }: { className?: string }) => {
       <DropdownMenuTrigger asChild className={cn(className)}>
         <Button
           variant="ghost"
-          className="text-white"
-          startContent={<ChevronDownIcon className="size-6" />}
+          className={cn(
+            "flex items-center justify-between gap-1 px-3 py-2 rounded-3xl font-medium transition-colors text-base",
+            darkMode
+              ? "bg-purple-700 text-white hover:bg-purple-600 border border-white/20"
+              : "bg-gray-100 text-purple-600 border border-purple-600 hover:bg-purple-100"
+          )}
+          startContent={<ChevronDownIcon className={cn("w-4 h-4", darkMode ? "text-white" : "text-purple-600")} />}
         >
-          <span className="font-medium text-base">
-            {locale === "en" ? "EN" : "ع"}
-          </span>
+          {locale === "en" ? "EN" : "ع"}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-50" align="center">
+
+      <DropdownMenuContent
+        className={cn(
+          "w-24 py-1 rounded-md shadow-lg transition-colors",
+          darkMode ? "bg-purple-800 text-white" : "bg-white text-purple-600"
+        )}
+        align="center"
+      >
         <DropdownMenuRadioGroup
           value={locale}
           onValueChange={handleLanguageChange}
         >
-          <DropdownMenuRadioItem value="en" className="font-inter">English</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="ar" className="font-ge-dinar-two">العربية</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem
+            value="en"
+            className={cn(
+              "px-3 py-1 rounded-3xl cursor-pointer transition-colors hover:bg-purple-600 hover:text-white",
+              darkMode ? "hover:bg-purple-600 hover:text-white" : "hover:bg-purple-100"
+            )}
+          >
+            English
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem
+            value="ar"
+            className={cn(
+              "px-3 py-1 rounded-md cursor-pointer transition-colors hover:bg-purple-600 hover:text-white",
+              darkMode ? "hover:bg-purple-600 hover:text-white" : "hover:bg-purple-100"
+            )}
+          >
+            العربية
+          </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
