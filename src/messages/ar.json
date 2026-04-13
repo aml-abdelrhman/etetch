@@ -447,8 +447,11 @@
   "errors": {
     "courseRequired": "يرجى اختيار كورس",
     "firstNameShort": "الاسم الأول قصير جداً",
-    "invalidEmail": "البريد الإلكتروني غير صحيح"
+    "invalidEmail": "البريد الإلكتروني غير صحيح",
+    "subjectRequired": "الموضوع مطلوب",
+    "messageShort": "الرسالة قصيرة جدًا"
   }
 }
+  
 
 }
