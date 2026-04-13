@@ -48,6 +48,11 @@ export default function CourseDetails() {
     isError,
   } = useQuery(courseQueryOptions(id as string));
 
+  const isEnrolled = useMemo(
+  () => freshUser?.enrolledCourses?.some((c) => c.id === course?.id),
+  [freshUser, course],
+);
+
   if (isLoading)
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -61,11 +66,6 @@ export default function CourseDetails() {
         {t("Course not found")}
       </div>
     );
-
-  const isEnrolled = useMemo(
-    () => freshUser?.enrolledCourses?.some((c) => c.id === course.id),
-    [freshUser, course],
-  );
 
   return (
     <div

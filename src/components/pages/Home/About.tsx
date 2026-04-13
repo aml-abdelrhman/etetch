@@ -21,26 +21,27 @@ const About = () => {
         <p className="text-lg leading-relaxed text-slate-300">
           {t("description")}
         </p>
-
-<button 
-  onClick={() => {
-    const element = document.getElementById('join-section');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  }}
-  className="px-10 py-4 font-bold text-white transition-all rounded-full bg-gradient-to-r from-purple-600 to-purple-400 hover:shadow-lg hover:shadow-purple-700/50 active:scale-95"
->
-  {t("button")}
-</button>      </div>
+        <button
+          onClick={() => {
+            const element = document.getElementById("join-section");
+            element?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="px-10 py-4 font-bold text-white transition-all rounded-full bg-gradient-to-r from-purple-600 to-purple-400 hover:shadow-lg hover:shadow-purple-700/50 active:scale-95"
+        >
+          {t("button")}
+        </button>{" "}
+      </div>
 
       <div className="relative flex-1">
-        <div className="relative bg-[#302C42] p-0 rounded-t-full rounded-bl-full border border-purple-800">
-          <Image
-            src="/about.svg"
-            alt="ETECH AI Learning"
-            width={600}
-            height={500}
-            className="object-cover rounded-t-full rounded-bl-full"
-          />
+        <div className="relative flex-1 h-[500px]">
+          <div className="relative w-full h-full bg-[#302C42] rounded-t-full rounded-bl-full border border-purple-800 overflow-hidden">
+            <Image
+              src="/about.svg"
+              alt="ETECH AI Learning"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>
