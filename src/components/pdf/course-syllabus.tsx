@@ -27,6 +27,18 @@ interface CourseSyllabusPDFProps {
   locale: "en" | "ar";
 }
 
+// ===============================
+// 🔥 SAFE LOCALIZATION HELPER
+// ===============================
+const getLocalized = (
+  value: string | { en: string; ar: string } | undefined,
+  locale: "en" | "ar"
+) => {
+  if (!value) return "---";
+  if (typeof value === "string") return value;
+  return value?.[locale] ?? "---";
+};
+
 const styles = StyleSheet.create({
   page: {
     padding: 40,
@@ -34,7 +46,7 @@ const styles = StyleSheet.create({
     fontFamily: "Alexandria",
   },
   header: {
-    backgroundColor: "#7c3aed", // لون بنفسجي يناسب ETECH
+    backgroundColor: "#7c3aed",
     padding: 25,
     flexDirection: "row",
     justifyContent: "space-between",
@@ -153,7 +165,7 @@ const CourseSyllabusPDF = ({ course, locale }: CourseSyllabusPDFProps) => {
   const isRtl = locale === "ar";
   const date = moment().format("YYYY/MM/DD");
 
-  const translations = {
+  const t = {
     en: {
       title: "Course Syllabus",
       generatedOn: "Date:",
@@ -164,7 +176,8 @@ const CourseSyllabusPDF = ({ course, locale }: CourseSyllabusPDFProps) => {
       price: "Course Fee",
       overview: "Course Overview",
       includes: "Course Includes",
-      includesText: "• Lifetime access to materials\n• Professional Certificate upon completion\n• Real-world projects and assignments\n• 24/7 Student Support Community",
+      includesText:
+        "• Lifetime access to materials\n• Professional Certificate upon completion\n• Real-world projects and assignments\n• 24/7 Student Support Community",
       currency: "USD",
     },
     ar: {
@@ -177,14 +190,19 @@ const CourseSyllabusPDF = ({ course, locale }: CourseSyllabusPDFProps) => {
       price: "رسوم الدورة",
       overview: "نظرة عامة",
       includes: "مزايا الدورة",
-      includesText: "• وصول مدى الحياة للمحتوى\n• شهادة إتمام معتمدة\n• مشاريع تطبيقية عملية\n• دعم فني ومجتمع تعليمي متكامل",
+      includesText:
+        "• وصول مدى الحياة للمحتوى\n• شهادة إتمام معتمدة\n• مشاريع تطبيقية عملية\n• دعم فني ومجتمع تعليمي متكامل",
       currency: "دولار",
     },
-  };
+  }[locale];
 
-  const t = translations[locale];
-
-  const Row = ({ label, value }: { label: string; value: string | number }) => (
+  const Row = ({
+    label,
+    value,
+  }: {
+    label: string;
+    value: string | number;
+  }) => (
     <View style={isRtl ? styles.tableRowReverse : styles.tableRow}>
       <Text style={isRtl ? styles.tableCellLabelRTL : styles.tableCellLabel}>
         {label}
@@ -199,43 +217,71 @@ const CourseSyllabusPDF = ({ course, locale }: CourseSyllabusPDFProps) => {
     <Document>
       <Page size="A4" style={styles.page}>
         {/* Header */}
-        <View style={{ ...styles.header, flexDirection: isRtl ? "row-reverse" : "row" }}>
+        <View
+          style={{
+            ...styles.header,
+            flexDirection: isRtl ? "row-reverse" : "row",
+          }}
+        >
           <Text style={styles.headerText}>{t.title}</Text>
-          <Image src="/logo.png" style={styles.logo} /> 
+          <Image src="/logo.png" style={styles.logo} />
         </View>
 
-        {/* Meta Info */}
+        {/* Meta */}
         <View style={styles.metaInfo}>
           <Text style={isRtl ? styles.metaTextRTL : styles.metaText}>
             {t.generatedOn} {date}
           </Text>
         </View>
 
-        {/* Course Details Table */}
+        {/* Table */}
         <View style={styles.table}>
-          <Row label={t.courseName} value={course.title[locale]} />
-          <Row label={t.instructor} value={course.teacher[locale]} />
-          <Row label={t.level} value={course.level[locale]} />
-          <Row label={t.duration} value={course.duration[locale]} />
+          <Row
+            label={t.courseName}
+            value={getLocalized(course.title, locale)}
+          />
+          <Row
+            label={t.instructor}
+            value={getLocalized(course.teacher, locale)}
+          />
+          <Row label={t.level} value={getLocalized(course.level, locale)} />
+          <Row
+            label={t.duration}
+            value={getLocalized(course.duration, locale)}
+          />
           <Row label={t.price} value={`${course.price} ${t.currency}`} />
         </View>
 
-        {/* Overview Section */}
+        {/* Overview */}
         <View style={{ marginBottom: 20 }}>
           <Text style={isRtl ? styles.infoTitleRTL : styles.infoTitle}>
             {t.overview}
           </Text>
-          <Text style={isRtl ? styles.descriptionTextRTL : styles.descriptionText}>
-            {course.description[locale]}
+
+          <Text
+            style={
+              isRtl
+                ? styles.descriptionTextRTL
+                : styles.descriptionText
+            }
+          >
+            {getLocalized(course.description, locale)}
           </Text>
         </View>
 
-        {/* Includes Section */}
+        {/* Includes */}
         <View style={styles.infoSection}>
           <Text style={isRtl ? styles.infoTitleRTL : styles.infoTitle}>
             {t.includes}
           </Text>
-          <Text style={isRtl ? styles.descriptionTextRTL : styles.descriptionText}>
+
+          <Text
+            style={
+              isRtl
+                ? styles.descriptionTextRTL
+                : styles.descriptionText
+            }
+          >
             {t.includesText}
           </Text>
         </View>

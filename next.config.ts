@@ -5,19 +5,10 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   compress: true,
-  poweredByHeader: true,
+  poweredByHeader: false,
+
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: process.env.NEXT_HOST_NAME ?? "",
-        pathname: "/**",
-      },
-      {
-        protocol: "http",
-        hostname: process.env.NEXT_HOST_NAME ?? "",
-        pathname: "/**",
-      },
       {
         protocol: "https",
         hostname: "images.adsttc.com",
@@ -29,22 +20,19 @@ const nextConfig: NextConfig = {
     formats: ["image/webp"],
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    contentSecurityPolicy:
+      "default-src 'self'; script-src 'none'; sandbox;",
   },
-  
+
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ["lucide-react"],
-    // @ts-ignore: Turbopack root is valid but might not be in the current types
-    turbopack: {
-      root: ".", 
-    },
-  } as any, // استخدام as any هنا بيقفل اعتراض TypeScript على الخصائص التجريبية
+  },
 
   reactStrictMode: true,
-  reactCompiler: true,
+
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
 };
 
