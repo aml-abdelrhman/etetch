@@ -32,18 +32,18 @@ const About = () => {
         </button>{" "}
       </div>
 
-      <div className="relative flex-1">
-        <div className="relative flex-1 h-[500px]">
-          <div className="relative w-full h-full bg-[#302C42] rounded-t-full rounded-bl-full border border-purple-800 overflow-hidden">
-            <Image
-              src="/about.svg"
-              alt="ETECH AI Learning"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </div>
+      <div className="relative flex justify-center flex-1">
+  <div className="relative w-[280px] sm:w-[350px] md:w-[520px] max-sm:h-[360px] h-[500px]">
+    <div className="relative w-full h-full bg-[#302C42] rounded-t-full rounded-bl-full border border-purple-800 overflow-hidden">
+      <Image
+        src="/about.svg"
+        alt="ETECH AI Learning"
+        fill
+        className="object-cover"
+      />
+    </div>
+  </div>
+</div>
     </section>
   );
 };

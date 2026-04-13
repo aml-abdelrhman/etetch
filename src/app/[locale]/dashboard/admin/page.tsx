@@ -232,7 +232,6 @@ export default function AdminDashboard() {
   );
 }
 
-// --- المكونات الفرعية المشغلة للإعدادات ---
 
 function AdminSettings({ darkMode, t }: any) {
   const queryClient = useQueryClient();
@@ -321,7 +320,6 @@ function EditCourseModal({ course, onClose, onSave, isPending, darkMode, locale,
   );
 }
 
-// المكونات الجمالية الأخرى (Cards, Header, Sidebar) تبقى كما هي في تصميمك مع إضافة الـ logic
 function AdminStatCard({ title, value, icon: Icon, trend, color }: any) {
   return (
     <div className="p-6 rounded-[2.5rem] border bg-white dark:bg-slate-800/50 border-slate-200 dark:border-slate-700 shadow-sm">
@@ -348,7 +346,6 @@ function AdminLoading({ darkMode, t }: any) {
   );
 }
 
-// بقية مكونات الـ List والـ Grid والـ Header يتم استدعاؤها بشكل طبيعي كما في الكود الأصلي
 function RecentUsersCard({ users, darkMode, updateRole, isUpdating, t }: any) {
   return (
     <div className={cn("p-8 rounded-[2.5rem] border", darkMode ? "bg-slate-800/50 border-slate-700" : "bg-white border-slate-200 shadow-sm")}>
@@ -515,7 +512,6 @@ function UserListTable({ users, darkMode, updateRole, t }: any) {
                 </td>
                 <td className="py-4 text-xs font-bold text-slate-500">{u.email}</td>
                 <td className="px-4 py-4 text-right">
-                  <button className="p-2 text-red-500 rounded-lg hover:bg-red-500/10"><Trash2 size={16}/></button>
                 </td>
               </tr>
             ))}

@@ -13,6 +13,7 @@ import Introduction from "@/components/pages/Home/Introduction";
 import Join from "@/components/pages/Home/Join";
 import partners from "@/components/pages/Home/partners";
 import Partners from "@/components/pages/Home/partners";
+import Courses from "@/components/pages/courses/courses";
 
 // import ClosedProjectsSection from "@/components/pages/home/closed-projects-section";
 // import HomeHeroSection from "@/components/pages/home/home-hero";
@@ -49,6 +50,7 @@ const HomePage = async () => {
       
       <Hero />
      <Introduction />
+      <Courses />
       <About />
      <TrendingCourses /> 
       <Process />
